@@ -1,19 +1,57 @@
-@import url("https://fonts.googleapis.com/css2?family=Cinzel&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Raleway:ital,wght@0,100;0,300;0,400;0,600;0,700;0,800;0,900;1,100&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,300;0,400;0,600;0,700;0,800;0,900;1,100&display=swap');
 
 body {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  overflow: hidden;
+  background-color: #fbf8f6;
+
 }
 
-/*  de la page d'avant site */
+body::-webkit-scrollbar {
+  width: 0.5px;
+  opacity: 0;
+}
+
+#index {
+  width: 85%;
+  margin: -25px auto 25px auto;
+  border-radius: 17px;
+  background-color: #E9E3E8;
+
+}
+
+p { 
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  padding: 0;
+}
+
+/********  CSS de la page de présentation *******/
 
 .before {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 9999;
   display: flex;
   justify-content: center;
   background: url(./assets/img/Photos/IMG_9274.JPG) center/cover;
   height: 100vh;
+}
+
+.display-none {
+  display: none;
 }
 
 .opacity {
@@ -34,7 +72,7 @@ body {
 }
 
 .identity img {
-  width: 80%;
+  width: 400px;
   margin: 0 auto;
 }
 
@@ -47,9 +85,312 @@ h1 {
   margin: 0;
 }
 
-.before i {
+.before a {
   flex-basis: 20%;
-    color: #fcfcfc;
+    color: #ffffff;
     margin-bottom: 30px;
     font-size: 3.5rem;
+    cursor: pointer;
+}
+
+/*************** CSS du header *****************/
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 85%;
+  margin: 20px auto;
+}
+
+header i {
+  font-size: 2rem;
+  color: #CEAAAA;
+}
+
+/*Menu Hamburger*/
+.menu-toggle{
+  position: relative;
+  z-index: 9999;
+  padding:5px;
+  cursor:pointer;
+}
+.menu-bar{
+  display:block;
+  width:35px;
+  height:5px;
+  border-radius: 15px;
+  border: 1px solid #876754;
+  margin:5px Auto;
+  background-Color:#CEAAAA;
+}
+
+.menu-toggle.open .menu-bar:first-child {
+  transition: 0.5s;
+  transform: rotate(45deg) translate(5px, 10px);
+  border: 1px solid #FCF7F4;
+  background: #FCF7F4;
+}
+
+.menu-toggle.open .menu-bar:nth-child(2) {
+  transition: 0.5s;
+  opacity: 0;
+}
+
+.menu-toggle.open .menu-bar:last-child  {
+  transition: 0.5s;
+  transform: rotate(-45deg) translate(7px, -12px);
+  border: 1px solid #FCF7F4;
+  background: #FCF7F4;
+}
+
+/******** CSS de la navigation *********/
+
+nav {
+  position: relative;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  z-index: -1;
+  background-color: #CEAAAA;
+  height: 100vh;
+
+}
+
+.nav-cached {
+  display: flex;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-basis: 90%;
+  text-align: center;
+  margin: 80px 0 0 0;
+}
+
+nav ul li {
+  list-style: none;
+  margin: 30px auto;
+}
+
+nav ul li a {
+  font-family: 'Cinzel', serif;
+  color: #FCF7F4;
+  font-weight: 700;
+  font-size: 2.5rem;
+  margin: 10px;
+}
+
+nav a {
+  flex-basis: 15%;
+  color: #FCF7F4;
+  font-size: 2rem;
+}
+
+
+
+/******** CSS du block logo *********/
+
+.logo {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo h1 {
+  font-family: "Cinzel", serif;
+  color: #CEAAAA;
+  letter-spacing: 3px;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin: 50px auto 0 auto;
+}
+
+.logo h1::first-letter {
+  font-size: 2.5rem;
+}
+
+.logo img {
+  width: 220px;
+  margin: -65px auto 0 auto;
+  transform: rotate(25deg);
+}
+
+/******** CSS du block description *********/
+
+.description img {
+  width: 86%;
+  margin: 20px 7% 0 7% ;
+  height: 280px;
+  border-radius: 10px 10px 0 0;
+  box-shadow: 1px 1px 10px #b594835e;
+  object-fit: cover;
+}
+
+.description p {
+  font-family: 'Raleway';
+  font-size: 1.2rem;
+  line-height: 20px;
+  text-align: justify;
+  tab-size: 50px;
+  width: 85%;
+  margin: 15px auto;
+  hyphens: auto;
+  text-indent: 25px;
+}
+
+.description::after {
+  display: flex;
+  content: "";
+  height: 2px;
+  width: 65%;
+  margin: 30px auto 20px auto;
+  background-color: #FCF7F4;
+}
+
+/******** CSS du block certificat *********/
+
+.certificate h2, .date h2 {
+  width: 65%;
+  margin: auto;
+  text-align: center;
+  font-family: 'Cinzel';
+  font-size: 1.6rem;
+  color: #AF7E82;
+}
+
+.document {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin: 25px 0;
+}
+
+.document img {
+  width: 30%;
+  max-width: 220px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.document img:first-child {
+  margin-top: 60px;
+}
+
+.document img:last-child {
+  height: 80%;
+}
+
+.certificate::after {
+  display: flex;
+  content: "";
+  height: 2px;
+  width: 65%;
+  margin: 30px auto 20px auto;
+  background-color: #FCF7F4;
+}
+
+/********* CSS de calendrier  *******/
+
+.date {
+  display: flex;
+  flex-direction: column;
+  width: 85%;
+  margin: auto;
+
+}
+
+.date img {
+  width: 75%;
+  margin: 25px auto;
+}
+
+/********* CSS du footer  *******/
+
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #996766;
+  color: #5e3535;
+  font-family: 'Raleway', sans-serif;
+  padding: 4% 7%;
+}
+
+.socials {
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+}
+
+.insta, .tiktok {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-basis: 50%;
+  color: #5e3535;
+  gap: 6px;
+}
+
+.socials i {
+  font-size: 1.4rem;
+}
+
+.socials p {
+  font-weight: 800;
+  font-size: 1rem;
+}
+
+.nav-down ul {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ margin-top: 25px;
+  
+}
+
+.nav-down li {
+  list-style: none;
+  text-align: center;
+  padding: 5px;
+  margin: 5px;
+  flex-basis: 25%;
+}
+
+.nav-down a {
+  font-weight: 600;
+  color: #5e3535;
+}
+
+.nav-down ul::before {
+  content: "";
+  position: absolute;
+  top: -9px;
+  left: 50%;
+  transform: translate(-50%);
+  width: 50%;
+  margin: auto;
+  height: 1px;
+  z-index: 2;
+  background-color: #5e3535;
+}
+
+.nav-down ul::after {
+  content: "";
+  position: absolute;
+  bottom:-8px;
+  left: 50%;
+  transform: translate(-50%);
+  width: 50%;
+  margin: auto;
+  height: 1px;
+  z-index: 2;
+  background-color: #5e3535;
+}
+
+.copy {
+  text-align: center;
+  margin-top: 8px;
+  font-size: 0.6rem;
 }
