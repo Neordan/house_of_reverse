@@ -1,40 +1,35 @@
 // remonte la page de départ
 
-document.addEventListener('DOMContentLoaded', () => {
-  const before = document.querySelector('.before');
-  const scrollButton = document.querySelector('.btn-scroll');
-  const links = document.querySelectorAll('a');
+const welcomeDiv = document.querySelector('.before');
+const hideButton = document.querySelector('.btn-scroll');
+const body = document.getElementsByTagName('body')[0];
 
-  scrollButton.addEventListener('click', () => {
-    before.style.display = 'none';
-  });
 
-  links.forEach(link => {
-    link.addEventListener('click', event => {
-      const href = link.getAttribute('href');
-      if (href === './index.html') {
-        before.style.display = 'none';
-      } else  {
-        before.style.display = 'none';
 
-      }
-    });
-  });
+hideButton.addEventListener('click', () => {
+welcomeDiv.classList.add('hide');
+  body.style.overflowY = 'auto';
 });
 
+// Vérifie si la div d'accueil est masquée dans le localStorage
+if (localStorage.getItem('hidebefore')) {
+  welcomeDiv.classList.add('hide');
+} else {
+  body.style.overflowY = 'hidden';
+}
 
-
-
+// Enregistre le masquage de la div d'accueil dans le localStorage
+hideButton.addEventListener('click', () => {
+  localStorage.setItem('hideWelcome', true);
+});
 
 
 // Menu hamburger
 
-const menuToggle =  document.querySelector('.menu-toggle');
-const menuBars = document.querySelectorAll('.menu-bar');
-const menu = document.querySelector('nav');
+// const menuToggle =  document.querySelector('.menu-toggle');
+// const menuBars = document.querySelectorAll('.menu-bar');
+// const menu = document.querySelector('nav');
 
-menuToggle.addEventListener('click', () => {
-  menuToggle.classList.toggle('open');
-  menuBars.forEach(bar => bar.classList.toggle('open'));
-  menu.classList.toggle('nav-cached');
-})
+// menuToggle.addEventListener('click', () => {
+
+// })

@@ -30,29 +30,42 @@
     </div>
 
     <!------ Partie du header ------->
-    
-    <nav>
-        <ul>
-            <li><a href="">Prestations</a></li>
-            <li><a href="">Galerie</a></li>
-            <li><a href="">Tarifs</a></li>
-            <li><a href="">Rendez-vous</a></li>
-        </ul>
-        <a href="./index.html"><i class="fa-solid fa-house"></i></a>
-    </nav>
+
     <header>
         <a href="#"><i class="fa-solid fa-user"></i></a>
-        <div Class="menu-toggle">
-            <span Class="menu-bar"></span>
-            <span Class="menu-bar"></span>
-            <span Class="menu-bar"></span>
+        <div class="login">
+            <div class="formulaire">
+                <i class="fa-solid fa-xmark"></i>
+                <p>Connexion réservée à l'administrateur</p>
+                <form action="" method="post">
+                    <input type="email" name="email" placeholder="Email">
+                    <input type="password" name="pwd" placeholder="Mot de passe">
+                </form>
+                <a href="">Mot de passe oublié ?</a>
+                <a href="./fichierclient.html"><i class="fa-solid fa-unlock"></i></a>
+            </div>
         </div>
+        <div class="menu-toggle">
+            <span class="menu-bar"></span>
+            <span class="menu-bar"></span>
+            <span class="menu-bar"></span>
+        </div>
+        <nav id="navigation">
+            <i class="fa-solid fa-xmark"></i>
+            <ul>
+                <li><a href="./prestations.html">Prestations</a></li>
+                <li><a href="./galerie.html">Galerie</a></li>
+                <li><a href="./tarifs.html">Tarifs</a></li>
+                <li><a href="./contact.html">Rendez-vous</a></li>
+            </ul>
+            <a href="./index.html"><i class="fa-solid fa-house"></i></a>
+        </nav>
     </header>
     <div class="logo">
         <h1>house of reverse</h1>
         <img src="./assets/img/Logo1.PNG" alt="Logo de House of reverse">
     </div>
-    <main id="index">
+    <main>
         <section class="description">
             <img src="./assets/img/img-desc.png" alt="Une image de la PO en train de travailler">
             <p>Je suis ravie de vous présenter mes services en matière de soins des ongles. Exercant ce métier
