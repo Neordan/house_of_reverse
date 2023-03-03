@@ -1,5 +1,5 @@
 <div class="login">
-    <i class="fa-solid fa-xmark"></i>
+    <i class="fa-solid fa-xmark close-admin"></i>
     <div class="formulaire">
         <p>Connexion réservée à l'administrateur</p>
         <form action="./fichierclient.php" method="post">

@@ -1,5 +1,6 @@
-<?php 
-require "./core/header.php";
+<?php require "./core/header.php";
+
+
 ?>
         <section class="description">
             <img src="./assets/img/img-desc.png" alt="Une image de la PO en train de travailler">
