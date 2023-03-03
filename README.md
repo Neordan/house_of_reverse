@@ -34,7 +34,7 @@ Le site web est responsive et s'adapte automatiquement aux différentes tailles 
 ## **Utilisation**
 
 Pour utiliser le site web, vous devez :
-Accéder à la page d'accueil en ouvrant le fichier index.html
+Accéder à la page d'accueil en ouvrant le fichier index.php 
 Naviguer sur les différentes pages en cliquant sur les liens dans le menu de navigation
 
 ## **Auteur**
