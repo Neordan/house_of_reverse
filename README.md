@@ -10,7 +10,7 @@ Le site web comporte plusieurs fonctionnalités :
 - Une page de présentation présentant la prothésiste ongulaire et son parcours professionnel.
 - Une page présentant les prestations de la prothésiste ongulaire.
 - Une page de tarifs présentant les différents prix des prestations proposées par la prothésiste ongulaire.
-- Une galerie de photos permettant de visualiser les créations de la prothésiste ongulaire et d'avis clients permettant aux visiteurs de lire les commentaires de clients satisfaits..
+- Une galerie de photos permettant de visualiser les créations de la prothésiste ongulaire et d'avis clients permettant aux visiteurs de lire les commentaires de clients satisfaits.
 - Un formulaire de contact permettant aux visiteurs et clients potentiels de prendre rendez-vous ou de poser des questions.
 
 ## **Technologie utilisée**
@@ -34,8 +34,8 @@ Le site web est responsive et s'adapte automatiquement aux différentes tailles 
 ## **Utilisation**
 
 Pour utiliser le site web, vous devez :
-Accéder à la page d'accueil en ouvrant le fichier index.php 
-Naviguer sur les différentes pages en cliquant sur les liens dans le menu de navigation
+Accéder à la page d'accueil en ouvrant le fichier index.php.
+Naviguer sur les différentes pages en cliquant sur les liens dans le menu de navigation.
 
 ## **Auteur**
 
@@ -43,4 +43,4 @@ Ce projet a été réalisé par Mélhian ADAM.
 
 ## **Licence**
 
-Tous droits réservés à l'auteur
+Tous droits réservés à l'auteur.
