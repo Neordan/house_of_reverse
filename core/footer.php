@@ -12,11 +12,11 @@
         </div>
         <div class="nav-down">
             <ul>
-                <li><a href="./index.html">Accueil</a>
+                <li><a href="../index.php">Accueil</a>
                 </li>
                 <li><a href="#">Politique de protection des données</a></li>
                 <li><a href="#">Modalité de vente</a></li>
-                <li><a href="#">Rendez-vous</a></li>
+                <li><a href="../contact.php">Rendez-vous</a></li>
             </ul>
         </div>
         <div class="copy">

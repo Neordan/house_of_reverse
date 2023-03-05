@@ -54,3 +54,4 @@ hideButton.addEventListener('click', () => {
 //   localStorage.setItem('hideWelcome', true);
 // });
 
+
