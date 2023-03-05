@@ -13,15 +13,16 @@ closeAdmin.addEventListener('click', ()=> {
   pageAdmin.style.transition = "10s" ;
 })
 
+
 // Menu hamburger
 
 const menuToggle =  document.querySelector('.menu-toggle');
-// const menuBars = document.querySelectorAll('.menu-bar');
+const menuBars = document.querySelectorAll('.menu-bar');
 const menu = document.querySelector('nav');
 const closeMenu = document.querySelector('.close-menu')
 
 menuToggle.addEventListener('click', () => {
-  // menuToggle.classList.toggle('open')
+  menuToggle.classList.toggle('open')
   menu.style.display = 'flex';
 })
 closeMenu.addEventListener('click', () => {

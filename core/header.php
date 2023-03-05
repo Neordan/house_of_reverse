@@ -1,8 +1,14 @@
 <?php
-session_start();
+session_start(); 
 
-$_SESSION['firstVisit'] = true;
+if (empty($_SESSION['firstVisit'])) {
+    $_SESSION['firstVisit'] = true;
+    $showBefore = true;
+} else {
+    $showBefore = false;
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -21,28 +27,27 @@ $_SESSION['firstVisit'] = true;
 <body>
 
     <!---- Partie de la page principale ------>
-
-    <?php
-    // Vérifie si c'est la première visite
-    if (empty($_SESSION['firstVisit'])) {
-    ?>
-        <!-- Affiche la section "before" uniquement si c'est la première visite -->
-        <div class="before">
-            <div class="opacity">
-                <div class="identity">
-                    <img src="./assets/img/Logo/IMG_0787.PNG" alt="House of reverse">
-                    <h1>house of reverse</h1>
-                </div>
-                <a class="btn-scroll">
-                    <i class="fa-solid fa-chevron-up"></i>
-                </a>
+   
+    <?php if ($showBefore) { ?>
+		<div class="before">
+        <div class="opacity">
+            <div class="identity">
+                <img src="./assets/img/Logo/IMG_0787.PNG" alt="House of reverse">
+                <h1>house of reverse</h1>
             </div>
+            <a class="btn-scroll">
+                <i class="fa-solid fa-chevron-up"></i>
+            </a>
         </div>
-    <?php
-    // Définit la variable de session à "false" pour éviter que la section "before" ne s'affiche à nouveau
-    $_SESSION['firstVisit'] = false;
-    }
-    ?>
+    </div>
+    <?php } 
+
+// Supprime la variable de session 'visited' lorsqu'on quitte le site
+// if (!isset($_COOKIE[session_name()])) {
+//     session_unset();
+//     session_destroy();
+// }
+// ?>
 
     <!------ Partie du header ------->
 

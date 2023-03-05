@@ -1,6 +1,6 @@
 <?php 
-
-$dbhost = trim("localhost");
+//informations de connexion
+    $dbhost = trim("localhost");
     $dbport = trim("3306");
     $dbname = trim("houseofreverse");
 

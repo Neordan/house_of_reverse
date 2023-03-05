@@ -18,7 +18,7 @@
                 de qualité supérieure pour garantir des résultats durables et sains.</p>
         </section>
         <section class="certificate">
-            <h2>mes certifications</h2>
+            <h3>mes certifications</h3>
             <div class="document">
                 <img src="./assets/img/Certificats/MacroManucure-1.png" alt="Certificat macromanucure">
                 <img src="./assets/img/Certificats/Certificat TOP NAIL MASTER NOM-1.png"
@@ -26,7 +26,7 @@
             </div>
         </section>
         <section class="date">
-            <h2>Prend vite ton rendez-vous</h2>
+            <h3>Prend vite ton rendez-vous</h3>
             <img src="./assets/img/calendrier.png" alt="">
         </section>
     

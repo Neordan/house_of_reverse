@@ -15,14 +15,17 @@ body::-webkit-scrollbar {
 }
 
 main {
+  position: relative;
   width: 85%;
   margin: -25px auto 25px auto;
+  padding-top: 20px;
   border-radius: 17px;
   background-color: #e9e3e8;
 }
 
 p {
   margin: 0;
+  font-family: "Raleway";
 }
 
 a {
@@ -35,6 +38,18 @@ ul {
 
 #masque ~ .before {
   display: none;
+}
+
+h2 {
+  position: absolute;
+  text-transform: capitalize;
+  font-family: "Cinzel";
+  font-weight: lighter;
+  color: #ceaaaa;
+  font-size: 1.8rem;
+  top: -44px;
+  left: 50%;
+  transform: translate(-50%);
 }
 
 /********  CSS de la page de présentation *******/
@@ -157,7 +172,7 @@ form {
 
 .login p {
   font-size: 2.2rem;
-  color: #b6807f;
+  color: rgb(182, 128, 127);
 }
 
 .login input {
@@ -167,7 +182,8 @@ form {
   padding: 3px 15px;
   margin: 6px;
   border: none;
-  background-color: #fbf8f6;
+  box-shadow: inset 3px 6px 10px rgb(182, 128, 127);
+  background-color: #ddc4c4;
 }
 
 .login input:focus {
@@ -185,13 +201,20 @@ form {
 }
 
 .login button {
-  border: 2px solid #b88988;
+  border: none;
   border-radius: 50%;
   padding: 15px;
   border-radius: 50px;
   background: #ddc4c4;
   margin-top: 30px;
+  transition: all 0.3s;
+  box-shadow: -8px -8px 16px #c2acac, 8px 8px 16px #f8dcdc;
+
   /* text-align: center; */
+}
+
+button:active {
+  box-shadow: 4px 4px 12px #c2acac, -4px -4px 12px #f8dcdc;
 }
 
 .login button i {
@@ -218,7 +241,7 @@ form {
   width: 35px;
   height: 5px;
   border-radius: 15px;
-  border: 1px solid #876754;
+  border: 1px solid #8a6f5f;
   margin: 5px Auto;
   background-color: #ceaaaa;
 }
@@ -226,8 +249,6 @@ form {
 .menu-toggle.open .menu-bar:first-child {
   transition: 0.5s;
   transform: rotate(45deg) translate(5px, 10px);
-  border: 1px solid #fcf7f4;
-  background: #fcf7f4;
 }
 
 .menu-toggle.open .menu-bar:nth-child(2) {
@@ -238,8 +259,6 @@ form {
 .menu-toggle.open .menu-bar:last-child {
   transition: 0.5s;
   transform: rotate(-45deg) translate(7px, -12px);
-  border: 1px solid #fcf7f4;
-  background: #fcf7f4;
 }
 
 /******** CSS de la navigation *********/
@@ -271,7 +290,6 @@ nav ul {
 
 nav ul li {
   list-style: none;
-
 }
 
 nav ul li a {
@@ -296,7 +314,9 @@ nav ul li a {
   margin-bottom: 60px;
 }
 
-.fa-user, .close-menu, .close-admin {
+.fa-user,
+.close-menu,
+.close-admin {
   cursor: pointer;
 }
 
@@ -330,7 +350,6 @@ nav ul li a {
 
 .description img {
   width: 100%;
-  margin-top: 25px;
   max-height: 350px;
   border-radius: 0px;
   box-shadow: 1px 1px 10px #b594835e;
@@ -360,8 +379,8 @@ nav ul li a {
 
 /******** CSS du block certificat *********/
 
-.certificate h2,
-.date h2 {
+.certificate h3,
+.date h3 {
   width: 65%;
   margin: auto;
   text-align: center;
@@ -412,6 +431,53 @@ nav ul li a {
 .date img {
   width: 75%;
   margin: 25px auto;
+}
+
+/********* CSS de la page prestations *******/
+
+.presta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.title {
+  font-size: 1rem;
+  padding: 7px 10px;
+  text-transform: uppercase;
+  background: #b6807f;
+  color: #e9e3e8;
+  margin: 0;
+}
+
+.presta img {
+  width: 65%;
+}
+
+.presta p {
+  font-size: 1rem;
+  text-align: justify;
+  width: 80%;
+  margin: 25px auto;
+  /* garder seulement 5 lignes */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  overflow: hidden;
+  font-family: "Raleway";
+}
+
+.presta i {
+  color: #5e3535;
+  font-size: 1.2rem;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  padding: 10px;
+  background: #e9e3e8;
+  box-shadow:  -5px -5px 10px #a8a3a7,
+             5px 5px 10px #ffffff;
+  flex-shrink: 1;
 }
 
 /********* CSS du footer  *******/
