@@ -11,7 +11,7 @@ if (
     try {
         require_once "core/config.php";
         $db = new PDO($dsn, $dbuser, $dbpassword);
-        $sql = "SELECT * FROM utilisateur WHERE email = :email";
+        $sql = "SELECT * FROM utilisateurs WHERE email = :email";
         $query = $db->prepare($sql);
         $query->bindParam(':email', $email);
         $query->execute();
@@ -31,7 +31,7 @@ if (
 ?>
 <div class="login">
     <i class="fa-solid fa-xmark close-admin"></i>
-    <div class="formulaire">
+    <div class="formulairelog">
         <p>Connexion réservée à l'administrateur</p>
         <form method="post" action="">
             <input type="email" name="email" placeholder="Email">
