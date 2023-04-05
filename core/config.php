@@ -9,3 +9,5 @@
 
     // DATA SOURCE NAME
     $dsn = "mysql:host=$dbhost; port=$dbport; dbname=$dbname; charset=utf8";
+
+    $pdo = new PDO($dsn, $dbuser, $dbpassword);

@@ -26,11 +26,18 @@
             </div>
         </section>
         <section class="date">
-            <h3>Prend vite ton rendez-vous</h3>
-            <img src="./assets/img/calendrier.png" alt="">
+            <h3>Mes conseils</h3>
+        <section>
+            <div class="precaution">
+                <p>Lorem ipsum, dolor sit amet</p>
+                <p>Lorem ipsum, dolor sit amet</p>
+                <p>Lorem ipsum, dolor sit amet</p>
+                <p>Lorem ipsum, dolor sit amet</p>
+                <p>Lorem ipsum, dolor sit amet</p>
+                <p>Lorem ipsum, dolor sit amet</p>
+            </div>
         </section>
-    
 
-        <?php
+<?php
         require "./core/footer.php";
         ?>

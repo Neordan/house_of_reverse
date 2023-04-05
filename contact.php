@@ -5,28 +5,7 @@ require "./core/header.php";
 ?>
 
 <h2>contact</h2>
-<form action="./index.php" method="get">
-    <div class="info">
-        <label for="nom">Nom :</label>
-        <input type="text" name="nom" id="">
-    </div>
-    <div class="info">
-        <label for="prenom">Prénom :</label>
-        <input type="text" name="prenom">
-    </div>
-    <div class="info">
-        <label for="age">Âge :</label>
-        <input type="text" name="age">
-    </div>
-    <div class="info">
-        <label for="allergie">Allergies :</label>
-        <select name="allergie" id="allergie">
-            <option value="">-- Sélectionner votre choix --</option>
-            <option value="">1</option>
-            <option value="">2</option>
-            <option value="">3</option>
-        </select>
-    </div>
+<form action="./index.php" method="post" >
     <div class="info">
         <label for="inspiration">Tes inspirations :</label>
         <input type="file" name="" id="inspiration">
@@ -35,19 +14,7 @@ require "./core/header.php";
         <label for="ongle-img">Tes ongles :</label>
         <input type="file" name="" id="ongle-img">
     </div>
-    <div class="info">
-        <legend>Ongles rongés : </legend>
-        <div class="choix-etat">
-            <div class="bon">
-                <input type="radio" name="ongle" id="oui">
-                <label for="oui">Oui</label>
-            </div>
-            <div class="mauvais">
-                <input type="radio" name="ongle" id="non">
-                <label for="non">Non</label>
-            </div>
-        </div>
-    </div>
+
     <div class="info">
         <label for="prestation">Prestation souhaité :</label>
         <select name="prestation" id="prestation">
@@ -83,18 +50,22 @@ require "./core/header.php";
         <textarea name="precision" id="precision" rows="5" placeholder="Ton message .."></textarea>
     </div>
     <div class="info">
-        <label for="dateRdv">Date du rendez-vous :</label>
+    <label for="date">Date :</label>
+  <input type="text" name="date" id="date">
+
+ 
     </div>
     <div class="info">
-        <label for="heureRdv">Heure du rendez-vous :</label><select name="prestation" id="prestation">
-            <option value="">-- Sélectionner votre choix --</option>
-            <option value="">10h</option>
-            <option value="">13h30</option>
-            <option value="">16h30</option>
-        </select>
+    <label for="heure">Heure :</label>
+  <input type="time" name="heure" id="heure">
     </div>
     <button type="submit" class="formulaire">envoyer</button>
 </form>
+<script>
+  $(function() {
+    $("#date").datepicker();
+  });
+</script>
 <?php
 require "./core/footer.php"
 ?>
