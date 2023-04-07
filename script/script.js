@@ -15,18 +15,18 @@ closeMenu.addEventListener('click', () => {
 
 //page login admin
 
-const btnAdmin = document.querySelector('.fa-user');
-const pageAdmin = document.querySelector('.login');
-const closeAdmin = document.querySelector('.close-admin');
+// const btnAdmin = document.querySelector('.fa-user');
+// const pageAdmin = document.querySelector('.login');
+// const closeAdmin = document.querySelector('.close-admin');
 
-btnAdmin.addEventListener('click', ()=> {
-  pageAdmin.style.display = 'flex';
-})  
-closeAdmin.addEventListener('click', ()=> {
-  pageAdmin.style.display = 'none';
-  pageAdmin.style.left = '-700px';
-  pageAdmin.style.transition = "10s" ;
-})  
+// btnAdmin.addEventListener('click', ()=> {
+//   pageAdmin.style.display = 'flex';
+// })  
+// closeAdmin.addEventListener('click', ()=> {
+//   pageAdmin.style.display = 'none';
+//   pageAdmin.style.left = '-700px';
+//   pageAdmin.style.transition = "10s" ;
+// })  
 
 
 
