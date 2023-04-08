@@ -1,10 +1,14 @@
 <?php
 require "./core/header.php";
+require "./function.php";
 
 
 //session de la session pour la création de compte
 $_SESSION['message'] = "Ton compte a bien été créé !";
 
+require "./core/config.php";
+
+$allergies_options = getAllergiesOptions();
 
 $role = "utilisateur";
 
@@ -21,12 +25,13 @@ if (!empty($_POST)) {
         $nom = trim($_POST["nom"]);
         $prenom = trim($_POST["prenom"]);
         $age = $_POST["age"];
-        $allergie = (isset($_POST["allergies"]) && is_array($_POST["allergies"])) ? implode(',', $_POST["allergies"]) : '';
-        if ($_POST["ongles_ronges"] == 'non') {
-            $ongles = 0;
-        } else {
-            $ongles = 1;
+
+        if (isset($_POST['allergies'])) {
+            //suite d'allergie séparé par une virgule
+            $allergies = implode(",", $_POST['allergies']);
         }
+
+        $ongles = $_POST["ongles_ronges"];
 
         // Vérifie que l'âge entré est valide et supérieur à 18 ans
         $aujourdhui = new DateTime();
@@ -45,12 +50,11 @@ if (!empty($_POST)) {
             'cost' => 12,
         ];
         $hash_mdp = password_hash($_POST["hash_mdp1"], PASSWORD_BCRYPT, $options);
-
+        var_dump($ongles);
         // Requête SQL pour insérer les informations dans la table utilisateur
         $sql = "INSERT INTO utilisateur (email, nom, prenom, age, allergies, ongles_ronges, role, hash_mdp) VALUES (:email, :nom, :prenom, :age, :allergies, :ongles_ronges, :role, :hash_mdp)";
 
-        require "./core/config.php";
-        $pdo = new PDO($dsn, $dbuser, $dbpassword);
+
         $register = $pdo->prepare($sql);
 
         // Lie les variables à la requête SQL
@@ -58,7 +62,7 @@ if (!empty($_POST)) {
         $register->bindParam(":nom", $nom, PDO::PARAM_STR);
         $register->bindParam(":prenom", $prenom, PDO::PARAM_STR);
         $register->bindParam(":age", $age, PDO::PARAM_STR);
-        $register->bindParam(":allergies", $allergie, PDO::PARAM_STR);
+        $register->bindParam(":allergies", $allergies, PDO::PARAM_STR);
         $register->bindParam(":ongles_ronges", $ongles, PDO::PARAM_STR);
         $register->bindParam(":email", $email, PDO::PARAM_STR);
         $register->bindParam(":hash_mdp", $hash_mdp, PDO::PARAM_STR);
@@ -76,8 +80,6 @@ if (!empty($_POST)) {
     } else {
         echo "Mots de passe différents";
     }
-} else {
-    echo "Erreur";
 }
 ?>
 
@@ -100,25 +102,12 @@ if (!empty($_POST)) {
         <input type="date" name="age" id="age" required>
     </div>
     <div class="info">
-    <legend>Allergies:</legend>
-<div>
-  <input type="checkbox" id="aucune" name="allergies">
-  <label for="aucune">Aucune</label>
-</div>
-<div>
-  <input type="checkbox" id="latex" name="allergies">
-  <label for="latex">Latex</label>
-</div>
-<div>
-  <input type="checkbox" id="produit_chimique" name="allergies">
-  <label for="produit_chimique">Produit chimique</label>
-</div>
-<div>
-  <input type="checkbox" id="autre" name="allergies">
-  <label for="autre">Autres</label>
-</div>
-</fieldset>
-
+        <label for="allergies">Allergies :</label><br>
+        <?php $allergies_options = getAllergiesOptions();
+        foreach ($allergies_options as $key => $value) : ?>
+            <input type="checkbox" id="<?= $key ?>" name="allergies[]" value="<?= $key ?>">
+            <label for="<?= $key ?>"><?= $value ?></label><br>
+        <?php endforeach; ?>
     </div>
 
     <div class="info">

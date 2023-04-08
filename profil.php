@@ -12,7 +12,6 @@ require "./core/header.php";
                         <input type="text" name="nom" value="<?= $_SESSION['utilisateur']['nom'] ? $_SESSION['utilisateur']['nom'] : '' ?>" placeholder="Nom" id="change" disabled>
                         <input type="text" name="age" value="<?= $_SESSION['utilisateur']['age'] ? $_SESSION['utilisateur']['age'] : '' ?>" placeholder="Age" id="change" disabled>
                         <input type="text" name="allergies" value="<?= $_SESSION['utilisateur']['allergies'] ? $_SESSION['utilisateur']['allergies'] : '' ?>" placeholder="Allergies" id="change" disabled>
-                        <input type="text" name="ongles_ronges" value="<?= $_SESSION['utilisateur']['ongles_ronges'] == 0 ? "non" : 'oui' ?>" placeholder="Ongles rongés" id="change" disabled>
                         <input type="text" name="email" value="<?= $_SESSION['utilisateur']['email'] ? $_SESSION['utilisateur']['email'] : '' ?>" placeholder="Email" id="change" disabled>
                     </div>
                 </div>

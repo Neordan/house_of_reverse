@@ -20,3 +20,14 @@ function generatePresta($title, $photoUrl, $description) {
 
     return $presta;
 };
+
+//pour afficher les allergies dans les checkbox
+function getAllergiesOptions() {
+    return [
+        'Aucune' => 'Aucune',
+        'Produit chimique' => 'Produit chimique',
+        'Acétone' => 'Acétone',
+        'Latex' => 'Latex',
+        'Autre' => 'Autre',
+    ];
+}

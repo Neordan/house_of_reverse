@@ -157,7 +157,8 @@ header i {
   width: 60%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
+  margin: auto;
   gap: 20px;
 }
 
@@ -584,7 +585,7 @@ hr {
 /********* CSS de la page contact  *******/
 
 form {
-  margin-top: 10px;
+  /* margin-top: 10px; */
   width: 65%;
   font-family: 'Raleway';
   color: #AF7E82;
@@ -698,119 +699,105 @@ textarea::placeholder {
 
 /********* CSS du calendrier  *******/
 
+/* Container général pour l'agenda */
 .agenda {
-  width: 100%;
-
-  margin: 30px auto;
-  padding: 15px;
-}
-
-.agenda-nav,
-.agenda-header,
-.agenda-body {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
 .agenda-nav {
-  justify-content: flex-end;
-
-  margin-bottom: 15px;
-}
-
-.agenda-header,
-.agenda-body {
+  display: flex;
   justify-content: space-between;
-
-  color: #b129c3;
-}
-
-.agenda-nav .previous,
-.agenda-nav .current,
-.agenda-nav .next {
-  margin: 0 30px;
+  width: 100%;
+  margin-bottom: 20px;
 }
 
 .agenda-nav a {
   text-decoration: none;
-
-  padding: 2px 7px;
+  color: #333;
+  font-weight: bold;
 }
 
-.agenda-nav .previous a {
-  border-bottom: #b129c3 1px solid;
-  border-left: #b129c3 1px solid;
-}
 
-.agenda-nav .previous a:hover {
-  border-bottom: #b129c3 1px solid;
-  border-left: #b129c3 1px solid;
-}
-
-.agenda-nav .current a {
-  border-bottom: #b129c3 1px solid;
-}
-
-.agenda-nav .current a:hover {
-  border-bottom: #b129c3 1px solid;
-}
-
-.agenda-nav .next a {
-  border-bottom: #b129c3 1px solid;
-  border-right: #b129c3 1px solid;
-}
-
-.agenda-nav .next a:hover {
-  border-bottom: #b129c3 1px solid;
-  border-right: #b129c3 1px solid;
-}
-
-.hr {
+.agenda-header {
+  display: flex;
+  justify-content: space-between;
   width: 100%;
-
-  padding: 7px;
-
-  background-color: #b129c3;
-}
-
-.hours-header,
-.agenda-body .hours {
-  width: 50px;
-
-  padding: 0 5px;
-
-  color: #fff;
-  background-color: #b129c3;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
 .day {
-  width: 14%;
+  flex: 1;
+  display: flex;
+  justify-content: center;
   text-align: center;
+  color: #333;
+  background-color: #f0f0f0;
+  padding: 5px 0;
+  border-radius: 5px;
 }
 
-.hours {
-  /* position: relative; */
-}
 
-.slots {
+.agenda-body {
+  display: flex;
   width: 100%;
 }
 
-.hour,
-.slot {
-  display: block;
-  height: 50px;
+
+.slots {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 10px;
 }
 
 .slot {
-  /* display: grid;
-    grid-gap: 10px;
-    grid-template-columns: repeat(21, 100px);
-    grid-auto-flow: column; */
+  width: 100%;
+  height: 40px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
 }
 
-.hour {
-  /* position: absolute; */
-  margin: auto;
+.agenda button {
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.agenda button:hover {
+  background-color: #0056b3;
+}
+
+.agenda-body button.reserved {
+  cursor: not-allowed;
+  color: #999;
+  text-decoration: line-through;
+}
+
+.slot label {
+  margin: 0;
+  height: 55%;
+  border-radius: 5px;
 }
 
 .slot form,
@@ -821,39 +808,29 @@ textarea::placeholder {
 
 .slot button {
   cursor: pointer;
-
   color: #b129c3;
   background-color: #fff;
-
   border: #b129c3 1px solid;
 }
 
-.slot button:hover,
-.slot button.reserved {
-  background-color: #b129c364;
+.slot-radio {
+  display: none;
 }
 
-.admin {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 80vw;
-  height: fit-content;
-  padding: 15px;
-}
-.admin .rdv {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  width: 75%;
-  gap: 10%;
-  margin-top: 25px;
-  padding: 10px;
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
+.slot-radio + label {
+  display: inline-block;
+  background-color: #eee;
+  border: 1px solid #ccc;
+  padding: 10px 20px;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
 }
 
+.slot-radio:checked + label {
+  background-color: #4caf50;
+  color: #fff;
+}
 
 
 /********* CSS du footer  *******/

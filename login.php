@@ -61,8 +61,8 @@ if (isset($_POST["email"]) && $_POST["email"] != "" &&
 }
 
 ?>
+    <h2>Connexion</h2>
 <div class="formulairelog">
-    <p>Connexion</p>
     <form method="post">
         <input type="email" name="email" placeholder="Email">
         <input type="password" name="hash_mdp" placeholder="Mot de passe">
