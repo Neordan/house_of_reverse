@@ -2,14 +2,7 @@
 require "./core/header.php";
 
 ?>
-<?php
-//message d'alerte de création de compte
-if (isset($_SESSION['message'])) {
-    echo "<p>" . $_SESSION['message'] . "</p>";
-    //suppression de la session
-    unset($_SESSION['message']);
-}
-?>
+
 <section class="description">
     <img src="./assets/img/img-desc.png" alt="Une image de la PO en train de travailler">
     <p>Je suis ravie de vous présenter mes services en matière de soins des ongles. Exercant ce métier
@@ -32,18 +25,19 @@ if (isset($_SESSION['message'])) {
         <img src="./assets/img/Certificats/Certificat TOP NAIL MASTER NOM-1.png" alt="Certificat top nail master">
     </div>
 </section>
-<section class="date">
-    <h3>Mes conseils</h3>
-    <section>
-        <div class="precaution">
-            <p>Lorem ipsum, dolor sit amet</p>
-            <p>Lorem ipsum, dolor sit amet</p>
-            <p>Lorem ipsum, dolor sit amet</p>
-            <p>Lorem ipsum, dolor sit amet</p>
-            <p>Lorem ipsum, dolor sit amet</p>
-            <p>Lorem ipsum, dolor sit amet</p>
-        </div>
-    </section>
+<div class="client">
+    <h3>avis client</h3>
+    <div class="avis">
+    <button class="prev">&#10094;</button>
+        <img src="https://picsum.photos/150" alt="">
+        <img src="https://picsum.photos/200" alt="">
+        <img src="https://picsum.photos/250" alt="">
+        <img src="https://picsum.photos/143" alt="">
+        <img src="https://picsum.photos/301" alt="">
+        <img src="https://picsum.photos/212" alt="">
+        <button class="next">&#10095;</button>
+    </div>
+</div>
 
     <?php
     require "./core/footer.php";

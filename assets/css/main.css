@@ -143,16 +143,6 @@ header i {
   text-align: center;
 }
 
-.login .fa-xmark {
-  position: absolute;
-  color: #fbf8f6;
-  font-size: 3.5rem;
-  font-weight: 700;
-  top: 30px;
-  right: 40px;
-  cursor: pointer;
-}
-
 .formulairelog {
   width: 60%;
   display: flex;
@@ -168,76 +158,89 @@ form {
   justify-content: center;
   align-items: center;
   width: 80%;
-  margin: auto;
+  margin: 45px auto 0 auto;
 }
 
-.login p {
+.formulairelog p {
   font-size: 2.2rem;
   color: rgb(182, 128, 127);
 }
 
-.login input {
+.formulairelog input {
   width: 90%;
-  height: 40px;
-  border-radius: 25px;
+  height: 30px;
+  border: 2px solid #AF7E82;
+  border-radius: 10px;
   padding: 5px 15px;
   margin: 6px;
   border: none;
-  box-shadow: inset 3px 6px 10px rgb(182, 128, 127);
-  background-color: #ddc4c4;
 }
 
-.login input:focus {
+.formulairelog input:focus {
   outline: none;
 }
 
-.login input::placeholder {
+.formulairelog input::placeholder {
   font-family: "Raleway";
   font-weight: 700;
   color: #af7e82b6;
 }
 
-.login input:nth-child(2) {
+.formulairelog input:nth-child(2) {
   margin-bottom: 0;
 }
 
-.login button {
+.formulairelog button {
   border: none;
+  border: 2px solid #AF7E82;
   border-radius: 50%;
   padding: 15px;
   border-radius: 50px;
-  background: #ddc4c4;
+  background: #fff;
   margin-top: 30px;
   transition: all 0.3s;
-  box-shadow: 4px 4px 12px #c2acac, -4px -4px 12px #f8dcdc;
+  cursor: pointer;
   
-
   /* text-align: center; */
 }
 
-button:active {
-  box-shadow: -8px -8px 16px #c2acac, 8px 8px 16px #f8dcdc;
-}
-
-.login button i {
+.formulairelog button i {
   font-size: 1.3rem;
   color: #b88988;
 }
 
-.login a {
+.formulairelog a {
   color: #b6807f;
-  font-size: 0.6rem;
+  font-size: 0.7rem;
   margin-top: 8px;
   width: 100%;
   display: flex;
   justify-content: end;
 }
 
-/*Menu Hamburger*/
+.mdp {
+  color: #bab6b9;
+}
+
+.creation-container {
+  margin: auto;
+  width: 80%;
+  padding: 10px;
+  border: 1px solid #976a76;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+.creation {
+  text-align: center;
+}
+
+/********Menu Hamburger**************/
 .menu-toggle {
   padding: 5px;
   cursor: pointer;
 }
+
 .menu-bar {
   display: block;
   width: 35px;
@@ -421,15 +424,6 @@ nav ul li a {
   background-color: #fcf7f4;
 }
 
-/********* CSS du bloc conseil  *******/
-
-.precaution {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
 /********* CSS de la page prestations *******/
 
 .presta {
@@ -543,18 +537,51 @@ img {
   color: #af7e82;
 }
 
+.client {
+  position: relative;
+}
+
 .avis {
-  width: 70%;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  row-gap: 15px;
-  margin: auto;
-  padding: 20px 0;
+  overflow: hidden;
+  position: relative;
+  width: 70%;
+  height: 250px;
+  margin: 20px auto 10px auto;
+  object-fit: cover;
 }
 
 .avis img {
-  width: 48%;
+  display: none;
+  max-width: 100%;
+}
+
+.avis .prev,
+.avis .next {
+  position: absolute;
+  top: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 2rem;
+  padding: 5px;
+  cursor: pointer;
+  user-select: none;
+  z-index: 1;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev {
+  left: 5px;
+  transform: translateY(-50%);
+}
+
+.next {
+  right: 5px;
+  transform: translateY(-50%);
 }
 
 /********* CSS de la page tarifs *******/
@@ -628,10 +655,16 @@ input[type=checkbox] {
             inset -2px -2px 5px #ffffff;
 }
 input[type="checkbox"]:checked, input[type=radio]:checked {
-  background: #5e3535;
+  background: #AF7E82;
   box-shadow: none;
-
+  box-shadow: inset 2px 2px 5px #a38c8e,
+  inset -2px -2px 5px #a48285;
 }
+
+input[type="checkbox"]:checked {
+  border-radius: 5px;
+}
+
 input[type=radio] {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -647,7 +680,7 @@ input[type=radio] {
 
 form label, legend {
   font-weight: 600;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   margin-bottom: 12px;
 }
 
@@ -683,18 +716,21 @@ textarea::placeholder {
 }
 
 .formulaire {
-  height: 25px;
-  font-weight: 500;
-  letter-spacing: 3px;
-  text-transform: uppercase;
+  height: 40px;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  /* text-transform: uppercase; */
   display: flex;
   align-items: center;
   background: #5e3535;
   border: none;
+  border: 2px solid #654242;
   color: #fcf7f4;
-  margin: 15px 0 5px 0;
+  margin: 28px 0 5px 0;
   cursor: pointer;
   border-radius: 6px;
+  padding: 0 10px;
 }
 
 /********* CSS du calendrier  *******/
@@ -832,6 +868,49 @@ textarea::placeholder {
   color: #fff;
 }
 
+/************** CSS register ***********/
+
+.allergie {
+  display: flex;
+  gap: 8px;
+}
+
+
+
+/********* CSS du profil  *******/
+
+.compte {
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+}
+
+.onglet {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.onglet a {
+  width: 33%;
+}
+.onglet button {
+  width: 33%;
+}
+
+.pf-struct {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pf-struct input {
+  width: 100%;
+  height: 30px;
+  border-radius: 8px;
+  background: #fff;
+}
 
 /********* CSS du footer  *******/
 

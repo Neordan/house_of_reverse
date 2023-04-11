@@ -71,7 +71,7 @@ if (!empty($_POST)) {
             if ($register->execute()) {
                 // Affiche un message de succès et redirige l'utilisateur vers la page d'accueil
                 echo "Compte créé";
-                header('Location: index.php?message=compte_cree');
+                header('Location: login.php?message=compte_cree');
                 exit();
             }
         } catch (Exception $e) {
@@ -84,34 +84,38 @@ if (!empty($_POST)) {
 ?>
 
 <h2>Inscription</h2>
-<form action="" method="post">
+<form class="register" method="post">
     <div class="info">
-        <label for="email">Email :</label>
+        <label for="email">Quel est ton e-mail ?</label>
         <input type="text" name="email" id="email" required>
     </div>
     <div class="info">
-        <label for="nom">Nom :</label>
+        <label for="nom">Quel est ton nom ?</label>
         <input type="text" name="nom" id="nom" required>
     </div>
     <div class="info">
-        <label for="prenom">Prénom :</label>
+        <label for="prenom">Quel est ton prénom ?</label>
         <input type="text" name="prenom" id="prenom" required>
     </div>
     <div class="info">
-        <label for="age">Date de naissance :</label>
+        <label for="age">Quel est ta date de naissance ?</label>
         <input type="date" name="age" id="age" required>
     </div>
     <div class="info">
-        <label for="allergies">Allergies :</label><br>
-        <?php $allergies_options = getAllergiesOptions();
-        foreach ($allergies_options as $key => $value) : ?>
-            <input type="checkbox" id="<?= $key ?>" name="allergies[]" value="<?= $key ?>">
-            <label for="<?= $key ?>"><?= $value ?></label><br>
-        <?php endforeach; ?>
+        <label class="label-allergie" for="allergies">As tu des allergies ?</label><br>
+        <div class="allergies">
+            <?php $allergies_options = getAllergiesOptions();
+            foreach ($allergies_options as $key => $value) : ?>
+                <div class="allergie">
+                    <input type="checkbox" id="<?= $key ?>" name="allergies[]" value="<?= $key ?>">
+                    <label for="<?= $key ?>"><?= $value ?></label>
+                </div>
+            <?php endforeach; ?>
+        </div>
     </div>
 
     <div class="info">
-        <legend>Ongles rongés : </legend>
+        <legend>Te ronges tu les ongles ? </legend>
         <div class="choix-etat">
             <div class="bon">
                 <input type="radio" name="ongles_ronges" id="oui" value="oui">
@@ -127,11 +131,13 @@ if (!empty($_POST)) {
     <div class="info">
         <label for="mdp1">Mot de passe :</label>
         <input type="password" name="hash_mdp1" id="mpd1" required>
+    </div>
+    <div class="info">
         <label for="mdp2">Vérifier mot de passe :</label>
         <input type="password" name="hash_mdp2" id="mpd2" required>
     </div>
     <input type="hidden" name="role" value="<?= $role ?>">
-    <button class="formulaire">envoyer</button>
+    <button class="formulaire">Valider</button>
 </form>
 
 <?php

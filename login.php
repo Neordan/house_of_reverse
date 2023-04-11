@@ -1,9 +1,13 @@
 <?php
 require_once "./core/header.php";
 
+//message d'alerte de création de compte
+if (isset($_SESSION['message'])) {
+    echo "<div class='creation-container'><p class='creation'>" . $_SESSION['message'] . "</p></div>";
+    //suppression de la session
+    // unset($_SESSION['message']);
+}
 
-// Définir le fuseau horaire sur Paris
-date_default_timezone_set("Europe/Paris");
 
 // Vérifier si les champs email et mot de passe sont définis et non vides
 if (isset($_POST["email"]) && $_POST["email"] != "" &&
@@ -64,10 +68,10 @@ if (isset($_POST["email"]) && $_POST["email"] != "" &&
     <h2>Connexion</h2>
 <div class="formulairelog">
     <form method="post">
-        <input type="email" name="email" placeholder="Email">
+        <input type="text" name="email" placeholder="Email">
         <input type="password" name="hash_mdp" placeholder="Mot de passe">
-        <a href="">Mot de passe oublié ?</a>
-        <a href="./register1.php">S'inscrire</a>
+        <a class="mdp" href="">Mot de passe oublié ?</a>
+        <a href="./register.php">S'inscrire</a>
         <button><i class="fa-solid fa-unlock"></i></button>
     </form>
 </div>

@@ -23,17 +23,6 @@ require "./core/header.php";
         </div>
     </div>
 </div>
-<div class="client">
-    <h3>avis client</h3>
-    <div class="avis">
-        <img src="https://picsum.photos/150" alt="">
-        <img src="https://picsum.photos/200" alt="">
-        <img src="https://picsum.photos/250" alt="">
-        <img src="https://picsum.photos/143" alt="">
-        <img src="https://picsum.photos/301" alt="">
-        <img src="https://picsum.photos/212" alt="">
-    </div>
-</div>
 
 <?php
 require "./core/footer.php"
