@@ -13,21 +13,6 @@ closeMenu.addEventListener('click', () => {
   menu.style.display = 'none';
 })  
 
-//page login admin
-
-// const btnAdmin = document.querySelector('.fa-user');
-// const pageAdmin = document.querySelector('.login');
-// const closeAdmin = document.querySelector('.close-admin');
-
-// btnAdmin.addEventListener('click', ()=> {
-//   pageAdmin.style.display = 'flex';
-// })  
-// closeAdmin.addEventListener('click', ()=> {
-//   pageAdmin.style.display = 'none';
-//   pageAdmin.style.left = '-700px';
-//   pageAdmin.style.transition = "10s" ;
-// })  
-
 //slide avis
 let avisImages = document.querySelectorAll(".avis img");
 let currentIndex = 0;

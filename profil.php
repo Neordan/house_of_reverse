@@ -4,11 +4,6 @@ require "./core/header.php";
 <form method="post" class="pf-container">
     <h2>Mon profil</h2>
     <div class="compte">
-        <div class="onglet">
-            <a href="./logout.php">Déconnexion</a>
-            <a href="./contact.php">Prendre rdv</a>
-            <button id="btnUpdate">modifier</button>
-        </div>
         <div class="pf-struct">
             <input type="text" name="prenom" value="<?= $_SESSION['utilisateur']['prenom'] ? $_SESSION['utilisateur']['prenom'] : '' ?> " placeholder="Prénom" id="change" disabled>
             <input type="text" name="nom" value="<?= $_SESSION['utilisateur']['nom'] ? $_SESSION['utilisateur']['nom'] : '' ?>" placeholder="Nom" id="change" disabled>
@@ -16,10 +11,10 @@ require "./core/header.php";
             <input type="text" name="allergies" value="<?= $_SESSION['utilisateur']['allergies'] ? $_SESSION['utilisateur']['allergies'] : '' ?>" placeholder="Allergies" id="change" disabled>
             <input type="text" name="email" value="<?= $_SESSION['utilisateur']['email'] ? $_SESSION['utilisateur']['email'] : '' ?>" placeholder="Email" id="change" disabled>
         </div>
-    </div>
-    <div class="pf-info">
-        <div class="pf-img">
-            <img src="./assets/img/logo-CCP2.png" alt="">
+        <div class="onglet">
+            <a href="./logout.php">Déconnexion</a>
+            <a href="./contact.php">Prendre rdv</a>
+            <button id="btnUpdate">modifier</button>
         </div>
     </div>
     </div>

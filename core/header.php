@@ -1,7 +1,6 @@
-<?php 
-session_start(); 
+<?php
+session_start();
 // Fuseau horaire par défaut du serveur
-// setlocale(LC_TIME, "fr_FR", "French"); // Déprécié !
 date_default_timezone_set("Europe/Paris");
 ?>
 
@@ -30,7 +29,13 @@ date_default_timezone_set("Europe/Paris");
     <!------ Partie du header ------->
 
     <header>
-    <a href="../login.php"><i class="fa-solid fa-user"></i></a>
+        <div class="menu">
+        <?php if($_SESSION['utilisateur']['role'] == 'utilisateur' && $_SESSION['utilisateur']['role'] == 'admin') {  
+                    echo "<a href='../login.php'><i class='fa-solid fa-user'></i></a>";
+                 } else {
+                    echo "<a href='./logout.php'>Déconnexion</a>";
+                } ?>
+        
         <div class="menu-toggle">
             <span class="menu-bar"></span>
             <span class="menu-bar"></span>
@@ -42,13 +47,18 @@ date_default_timezone_set("Europe/Paris");
                 <li><a href="./prestations.php">Prestations</a></li>
                 <li><a href="./galerie.php">Galerie</a></li>
                 <li><a href="./tarifs.php">Tarifs</a></li>
-                <li><a href="./contact.php">Rendez-vous</a></li>
+                <?php if($_SESSION['utilisateur']['role'] == 'utilisateur' && $_SESSION['utilisateur']['role'] == 'admin') {  
+                    echo "<li><a href='./contact.php'>Rendez-vous</a></li>";
+                 } else {
+                    echo "";
+                } ?>
             </ul>
             <a href="./index.php"><i class="fa-solid fa-house"></i></a>
         </nav>
+        </div>
+        <div class="logo">
+            <h1>house of reverse</h1>
+            <img src="./assets/img/Logo1.PNG" alt="Logo de House of reverse">
+        </div>
     </header>
-    <div class="logo">
-        <h1>house of reverse</h1>
-        <img src="./assets/img/Logo1.PNG" alt="Logo de House of reverse">
-    </div>
     <main>
