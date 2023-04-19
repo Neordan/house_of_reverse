@@ -22,19 +22,17 @@ date_default_timezone_set("Europe/Paris");
 
     <script src="../script/script.js" defer></script>
 </head>
-
 <body>
-
 
     <!------ Partie du header ------->
 
     <header>
         <div class="menu">
-        <?php if($_SESSION['utilisateur']['role'] == 'utilisateur' && $_SESSION['utilisateur']['role'] == 'admin') {  
-                    echo "<a href='../login.php'><i class='fa-solid fa-user'></i></a>";
-                 } else {
-                    echo "<a href='./logout.php'>Déconnexion</a>";
-                } ?>
+        <?php if(isset($_SESSION['utilisateur']))  {  ?>
+            <a class="logout" href='./logout.php'>Déconnexion</a>
+                 <?php } else { ?>
+                    <a href='../login.php'><i class='fa-solid fa-user'></i></a> 
+                <?php } ?>
         
         <div class="menu-toggle">
             <span class="menu-bar"></span>
@@ -47,11 +45,10 @@ date_default_timezone_set("Europe/Paris");
                 <li><a href="./prestations.php">Prestations</a></li>
                 <li><a href="./galerie.php">Galerie</a></li>
                 <li><a href="./tarifs.php">Tarifs</a></li>
-                <?php if($_SESSION['utilisateur']['role'] == 'utilisateur' && $_SESSION['utilisateur']['role'] == 'admin') {  
-                    echo "<li><a href='./contact.php'>Rendez-vous</a></li>";
-                 } else {
-                    echo "";
-                } ?>
+                <?php if(!empty($_SESSION['utilisateur'])) {  ?>
+                    <li><a href='./profil.php'>Profil</a></li>
+                    <li><a href='./contact.php'>Rendez-vous</a></li>
+                 <?php } ?>
             </ul>
             <a href="./index.php"><i class="fa-solid fa-house"></i></a>
         </nav>

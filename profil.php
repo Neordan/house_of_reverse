@@ -12,9 +12,7 @@ require "./core/header.php";
             <input type="text" name="email" value="<?= $_SESSION['utilisateur']['email'] ? $_SESSION['utilisateur']['email'] : '' ?>" placeholder="Email" id="change" disabled>
         </div>
         <div class="onglet">
-            <a href="./logout.php">Déconnexion</a>
-            <a href="./contact.php">Prendre rdv</a>
-            <button id="btnUpdate">modifier</button>
+            <a href="./contact.php">Prendre rendez-vous</a>
         </div>
     </div>
     </div>

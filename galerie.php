@@ -15,10 +15,10 @@ require "./core/header.php";
                 <img src="./assets/img/Photos/Ongle1.jpg" alt="song">
             </label>
             <label class="card" for="item-2" id="img-2">
-                <img src="./assets/img/Photos/Ongle1.jpg" alt="song">
+                <img src="./assets/img/Photos/IMG-0642.JPG" alt="song">
             </label>
             <label class="card" for="item-3" id="img-3">
-                <img src="./assets/img/Photos/Ongle1.jpg" alt="song">
+                <img src="./assets/img/Photos/IMG-0645.JPG" alt="song">
             </label>
         </div>
     </div>

@@ -62,10 +62,9 @@ $prestations = $matches[1];
 ?>
 
 <h2>contact</h2>
-<form method="post" enctype="multipart/form-data">
+<form class="contact" method="post" enctype="multipart/form-data">
 <input type="hidden" name="id_utilisateur" value="<?= $_SESSION['utilisateur']['id'] ?>">
 <div class="agenda">
-    <?php var_dump($_SESSION['utilisateur']['id']) ?>
 
     <!-- Navigation de l'agenda -->
     <div class="agenda-nav">

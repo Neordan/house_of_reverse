@@ -33,6 +33,7 @@ if (!empty($_POST)) {
 
         $ongles = $_POST["ongles_ronges"];
 
+        $age = $_POST["age"];
         // Vérifie que l'âge entré est valide et supérieur à 18 ans
         $aujourdhui = new DateTime();
         $date_naissance = new DateTime($_POST["age"]);
