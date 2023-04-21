@@ -18,9 +18,14 @@ body::-webkit-scrollbar {
 }
 
 main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   position: relative;
-  width: 85%;
-  margin:0 auto 25px auto;
+  width: 80%;
+  margin: 0 auto 25px auto;
+  padding: 60px;
+  padding-bottom: 15px;
 
   border-radius: 17px;
   background-color: #e9e3e8;
@@ -44,11 +49,24 @@ ul {
 }
 
 h2 {
+  width: 50%;
+  min-width: 200px;
+  max-width: 570px;
   text-align: center;
   text-transform: capitalize;
   font-family: "Cinzel";
-  color: #ceaaaa;
-  font-size: 1.8rem;
+  color: #fbf8f6;
+  font-size: clamp(1.3rem, 3vw, 1.8rem);
+  background-color: #e9e3e8;
+  border-width: 4px;
+  border-style: solid;
+  text-shadow: 1px 1px 0 #ceabab, -1px 1px 0 #ceabab, 1px -1px 0 #ceabab,
+    -1px -1px 0 #ceabab;
+  border-image: linear-gradient(to top, #fbf8f6 0%, #fbf8f6 33%, #ceaaaa 100%) 1;
+  padding: 10px 3%;
+  margin-top: -85px;
+  margin-bottom: 22px;
+  white-space: nowrap;
 }
 
 /********  CSS de la page de présentation *******/
@@ -113,13 +131,12 @@ h1 {
 /*************** CSS du header *****************/
 
 header {
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   width: 90%;
-  margin:auto;
+  margin: auto;
   padding: 0 60px;
 }
 
@@ -154,7 +171,7 @@ header i {
 }
 
 .logout {
-  color: #CDAAAA;
+  color: #cdaaaa;
   font-family: "raleway";
   font-size: 1.2rem;
 }
@@ -185,7 +202,7 @@ form {
 .formulairelog input {
   width: 90%;
   height: 30px;
-  border: 2px solid #AF7E82;
+  border: 2px solid #af7e82;
   border-radius: 10px;
   padding: 5px 15px;
   margin: 6px;
@@ -208,7 +225,7 @@ form {
 
 .formulairelog button {
   border: none;
-  border: 2px solid #AF7E82;
+  border: 2px solid #af7e82;
   border-radius: 50%;
   padding: 15px;
   border-radius: 50px;
@@ -216,7 +233,7 @@ form {
   margin-top: 30px;
   transition: all 0.3s;
   cursor: pointer;
-  
+
   /* text-align: center; */
 }
 
@@ -266,21 +283,6 @@ form {
   margin: 5px Auto;
   background-color: #ceaaaa;
 }
-
-/* .menu-toggle.open .menu-bar:first-child {
-  transition: 0.5s;
-  transform: rotate(45deg) translate(5px, 10px);
-}
-
-.menu-toggle.open .menu-bar:nth-child(2) {
-  transition: 0.5s;
-  opacity: 0;
-} 
-
-.menu-toggle.open .menu-bar:last-child {
-  transition: 0.5s;
-  transform: rotate(-45deg) translate(7px, -12px);
-} */
 
 /******** CSS de la navigation *********/
 
@@ -371,15 +373,13 @@ nav ul li a {
 
 .description {
   width: 88%;
-  margin: 15px auto;
+  margin: auto;
 }
 
 .description img {
-
   width: 100%;
-
   max-height: 350px;
-  border-radius: 0px;
+  border-radius: 8px 8px 0 0;
   box-shadow: 1px 1px 10px #b594835e;
   object-fit: cover;
 }
@@ -390,61 +390,68 @@ nav ul li a {
   line-height: 20px;
   text-align: justify;
   tab-size: 50px;
-  width: 85%;
-  margin: 15px auto;
+  width: 100%;
+  margin: 15px 0;
   hyphens: auto;
   text-indent: 25px;
-}
-
-.description::after {
-  display: flex;
-  content: "";
-  height: 2px;
-  width: 65%;
-  margin: 30px auto 20px auto;
-  background-color: #fcf7f4;
 }
 
 /******** CSS du block certificat *********/
 
 .certificate h3,
-.date h3, .client h3 {
+.client h3 {
   width: 65%;
   margin: auto;
   text-align: center;
   font-family: "Cinzel";
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   color: #af7e82;
+}
+
+.certificate h3::before,
+.client h3:before {
+  display: flex;
+  content: "";
+  height: 3px;
+  width: 78%;
+  margin: 20px auto 10px auto;
+  background-color: #fcf7f4;
+}
+
+.certificate h3::after,
+.client h3:after {
+  display: flex;
+  content: "";
+  height: 3px;
+  width: 70%;
+  margin: 10px auto 30px auto;
+  background-color: #fcf7f4;
 }
 
 .document {
   width: 100%;
-  display: flex;
-  justify-content: space-around;
-  margin: 25px 0;
+  text-align: center;
+  margin-top: 25px;
 }
 
-.document img {
-  width: 30%;
-  max-width: 220px;
+.document .img {
+  width: 60%;
+  margin-bottom: 30px;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  transition: 0.2s ease-in;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
-.document img:first-child {
-  margin-top: 60px;
+.document .img:nth-child(2) {
+  margin: 5px;
 }
 
-.document img:last-child {
-  height: 80%;
-}
-
-.certificate::after {
-  display: flex;
-  content: "";
-  height: 2px;
-  width: 65%;
-  margin: 30px auto 20px auto;
-  background-color: #fcf7f4;
+.zoomer {
+  transform: scale(1.3);
+  transition: 0.2s ease-out;
+  position: relative;
+  z-index: 100;
 }
 
 /********* CSS de la page prestations *******/
@@ -453,16 +460,40 @@ nav ul li a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px 0;
+  padding-bottom: 20px;
 }
 
 .title {
-  font-size: 1rem;
-  padding: 7px 10px;
+  width: 80%;
+  text-align: center;
+  font-size: 1.3rem;
   text-transform: uppercase;
-  background: #b6807f;
-  color: #e9e3e8;
-  margin: 0;
+  color: #996766;
+  margin: 0 auto 25px auto;
+}
+
+.title::before {
+  display: flex;
+  content: "";
+  height: 3px;
+  border-radius: 5px;
+  width: 100%;
+  margin: auto;
+  left: 50%;
+  margin-bottom: 12px;
+  background-color: #ceaaaa;
+}
+
+.title::after {
+  display: flex;
+  content: "";
+  height: 3px;
+  border-radius: 5px;
+  width: 100%;
+  margin: auto;
+  left: 50%;
+  margin-top: 12px;
+  background-color: #ceaaaa;
 }
 
 .presta img {
@@ -470,36 +501,39 @@ nav ul li a {
   user-select: none;
 }
 
-.presta p {
+.descriptionpresta {
   font-size: 1rem;
+  line-height: 23px;
   text-align: justify;
-  width: 80%;
+  width: 75%;
   margin: 25px auto;
   /* garder seulement 5 lignes */
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 5;
+  -webkit-line-clamp: 6;
   overflow: hidden;
   font-family: "Raleway";
-  text-indent: 35px;
+  hyphens: auto;
 }
 
 .presta i {
   color: #5e3535;
   font-size: 1.2rem;
   border-radius: 50%;
-  margin-bottom: 10px;
   padding: 10px;
   background: #e9e3e8;
-  box-shadow:  3px 3px 10px #a8a3a7,
-             -3px -3px 10px #ffffff;
-  
+  box-shadow: 3px 3px 10px #a8a3a7, -3px -3px 10px #ffffff;
+
   flex-shrink: 1;
+  margin-bottom: 12px;
 }
 
 .presta i:active {
-  box-shadow:  -6px -6px 10px #a8a3a7,
-             6px 6px 10px #ffffff;
+  box-shadow: -6px -6px 10px #a8a3a7, 6px 6px 10px #ffffff;
+}
+
+.fa-minus {
+  display: none;
 }
 
 /* ******** CSS de la page galerie  *******/
@@ -507,20 +541,20 @@ nav ul li a {
   height: 390px;
 }
 
-.container input[type=radio] {
+.container input[type="radio"] {
   display: none;
-} 
+}
 
 .container {
   width: 60%;
-  max-width: 304px ;
+  max-width: 304px;
   margin: 50px auto;
   transform-style: preserve-3d;
 }
 
 .cards {
   width: 100%;
-  height: 150px;
+  height: 250px;
   position: relative;
   margin-bottom: 20px;
 }
@@ -532,37 +566,37 @@ nav ul li a {
   transition: transform 0.4s ease;
   cursor: pointer;
 }
-img {
+.card img {
   width: 100%;
   border-radius: 10px;
   object-fit: cover;
 }
-#item-1:checked ~ .cards #img-3, #item-2:checked ~ .cards #img-1, #item-3:checked ~ .cards #img-2 {
+#item-1:checked ~ .cards #img-3,
+#item-2:checked ~ .cards #img-1,
+#item-3:checked ~ .cards #img-2 {
   transform: translatex(-40%) scale(0.8);
   opacity: 0.4;
   z-index: 0;
 }
-#item-1:checked ~ .cards #img-2, #item-2:checked ~ .cards #img-3, #item-3:checked ~ .cards #img-1 {
+#item-1:checked ~ .cards #img-2,
+#item-2:checked ~ .cards #img-3,
+#item-3:checked ~ .cards #img-1 {
   transform: translatex(40%) scale(0.8);
   opacity: 0.4;
   z-index: 0;
 }
-#item-1:checked ~ .cards #img-1, #item-2:checked ~ .cards #img-2, #item-3:checked ~ .cards #img-3 {
+#item-1:checked ~ .cards #img-1,
+#item-2:checked ~ .cards #img-2,
+#item-3:checked ~ .cards #img-3 {
   transform: translatex(0) scale(1);
   opacity: 1;
   z-index: 1;
 }
 
-.client h3 {
-  width: 65%;
-  margin: auto;
-  text-align: center;
-  font-family: "Cinzel";
-  font-size: 1.4rem;
-  color: #af7e82;
-}
+
 
 .client {
+  width: 70%;
   position: relative;
 }
 
@@ -570,7 +604,6 @@ img {
   display: flex;
   overflow: hidden;
   position: relative;
-  width: 70%;
   height: 250px;
   margin: 20px auto 10px auto;
   object-fit: cover;
@@ -585,7 +618,8 @@ img {
 .avis .next {
   position: absolute;
   top: 50%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: #99676685;
+  border: 1px solid #996766;
   color: white;
   font-size: 2rem;
   padding: 5px;
@@ -611,7 +645,7 @@ img {
 
 /********* CSS de la page tarifs *******/
 
-.title-tarif{
+.title-tarif {
   font-size: 1rem;
   padding: 6px 15px;
   text-transform: uppercase;
@@ -638,8 +672,8 @@ hr {
 
 .contact {
   width: 65%;
-  font-family: 'Raleway';
-  color: #AF7E82;
+  font-family: "Raleway";
+  color: #af7e82;
 }
 
 .info {
@@ -650,59 +684,65 @@ hr {
   margin: 10px 0;
 }
 
-input[type='text'],input[type='file'], textarea, select, input[type='password'], input[type='date'] {
+input[type="text"],
+input[type="file"],
+textarea,
+select,
+input[type="password"],
+input[type="date"] {
   width: 100%;
   padding: 5px;
   resize: none;
-  border: 2px solid #AF7E82;
+  border: 2px solid #af7e82;
 }
 
-input:focus, textarea:focus, select:focus {
+input:focus,
+textarea:focus,
+select:focus {
   outline: none;
   border: 2px solid #c7787e;
 }
 
-input[type='file'] {
+input[type="file"] {
   width: 100%;
 }
 
-input[type=checkbox] {
+input[type="checkbox"] {
   -webkit-appearance: none;
-    -moz-appearance: none;
-    -ms-appearance: none;
-    -border-radius: 3px;
-    height: 20px;
-    width: 20px;
-    border: 1px solid #AF7E82;
-    background: #fff;
-    box-shadow: inset 2px 2px 5px #d9d9d9,
-            inset -2px -2px 5px #ffffff;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -border-radius: 3px;
+  height: 20px;
+  width: 20px;
+  border: 1px solid #af7e82;
+  background: #fff;
+  box-shadow: inset 2px 2px 5px #d9d9d9, inset -2px -2px 5px #ffffff;
 }
-input[type="checkbox"]:checked, input[type=radio]:checked {
-  background: #AF7E82;
+input[type="checkbox"]:checked,
+input[type="radio"]:checked {
+  background: #af7e82;
   box-shadow: none;
-  box-shadow: inset 2px 2px 5px #a38c8e,
-  inset -2px -2px 5px #a48285;
+  box-shadow: inset 2px 2px 5px #a38c8e, inset -2px -2px 5px #a48285;
 }
 
 input[type="checkbox"]:checked {
   border-radius: 5px;
 }
 
-input[type=radio] {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    -ms-appearance: none;
-    border-radius:  50%;
-    height: 15px;
-    width: 15px;
-    border: 1px solid #AF7E82;
-    background: #fff;
-    box-shadow: inset 2px 2px 5px #d9d9d9,
-                inset -2px -2px 5px #ffffff;
+input[type="radio"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  border-radius: 50%;
+  height: 15px;
+  width: 15px;
+  border: 1px solid #af7e82;
+  background: #fff;
+  box-shadow: inset 2px 2px 5px #d9d9d9, inset -2px -2px 5px #ffffff;
 }
 
-form label, legend {
+form label,
+legend {
   font-weight: 600;
   font-size: 1.3rem;
   margin-bottom: 12px;
@@ -712,10 +752,11 @@ form label, legend {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap:2px;
+  gap: 2px;
 }
 
-.choix-art label, .choix-etat label {
+.choix-art label,
+.choix-etat label {
   margin: 0;
   font-weight: normal;
 }
@@ -725,12 +766,13 @@ form label, legend {
   width: 100%;
 }
 
-.bon, .mauvais {
+.bon,
+.mauvais {
   flex-basis: 50%;
   text-align: center;
 }
 textarea::placeholder {
-  color: #AF7E8250;
+  color: #af7e8250;
 }
 .art {
   width: 100%;
@@ -786,7 +828,6 @@ textarea::placeholder {
   font-weight: bold;
 }
 
-
 .agenda-header {
   display: flex;
   justify-content: space-between;
@@ -806,12 +847,10 @@ textarea::placeholder {
   border-radius: 5px;
 }
 
-
 .agenda-body {
   display: flex;
   width: 100%;
 }
-
 
 .slots {
   flex: 1;
@@ -899,8 +938,6 @@ textarea::placeholder {
   gap: 8px;
 }
 
-
-
 /********* CSS du profil  *******/
 
 .compte {
@@ -911,11 +948,12 @@ textarea::placeholder {
 
 .onglet {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   width: 100%;
 }
 
-.onglet a {
+.onglet a,
+.delete {
   width: 70%;
   margin: auto;
   background-color: #cdaaaa;
@@ -924,17 +962,34 @@ textarea::placeholder {
   margin-top: 26px;
   color: #000;
   font-weight: 500;
-  padding: 10px;
+  padding: 10px 2%;
   font-family: "Raleway";
+  border: none;
+  font-size: clamp(0.8rem, 3vw, 1.2rem);
 }
 
-.onglet a:hover {
+.prrdv:hover,
+.delete a:hover {
   background-color: #976767;
   color: #cdaaaa;
+  font-weight: 700;
 }
 
-.onglet button {
-  width: 33%;
+.delete {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  padding: 0;
+  height: auto;
+  width: 60%;
+}
+
+.delete a {
+  width: 100%;
+  height: 100%;
+  white-space: nowrap;
+  font-size: 0.7rem;
+  margin: 0;
 }
 
 .pf-struct {
@@ -945,16 +1000,14 @@ textarea::placeholder {
 }
 
 .pf-struct input {
-  width: 92%;
+  text-align: center;
+  width: 90%;
+  font-size: 1.1rem;
   margin: auto;
   height: 30px;
   border-radius: 8px;
-  background: #fff;
+  background: #e9e3e8;
   padding: 8px 15px;
-}
-
-#btnSave {
-  display: none;
 }
 
 /********* CSS du footer  *******/
@@ -1047,4 +1100,38 @@ footer {
   text-align: center;
   margin-top: 8px;
   font-size: 0.6rem;
+}
+
+/* Responsive */
+
+/* pour l'ordinateur */
+@media screen and (min-width: 900px) {
+  /*description*/
+  .description {
+    display: flex;
+  }
+
+
+
+  .document img {
+    width: 40%;
+    max-width: 220px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    transition: 0.3s ease-in-out;
+  }
+  .document img:hover {
+    transform: scale(1.5);
+  }
+
+  .document img:first-child {
+    margin-top: 60px;
+  }
+
+  .document img:last-child {
+    height: 80%;
+  }
+
+  .document img:hover {
+    transform: scale(1.1);
+  }
 }

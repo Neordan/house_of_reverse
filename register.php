@@ -2,10 +2,6 @@
 require "./core/header.php";
 require "./function.php";
 
-
-//session de la session pour la création de compte
-$_SESSION['message'] = "Ton compte a bien été créé !";
-
 require "./core/config.php";
 
 $allergies_options = getAllergiesOptions();
@@ -33,25 +29,13 @@ if (!empty($_POST)) {
 
         $ongles = $_POST["ongles_ronges"];
 
-        $age = $_POST["age"];
-        // Vérifie que l'âge entré est valide et supérieur à 18 ans
-        $aujourdhui = new DateTime();
-        $date_naissance = new DateTime($_POST["age"]);
-        $diff = $aujourdhui->diff($date_naissance);
-        $age_calcul = $diff->y;
-        if ($age_calcul < 18) {
-            echo "<p>Vous devez avoir plus de 18 ans pour vous inscrire.</p>";
-            exit();
-        }
-        $age = $age_calcul;
-
         // Hashage du mot de passe
         $hash_mdp = $_POST["hash_mdp1"];
         $options = [
             'cost' => 12,
         ];
         $hash_mdp = password_hash($_POST["hash_mdp1"], PASSWORD_BCRYPT, $options);
-        var_dump($ongles);
+
         // Requête SQL pour insérer les informations dans la table utilisateur
         $sql = "INSERT INTO utilisateur (email, nom, prenom, age, allergies, ongles_ronges, role, hash_mdp) VALUES (:email, :nom, :prenom, :age, :allergies, :ongles_ronges, :role, :hash_mdp)";
 
@@ -70,10 +54,19 @@ if (!empty($_POST)) {
 
         try {
             if ($register->execute()) {
-                // Affiche un message de succès et redirige l'utilisateur vers la page d'accueil
-                echo "Compte créé";
-                header('Location: login.php?message=compte_cree');
+                $lastInsertId = $pdo->lastInsertId();
+                $_SESSION['utilisateur']['id'] = $lastInsertId;
+                $_SESSION['utilisateur']['nom'] = $nom;
+                $_SESSION['utilisateur']['prenom'] = $prenom;
+                $_SESSION['utilisateur']['age'] = $age;
+                $_SESSION['utilisateur']['allergies'] = $allergies;
+                $_SESSION['utilisateur']['ongles_ronges'] = $ongles;
+                $_SESSION['utilisateur']['email'] = $email;
+                $_SESSION['utilisateur']['role'] = $role;
+                header('Location: ./profil.php');
                 exit();
+            } else {
+                echo "Erreur lors de l'exécution de la requête.";
             }
         } catch (Exception $e) {
             echo "Message" . $e->getMessage();
@@ -88,22 +81,22 @@ if (!empty($_POST)) {
 <form class="register" method="post">
     <div class="info">
         <label for="email">Quel est ton e-mail ?</label>
-        <input type="text" name="email" id="email" required>
+        <input type="text" name="email" id="email" autocomplete="off" required>
     </div>
     <div class="info">
         <label for="nom">Quel est ton nom ?</label>
-        <input type="text" name="nom" id="nom" required>
+        <input type="text" name="nom" id="nom" autocomplete="off" required>
     </div>
     <div class="info">
         <label for="prenom">Quel est ton prénom ?</label>
-        <input type="text" name="prenom" id="prenom" required>
+        <input type="text" name="prenom" id="prenom" autocomplete="off" required>
     </div>
     <div class="info">
         <label for="age">Quel est ta date de naissance ?</label>
-        <input type="date" name="age" id="age" required>
+        <input type="date" name="age" id="age" autocomplete="off" required>
     </div>
     <div class="info">
-        <label class="label-allergie" for="allergies">As tu des allergies ?</label><br>
+        <label class="label-allergie" for="allergies" autocomplete="off">As tu des allergies ?</label><br>
         <div class="allergies">
             <?php $allergies_options = getAllergiesOptions();
             foreach ($allergies_options as $key => $value) : ?>
@@ -131,11 +124,11 @@ if (!empty($_POST)) {
 
     <div class="info">
         <label for="mdp1">Mot de passe :</label>
-        <input type="password" name="hash_mdp1" id="mpd1" required>
+        <input type="password" name="hash_mdp1" id="mpd1" autocomplete="off" required>
     </div>
     <div class="info">
         <label for="mdp2">Vérifier mot de passe :</label>
-        <input type="password" name="hash_mdp2" id="mpd2" required>
+        <input type="password" name="hash_mdp2" id="mpd2" autocomplete="off" required>
     </div>
     <input type="hidden" name="role" value="<?= $role ?>">
     <button class="formulaire">Valider</button>

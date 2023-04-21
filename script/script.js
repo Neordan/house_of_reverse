@@ -1,3 +1,31 @@
+
+const zoomImages = document.querySelectorAll('.img');
+
+// boucle sur chaque image sélectionnée
+zoomImages.forEach(image => {
+  image.addEventListener('click', () => {
+    // Si l'image est agrandie, on retire le zoom en supprimant la classe "zoomer"
+    if (image.classList.contains('zoomer')) {
+      image.classList.remove('zoomer');
+    } else {
+      // Sinon, on ajoute la classe "zoomer" pour agrandir l'image
+      image.classList.add('zoomer');
+    }
+  });
+});
+
+// On ajoute un écouteur d'événement "click" au document et event : objet représnetant une action sur la page web
+document.addEventListener('click', event => {
+  // Si l'élément cliqué n'a pas la classe "zoomer"
+  if (!event.target.classList.contains('zoomer')) {
+    // boucle sur chaque image sélectionnée qui ont la classe
+    zoomImages.forEach(image => {
+      // On supprime la classe "zoomed" de chaque image
+      image.classList.remove('zoomer');
+    });
+  }
+});
+
 // Menu hamburger
 
 const menuToggle =  document.querySelector('.menu-toggle');
@@ -73,6 +101,54 @@ btnModifier.addEventListener('click', function() {
   }
   document.getElementById("btnSave").removeAttribute("disabled");
 });
+
+//pour l'affichage des description sous les image des prestations en fonction du bouton appuyé.
+
+// Fonction pour initialiser les gestionnaires d'événements pour les icônes plus et moins
+function initToggleDescription() {
+  // Sélectionner tous les éléments .fa-plus, .fa-minus et .descriptionpresta
+  const plusIcons = document.querySelectorAll('.fa-plus');
+  const minusIcons = document.querySelectorAll('.fa-minus');
+  const descriptions = document.querySelectorAll('.descriptionpresta');
+
+  // Attacher les gestionnaires d'événements aux icônes plus
+  plusIcons.forEach((plus, index) => {
+      plus.addEventListener('click', () => {
+          // Lorsque l'icône plus est cliquée, étendre la description correspondante
+          descriptions[index].style.setProperty('-webkit-line-clamp', '150');
+          // Cacher l'icône plus
+          plus.style.display = 'none';
+          // Afficher l'icône moins
+          minusIcons[index].style.display = 'flex';
+      });
+  });
+
+  // Attacher les gestionnaires d'événements aux icônes moins
+  minusIcons.forEach((minus, index) => {
+      minus.addEventListener('click', () => {
+          // Lorsque l'icône moins est cliquée, réduire la description correspondante
+          descriptions[index].style.removeProperty('-webkit-line-clamp');
+          // Afficher l'icône plus
+          plusIcons[index].style.display = 'flex';
+          // Cacher l'icône moins
+          minus.style.display = 'none';
+      });
+  });
+}
+
+// modal pour valider la suppression du compte
+document.addEventListener("DOMContentLoaded", function() {3
+  const deleteAccountButton = document.getElementById("deleteAccountButton");
+  
+  deleteAccountButton.addEventListener("click", function(event) {
+    const result = confirm("Êtes-vous sûr de vouloir supprimer votre compte?");
+    if (!result) {
+      event.preventDefault();
+    }
+  });
+});
+
+/* JavaScript */
 
 
 

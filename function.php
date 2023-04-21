@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /**
 
@@ -7,14 +7,16 @@ Génère le code HTML pour afficher une prestation avec un titre, une image et u
 @param string $photoUrl L'URL de l'image de la prestation.
 @param string $description La description de la prestation.
 @return string Le code HTML pour afficher la prestation.
-*/
-function generatePresta($title, $photoUrl, $description) {
+ */
+function generatePresta($title, $photoUrl, $description)
+{
     $presta = '
-        <h3 class="title">' . $title . '</h3>
-        <div class="presta">
+    <div class="presta">
+            <h3 class="title">' . $title . '</h3>
             <img src="' . $photoUrl . '" alt="' . $title . '">
-            <p>' . $description . '</p>
+            <p class="descriptionpresta">' . $description . '</p>
             <i class="fa-solid fa-plus"></i>
+            <i class="fa-solid fa-minus"></i>
         </div>
     ';
 
@@ -22,7 +24,8 @@ function generatePresta($title, $photoUrl, $description) {
 };
 
 //pour afficher les allergies dans les checkbox
-function getAllergiesOptions() {
+function getAllergiesOptions()
+{
     return [
         'Aucune' => 'Aucune',
         'Produit chimique' => 'Produit chimique',
@@ -30,4 +33,9 @@ function getAllergiesOptions() {
         'Latex' => 'Latex',
         'Autre' => 'Autre',
     ];
+}
+
+// pour supprimer la session
+function unsetUserSession() {
+    unset($_SESSION['utilisateur']);
 }

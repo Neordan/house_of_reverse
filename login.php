@@ -1,14 +1,6 @@
 <?php
 require_once "./core/header.php";
 
-//message d'alerte de création de compte
-if (isset($_SESSION['message'])) {
-    echo "<div class='creation-container'><p class='creation'>" . $_SESSION['message'] . "</p></div>";
-    //suppression de la session
-    // unset($_SESSION['message']);
-}
-
-
 // Vérifier si les champs email et mot de passe sont définis et non vides
 if (isset($_POST["email"]) && $_POST["email"] != "" &&
     isset($_POST["hash_mdp"]) && $_POST["hash_mdp"] != "") {
@@ -29,7 +21,7 @@ if (isset($_POST["email"]) && $_POST["email"] != "" &&
 
         // Exécuter la requête et obtenir les résultats
         if ($query->execute()) {
-            $results = $query->fetch();
+            $results = $query->fetch(PDO::FETCH_ASSOC);
         }
 
         // Vérifier si l'utilisateur existe dans la base de données
@@ -47,7 +39,7 @@ if (isset($_POST["email"]) && $_POST["email"] != "" &&
                 $_SESSION['utilisateur']['ongles_ronges'] = $results['ongles_ronges'];
                 $_SESSION['utilisateur']['email'] = $results['email'];
                 $_SESSION['utilisateur']['role'] = $results['role'];
-                
+
                 // Rediriger l'utilisateur vers la page appropriée en fonction de son rôle (admin ou utilisateur)
                 if ($results['role'] == "admin") {
                     header('Location: fichierclient.php');
@@ -65,7 +57,7 @@ if (isset($_POST["email"]) && $_POST["email"] != "" &&
 }
 
 ?>
-    <h2>Connexion</h2>
+<h2>Connexion</h2>
 <div class="formulairelog">
     <form method="post">
         <input type="text" name="email" placeholder="Email">

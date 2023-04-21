@@ -31,15 +31,17 @@ if (!empty($_POST)) {
         $query->bindParam(":ongle_actuel", $ongle_actuel, PDO::PARAM_STR);
         $query->bindParam(":prestation", $prestation, PDO::PARAM_STR);
         $query->bindParam(":message", $message, PDO::PARAM_STR);
+        var_dump($query);
             if ($query->execute()) {
+                $_SESSION['utilisateur']['id'] = $id;
                     // Rediriger vers la page d'accueil
-                    header('Location: ./index.php');
+                    header('Location: ./profil.php');
                 } else {
                     echo "Erreur 1.";
                 }
                 
             } else {
-                echo "Une erreur 2";
+                echo "Vous avez déjà pris rdv";
             }
         }
     
@@ -114,11 +116,16 @@ $prestations = $matches[1];
                                 <?php
                                 // Recherche du rendez-vous pour le créneau actuel
                                 $sql = "SELECT * FROM rdv WHERE jour_heure=:rdv";
-                                $query = $pdo->prepare($sql);
-                                $rdv_time = $jour->format("Y-m-d H:i");
-                                $query->bindParam(":rdv", $rdv_time, PDO::PARAM_STR);
-                                $query->execute();
-                                $rdv = $query->fetch();
+$query = $pdo->prepare($sql);
+$rdv_time = $jour->format("Y-m-d H:i");
+$query->bindParam(":rdv", $rdv_time, PDO::PARAM_STR);
+$query->execute();
+$rdv = $query->fetch();
+
+// Remplir la variable de session 'rdv' avec les informations de rendez-vous
+if ($rdv) {
+    $_SESSION['rdv'] = $rdv;
+}
                                 ?>
                                 <?php if ($rdv == null) : ?>
                                     <input type="radio" name="date-resa" value="<?= $jour->format("Y-m-d H:i"); ?>" id="slot-<?= $jour->format("Y-m-d-H-i"); ?>" class="slot-radio">

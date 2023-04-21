@@ -28,10 +28,9 @@
 
 <script>
 
-
-
-
-  
+document.addEventListener('DOMContentLoaded', function() {
+    initToggleDescription();
+});
 </script>
 
 </html>

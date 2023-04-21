@@ -3,14 +3,13 @@ require "./core/header.php";
 
 ?>
 
+<h2>À propos de moi</h2>
 <section class="description">
     <img src="./assets/img/img-desc.png" alt="Une image de la PO en train de travailler">
     <p>Je suis ravie de vous présenter mes services en matière de soins des ongles. Exercant ce métier
         depuis 2 ans, je suis passionnée par le soin et la beauté des ongles. Mon objectif est de vous offrir
         des soins de qualité pour que vous puissiez arborer des ongles sains et élégants.
-    </p>
-
-    <p>
+    <br><br>
         Je propose une large gamme de services pour les mains et les pieds, allant du nettoyage des ongles à la
         pose
         de vernis, en passant par la manucure et la pédicure. Je suis aussi spécialisée dans les techniques
@@ -21,8 +20,8 @@ require "./core/header.php";
 <section class="certificate">
     <h3>mes certifications</h3>
     <div class="document">
-        <img src="./assets/img/Certificats/MacroManucure-1.png" alt="Certificat macromanucure">
-        <img src="./assets/img/Certificats/Certificat TOP NAIL MASTER NOM-1.png" alt="Certificat top nail master">
+        <img src="./assets/img/Certificats/MacroManucure-1.png" class="img" alt="Certificat macromanucure">
+        <img src="./assets/img/Certificats/Certificat TOP NAIL MASTER NOM-1.png" class="img" alt="Certificat top nail master">
     </div>
 </section>
 <div class="client">
