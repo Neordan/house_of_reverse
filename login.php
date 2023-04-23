@@ -42,7 +42,7 @@ if (isset($_POST["email"]) && $_POST["email"] != "" &&
 
                 // Rediriger l'utilisateur vers la page appropriée en fonction de son rôle (admin ou utilisateur)
                 if ($results['role'] == "admin") {
-                    header('Location: fichierclient.php');
+                    header('Location: fichierClient.php');
                 } else {
                     header('Location: profil.php');
                 }
@@ -60,9 +60,9 @@ if (isset($_POST["email"]) && $_POST["email"] != "" &&
 <h2>Connexion</h2>
 <div class="formulairelog">
     <form method="post">
-        <input type="text" name="email" placeholder="Email">
-        <input type="password" name="hash_mdp" placeholder="Mot de passe">
-        <a class="mdp" href="">Mot de passe oublié ?</a>
+        <input type="text" name="email" placeholder="Email" autocomplete="off">
+        <input type="password" name="hash_mdp" placeholder="Mot de passe" autocomplete="off">
+        <a class="mdp" href="#">Mot de passe oublié ?</a>
         <a href="./register.php">S'inscrire</a>
         <button><i class="fa-solid fa-unlock"></i></button>
     </form>

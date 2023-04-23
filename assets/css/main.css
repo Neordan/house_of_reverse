@@ -69,9 +69,17 @@ h2 {
   white-space: nowrap;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  margin: 15px auto 15px auto;
+}
 /********  CSS de la page de présentation *******/
 
-.before {
+/* .before {
   position: fixed;
   top: 0;
   left: 0;
@@ -126,7 +134,7 @@ h1 {
   margin-bottom: 30px;
   font-size: 3.5rem;
   cursor: pointer;
-}
+} */
 
 /*************** CSS du header *****************/
 
@@ -135,141 +143,30 @@ header {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  width: 90%;
+  width: 80%;
   margin: auto;
   padding: 0 60px;
 }
 
-header i {
-  font-size: 2rem;
-  color: #ceaaaa;
-}
-
 .menu {
+  position: fixed;
+  z-index: 5;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 93%;
-  margin: 25px auto 0 auto;
-}
-
-/*************** CSS de la page login *****************/
-.login {
-  position: fixed;
-  top: 0;
-  left: 0;
-  margin: 0;
-  z-index: 999;
-  height: 100vh;
-  width: 100%;
-  background-color: #ddc4c4;
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.logout {
-  color: #cdaaaa;
-  font-family: "raleway";
-  font-size: 1.2rem;
-}
-
-.formulairelog {
-  width: 60%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: auto;
-  gap: 20px;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 80%;
-  margin: 15px auto 15px auto;
-}
-
-.formulairelog p {
-  font-size: 2.2rem;
-  color: rgb(182, 128, 127);
-}
-
-.formulairelog input {
   width: 90%;
-  height: 30px;
-  border: 2px solid #af7e82;
-  border-radius: 10px;
-  padding: 5px 15px;
-  margin: 6px;
-  border: none;
-}
-
-.formulairelog input:focus {
-  outline: none;
-}
-
-.formulairelog input::placeholder {
-  font-family: "Raleway";
-  font-weight: 700;
-  color: #af7e82b6;
-}
-
-.formulairelog input:nth-child(2) {
-  margin-bottom: 0;
-}
-
-.formulairelog button {
-  border: none;
-  border: 2px solid #af7e82;
-  border-radius: 50%;
-  padding: 15px;
-  border-radius: 50px;
-  background: #fff;
-  margin-top: 30px;
-  transition: all 0.3s;
-  cursor: pointer;
-
-  /* text-align: center; */
-}
-
-.formulairelog button i {
-  font-size: 1.3rem;
-  color: #b88988;
-}
-
-.formulairelog a {
-  color: #b6807f;
-  font-size: 0.7rem;
-  margin-top: 8px;
-  width: 100%;
-  display: flex;
-  justify-content: end;
-}
-
-.mdp {
-  color: #bab6b9;
-}
-
-.creation-container {
-  margin: auto;
-  width: 80%;
-  padding: 10px;
-  border: 1px solid #976a76;
-  margin-top: 10px;
-  border-radius: 5px;
-}
-
-.creation {
-  text-align: center;
+  margin: 0;
+  padding: 10px 25px;
+  background-color: #996766e0;
+  border-radius: 0 0 8px 8px;
 }
 
 /********Menu Hamburger**************/
 .menu-toggle {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
   padding: 5px;
   cursor: pointer;
 }
@@ -279,14 +176,15 @@ form {
   width: 35px;
   height: 5px;
   border-radius: 15px;
-  border: 1px solid #8a6f5f;
-  margin: 5px Auto;
-  background-color: #ceaaaa;
+  margin: auto;
+  background: #CDAAAA;
+  box-shadow:  6px 6px 12px #825857,
+  -6px -6px 12px #b07675;
 }
 
 /******** CSS de la navigation *********/
 
-nav {
+.navigation {
   position: fixed;
   top: 0;
   right: 0px;
@@ -294,28 +192,27 @@ nav {
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  gap: 13%;
+  gap: 18%;
   height: 100%;
   width: 100%;
   background-color: #ddc4c4;
   z-index: 998;
 }
 
-nav ul {
+.navigation ul {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   text-align: center;
-  /* height: 50vh; */
   margin: 80px auto;
   gap: 40px;
 }
 
-nav ul li {
+.navigation ul li {
   list-style: none;
 }
 
-nav ul li a {
+.navigation ul li a {
   font-family: "Cinzel", serif;
   color: #fcf7f4;
   font-weight: 700;
@@ -343,24 +240,30 @@ nav ul li a {
   cursor: pointer;
 }
 
+.navordi {
+  display: none;
+}
 /******** CSS du block logo *********/
 
 .logo {
   display: flex;
   flex-direction: column;
+  margin-top: 80px;
+  text-align: center;
 }
 
-.logo h1 {
+h1 {
   font-family: "Cinzel", serif;
   color: #ceaaaa;
   letter-spacing: 3px;
   font-weight: 500;
   text-transform: uppercase;
   margin: 30px auto 0 auto;
+  font-size: 2rem;
 }
 
 .logo h1::first-letter {
-  font-size: 2.5rem;
+  font-size: 2.6rem;
 }
 
 .logo img {
@@ -413,7 +316,7 @@ nav ul li a {
   display: flex;
   content: "";
   height: 3px;
-  width: 78%;
+  width: 70%;
   margin: 20px auto 10px auto;
   background-color: #fcf7f4;
 }
@@ -536,6 +439,128 @@ nav ul li a {
   display: none;
 }
 
+/*************** CSS de la page login *****************/
+.login {
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 0;
+  z-index: 999;
+  height: 100vh;
+  width: 100%;
+  background-color: #ddc4c4;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.logout {
+  font-size: 2rem;
+  padding: 8px;
+  border-radius: 13px;
+  box-shadow:  4px 4px 10px #8e605f,
+  -4px -4px 10px #a46e6d;
+  color: #cdaaaa;
+  font-family: "raleway";
+  font-size: 1.2rem;
+}
+
+.logout:hover, .logout:active {
+  box-shadow: none;
+  color: #fff;
+}
+
+.formulairelog {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  gap: 20px;
+}
+
+
+.formulairelog p {
+  font-size: 2.2rem;
+  color: rgb(182, 128, 127);
+}
+
+.formulairelog input {
+  width: 90%;
+  height: 30px;
+  border: 2px solid #af7e82;
+  border-radius: 10px;
+  padding: 5px 15px;
+  margin: 6px;
+  border: none;
+}
+
+.formulairelog input:focus {
+  outline: none;
+}
+
+.formulairelog input::placeholder {
+  font-family: "Raleway";
+  font-weight: 700;
+  color: #af7e82b6;
+}
+
+.formulairelog input:nth-child(2) {
+  margin-bottom: 0;
+}
+
+.formulairelog button {
+  border: none;
+  border: 2px solid #af7e82;
+  border-radius: 50%;
+  padding: 15px;
+  border-radius: 50px;
+  margin-top: 30px;
+  transition: all 0.3s;
+  cursor: pointer;
+  background: #E9E3E8;
+  box-shadow:  5px 5px 14px #cbc5ca,
+             -5px -5px 14px #ffffff;
+}
+
+.formulairelog button:hover, .formulairelog button:active {
+  box-shadow: inset 5px 5px 14px #cbc5ca,
+            inset -5px -5px 14px #ffffff;
+}
+
+.formulairelog button i {
+  font-size: 1.3rem;
+  color: #b88988;
+}
+
+.formulairelog a {
+  color: #b6807f;
+  font-size: 0.7rem;
+  margin-top: 8px;
+  width: 100%;
+  display: flex;
+  justify-content: end;
+}
+
+.mdp {
+  color: #bab6b9;
+}
+
+.creation-container {
+  margin: auto;
+  width: 80%;
+  padding: 10px;
+  border: 1px solid #976a76;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+.creation {
+  text-align: center;
+}
+
 /* ******** CSS de la page galerie  *******/
 .carousel {
   height: 390px;
@@ -593,33 +618,35 @@ nav ul li a {
   z-index: 1;
 }
 
-
-
 .client {
-  width: 70%;
+  width: 85%;
   position: relative;
+  margin-bottom: 8px;
 }
 
 .avis {
+  width:100%;
   display: flex;
   overflow: hidden;
   position: relative;
-  height: 250px;
-  margin: 20px auto 10px auto;
+  height: 300px;
+  margin: 0 auto 10px auto;
   object-fit: cover;
+  border-radius: 6px;
 }
 
 .avis img {
   display: none;
-  max-width: 100%;
+  object-fit: contain;
+  width: 100%;
 }
 
 .avis .prev,
 .avis .next {
   position: absolute;
   top: 50%;
-  background-color: #99676685;
-  border: 1px solid #996766;
+  background-color: #99676665;
+  border: 1px solid #996766d4;
   color: white;
   font-size: 2rem;
   padding: 5px;
@@ -630,16 +657,16 @@ nav ul li a {
 
 .prev:hover,
 .next:hover {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: #996766;
 }
 
 .prev {
-  left: 5px;
+  left: 3px;
   transform: translateY(-50%);
 }
 
 .next {
-  right: 5px;
+  right: 3px;
   transform: translateY(-50%);
 }
 
@@ -676,12 +703,16 @@ hr {
   color: #af7e82;
 }
 
+.register {
+  width: 70%;
+}
+
 .info {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 10px 0;
+  margin: 15px 0;
 }
 
 input[type="text"],
@@ -691,16 +722,17 @@ select,
 input[type="password"],
 input[type="date"] {
   width: 100%;
-  padding: 5px;
+  padding: 8px;
   resize: none;
   border: 2px solid #af7e82;
+  border-radius: 3px;
 }
 
 input:focus,
 textarea:focus,
 select:focus {
   outline: none;
-  border: 2px solid #c7787e;
+  border: 3px solid #c7787e;
 }
 
 input[type="file"] {
@@ -744,8 +776,14 @@ input[type="radio"] {
 form label,
 legend {
   font-weight: 600;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   margin-bottom: 12px;
+  font-family: "Raleway";
+  color: #000000ae;
+}
+
+form span {
+  color:#723333
 }
 
 .choix-art {
@@ -782,42 +820,56 @@ textarea::placeholder {
 }
 
 .formulaire {
-  height: 40px;
-  font-weight: 600;
-  font-size: 1rem;
-  letter-spacing: 2px;
-  /* text-transform: uppercase; */
+  display: flex;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  font-size: 1.3rem;
   display: flex;
   align-items: center;
-  background: #5e3535;
+  background: #E8E2E7;
   border: none;
-  border: 2px solid #654242;
-  color: #fcf7f4;
+  border: 2px solid #B88988;
+  color: #B88988;
   margin: 28px 0 5px 0;
   cursor: pointer;
-  border-radius: 6px;
+  border-radius: 50%;
   padding: 0 10px;
+  box-shadow:  5px 5px 14px #cbc5ca,
+             -5px -5px 14px #ffffff;
+}
+
+.formulaire:hover, .formulaire:active {
+  box-shadow: inset 5px 5px 14px #cbc5ca,
+            inset -5px -5px 14px #ffffff;
 }
 
 /********* CSS du calendrier  *******/
 
 /* Container général pour l'agenda */
+
+.contact {
+  width: 100%;
+}
 .agenda {
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
-  width: 100%;
+  width: 90%;
   max-width: 900px;
   margin: 0 auto;
+  text-transform: capitalize;
   background-color: #f5f5f5;
   border-radius: 5px;
   padding: 20px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .agenda-nav {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
   margin-bottom: 20px;
 }
@@ -825,14 +877,18 @@ textarea::placeholder {
 .agenda-nav a {
   text-decoration: none;
   color: #333;
+
+}
+
+.current {
   font-weight: bold;
+  font-size: 1.1rem;
 }
 
 .agenda-header {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  font-weight: bold;
   margin-bottom: 10px;
 }
 
@@ -840,11 +896,13 @@ textarea::placeholder {
   flex: 1;
   display: flex;
   justify-content: center;
+  align-items: center;
   text-align: center;
-  color: #333;
+  color: #a16161;
   background-color: #f0f0f0;
   padding: 5px 0;
   border-radius: 5px;
+  font-size: 0.8rem;
 }
 
 .agenda-body {
@@ -857,8 +915,10 @@ textarea::placeholder {
   width: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   margin-right: 10px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .slot {
@@ -876,7 +936,7 @@ textarea::placeholder {
 
 .agenda button {
   border: none;
-  background-color: #007bff;
+  background-color: #A47878;
   color: #fff;
   padding: 5px 10px;
   border-radius: 5px;
@@ -884,7 +944,7 @@ textarea::placeholder {
 }
 
 .agenda button:hover {
-  background-color: #0056b3;
+  background-color: #A47878;
 }
 
 .agenda-body button.reserved {
@@ -894,9 +954,11 @@ textarea::placeholder {
 }
 
 .slot label {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   height: 55%;
   border-radius: 5px;
+  line-height: 21px;
 }
 
 .slot form,
@@ -907,9 +969,9 @@ textarea::placeholder {
 
 .slot button {
   cursor: pointer;
-  color: #b129c3;
+  color: #421f47;
   background-color: #fff;
-  border: #b129c3 1px solid;
+  border: #A47878 1px solid;
 }
 
 .slot-radio {
@@ -918,8 +980,8 @@ textarea::placeholder {
 
 .slot-radio + label {
   display: inline-block;
-  background-color: #eee;
-  border: 1px solid #ccc;
+  background-color: #a478784a;
+  border: 1px solid #a478788a;
   padding: 10px 20px;
   cursor: pointer;
   width: 100%;
@@ -927,7 +989,7 @@ textarea::placeholder {
 }
 
 .slot-radio:checked + label {
-  background-color: #4caf50;
+  background-color: #a47878e3;
   color: #fff;
 }
 
@@ -936,6 +998,46 @@ textarea::placeholder {
 .allergie {
   display: flex;
   gap: 8px;
+}
+
+
+
+/********* CSS du fichier client  *******/
+
+table {
+  width: 80%;
+}
+
+.rechercheUt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 45px;
+  width: 60%;
+}
+
+.rechercheUt form{
+  display: flex;
+  align-items: center;
+  margin:  0;
+}
+
+.rechercheUt input{
+  height: 45px;
+  border: none;
+  border: 2px solid #af7e82;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 0;
+}
+
+.rechercheUt button {
+  height: 45px;
+  color: #af7e82;
+  border: 2px solid #af7e82;
+  border-radius: 5px;
+  background-color: #fff;
+  cursor: pointer;
 }
 
 /********* CSS du profil  *******/
@@ -969,7 +1071,7 @@ textarea::placeholder {
 }
 
 .prrdv:hover,
-.delete a:hover {
+.delete:hover {
   background-color: #976767;
   color: #cdaaaa;
   font-weight: 700;
@@ -1010,6 +1112,29 @@ textarea::placeholder {
   padding: 8px 15px;
 }
 
+.rdv-details {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.rdv-details p {
+  width: 100%;
+  text-align: center;
+  font-weight: 600;
+}
+
+#deleteRdvButton {
+  text-align: center;
+  width: 60%;
+  background-color: #cdaaaa;
+  color: #000;
+  padding: 8px;
+  font-family: "Raleway";
+  border-radius: 8px;
+}
 /********* CSS du footer  *******/
 
 footer {
@@ -1106,32 +1231,183 @@ footer {
 
 /* pour l'ordinateur */
 @media screen and (min-width: 900px) {
+  .menu-toggle {
+    display: none;
+  }
+ 
+  .logout {
+    font-size: 1.5rem;
+  }
+
+  .navordi {
+    display: flex;
+    font-family: "Raleway", sans-serif;
+  }
+
+  .navordi-not-connected {
+    width: 50%;
+    max-width: 455px;
+  }
+  
+  .navordi-connected {
+    width: 65%;
+    min-width: 642px;
+  }
+
+  .navordi ul {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 6px;
+  }
+
+  .navordi ul li {
+    list-style: none;
+  }
+  
+  .navordi ul li a {
+    color: #cdaaaa;
+    text-decoration: none;
+    font-size: 1.4rem;
+    border-radius: 13px;
+    padding: 8px;
+    box-shadow: 4px 4px 10px #8e605f, -4px -4px 10px #a46e6d;
+    transition: 0.2s step-start;
+  }
+  
+  .navordi ul li a:hover {
+    color: #fff;
+    box-shadow: none;
+  }
+
+  .logo {
+    margin-top: 100px;
+  }
+
+  .logo img {
+    width: 270px;
+    margin-top: -108px;
+  }
+
+  h1 {
+    font-size: 2.8rem;
+  }
+  .logo h1::first-letter {
+    font-size: 3.4rem;
+  }
+
   /*description*/
   .description {
     display: flex;
+    align-items: center;
+    gap: 2%;
+    width: 95%;
+    margin: 25px 0;
   }
 
+  .description img {
+    width: 50%;
+    height: auto;
+    border-radius: 8px 0 0 8px;
+  }
+  .description p {
+    width: 50%;
+  }
 
+  .certificate {
+    width: 95%;
+    margin-bottom: 18px;
+  }
 
-  .document img {
+  .document {
+    display: flex;
+    justify-content: center;
+    gap: 8%;
+    margin: 0;
+  }
+
+  .document .img {
     width: 40%;
-    max-width: 220px;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     transition: 0.3s ease-in-out;
+    margin: 0;
   }
-  .document img:hover {
-    transform: scale(1.5);
-  }
-
-  .document img:first-child {
-    margin-top: 60px;
-  }
-
-  .document img:last-child {
-    height: 80%;
-  }
-
   .document img:hover {
     transform: scale(1.1);
+  }
+
+  .prev {
+    left: 15px;
+  }
+  .next {
+    right: 15px;
+  }
+
+  /* responsive login  */
+
+  .formulairelog a {
+    font-size: 0.9rem;
+  }
+
+  /* responsive register  */
+
+  form label,
+legend {
+  font-weight: 600;
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+  font-family: "Raleway";
+  color: #000000ae;
+}
+
+  /* responsive calendar  */
+
+  .mobile-calendar {
+    display: none;
+  }
+
+  .agenda {
+    display: flex;
+  }
+  
+  /* responsive footer  */
+  footer {
+    padding: 28px 0;
+  }
+  .socials {
+    width: 80%;
+    margin: auto;
+    flex-direction: row;
+  }
+
+  .insta, .tiktok {
+    gap: 10px;
+  }
+
+  .insta p, .tiktok p {
+    font-size: 1.2rem;
+  }
+  
+  .insta i, .tiktok i {
+    font-size: 1.6rem;
+  }
+
+  .nav-down ul {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    margin: auto;
+    margin-top: 35px;
+  }
+
+  .nav-down ul li {
+    flex-basis: 30%;
+    white-space: nowrap;
+  }
+
+  .copy {
+    margin-top: 25px;
+    font-size: 0.7rem;
   }
 }

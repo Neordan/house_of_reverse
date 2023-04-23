@@ -1,23 +1,35 @@
 <?php
 require "./core/header.php";
 require "./core/config.php";
-require "./date_formater.php";
+
 
 // Traitement des dates de réservations
-require "./date_processing.php";
+require "./dateProcessing.php";
+
+$slots = ['10:00', '13:30', '16:30'];
 
 $debutSemainePrecedente = (new DateTime($calendrier["lundi"]->format("Y-m-d")))->modify("previous monday");
 $debutSemaineSuivante = (new DateTime($calendrier["dimanche"]->format("Y-m-d")))->modify("next monday");
 
+if (isset($_POST['date-resa']) && !is_array($_POST['date-resa'])) {
+    $_POST['date-resa'] = [substr($_POST['date-resa'], 0, 10), substr($_POST['date-resa'], 11)];
+}
+
 // Insertion d'une réservation
 if (!empty($_POST)) {
     // Vérification des champs obligatoires
-    if (isset($_POST["date-resa"]) && isset($_SESSION["utilisateur"]["id"]) && !empty($_POST['prestation'])) {
+    if (isset($_POST["date-resa"]) && isset($_SESSION["utilisateur"]["id"]) && !empty($_POST['prestation']) && !empty($_FILES['inspiration']['name'])) {
+        // Si la date et l'heure sont sélectionnées via le calendrier mobile, les utiliser
+        if (is_array($_POST["date-resa"]) && count($_POST["date-resa"]) > 1) {
+            $rdv = $_POST["date-resa"][0] . " " . $_POST["date-resa"][1];
+        } else {
+            echo "vous n'avez choisi qu'un seul champ";
+        }
         // Requête SQL
         $sql = "INSERT INTO rdv (id_utilisateur, jour_heure, inspiration, ongle_actuel, prestation, message) 
                 VALUES (:id, :rdv, :inspiration, :ongle_actuel, :prestation, :message)";
         $id = $_SESSION["utilisateur"]["id"];
-        $rdv = $_POST["date-resa"];
+        $rdv = $_POST["date-resa"][0] . " " . $_POST["date-resa"][1];
         $prestation = $_POST["prestation"];
         $inspiration = !empty($_FILES['inspiration']['name']) ? "assets/img/clients/" . $_FILES['inspiration']['name'] : null;
         $ongle_actuel = !empty($_FILES['ongle_actuel']['name']) ? "assets/img/clients/" . $_FILES['ongle_actuel']['name'] : null;
@@ -31,10 +43,11 @@ if (!empty($_POST)) {
         $query->bindParam(":ongle_actuel", $ongle_actuel, PDO::PARAM_STR);
         $query->bindParam(":prestation", $prestation, PDO::PARAM_STR);
         $query->bindParam(":message", $message, PDO::PARAM_STR);
-        var_dump($query);
+
             if ($query->execute()) {
                 $_SESSION['utilisateur']['id'] = $id;
                     // Rediriger vers la page d'accueil
+                    $_SESSION['rdv']['jour_heure'] = $rdv;
                     header('Location: ./profil.php');
                 } else {
                     echo "Erreur 1.";
@@ -66,6 +79,17 @@ $prestations = $matches[1];
 <h2>contact</h2>
 <form class="contact" method="post" enctype="multipart/form-data">
 <input type="hidden" name="id_utilisateur" value="<?= $_SESSION['utilisateur']['id'] ?>">
+<div class="mobile-calendar">
+    <label for="mobile-date">Choisir la date :</label>
+    <input type="date" name="date-resa[]" id="mobile-date">
+    <span id="date-error-message" style="display:none; color:red;">Les rendez-vous ne sont pas disponibles les dimanches et les lundis.</span>
+    <label for="mobile-time">Choisir l'heure :</label>
+    <select name="date-resa[]" id="mobile-time">
+        <?php foreach ($slots as $slot): ?>
+            <option value="<?= $slot; ?>"><?= $slot; ?></option>
+        <?php endforeach; ?>
+    </select>
+</div>
 <div class="agenda">
 
     <!-- Navigation de l'agenda -->
@@ -76,7 +100,7 @@ $prestations = $matches[1];
         <div class="current">
             <a href="?start-date=<?= (new DateTime())->format("Y-m-d"); ?>"><?= $dateFormater->format($startDate); ?></a>
         </div>
-        <div class="next">
+        <div class="next1">
             <a href="?start-date=<?= $debutSemaineSuivante->format("Y-m-d"); ?>"><?= $dateFormater->format($debutSemaineSuivante); ?> &gt;&gt;</a>
         </div>
     </div>
@@ -147,7 +171,7 @@ if ($rdv) {
 </div>
 <div class="info">
     <label for="inspiration">Tes inspirations :</label>
-    <input type="file" name="inspiration" id="inspiration">
+    <input type="file" name="inspiration" id="inspiration" require>
 </div>
 <div class="info">
     <label for="ongle_actuel">Tes ongles :</label>
@@ -166,4 +190,4 @@ if ($rdv) {
     <label for="message">Précisions:</label>
     <textarea name="message" id="message" rows="5" placeholder="Ton message .."></textarea>
 </div>
-<button type="submit">Envoyer</button>
+<button class="formulaire"><i class="fa-solid fa-check"></i></button>

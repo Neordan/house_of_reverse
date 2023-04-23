@@ -1,26 +1,28 @@
 <?php
 session_start();
+require_once "./core/config.php";
 
-require "./core/config.php";
+// Vérifier si l'ID de l'utilisateur est défini dans l'URL
+if (isset($_GET['supprdv']) && !empty($_GET['supprdv'])) {
+    $userId = intval($_GET['supprdv']);
 
-if (isset($_SESSION["utilisateur"]["id"])) {
-    $user_id = $_SESSION["utilisateur"]["id"];
-
-    // Suppression du rendez-vous de la base de données en fonction de l'ID utilisateur
-    $sql = "DELETE FROM rdv WHERE id_utilisateur = :user_id";
+    // Supprimer le rendez-vous pour l'utilisateur correspondant
+    $sql = "DELETE FROM rdv WHERE id_utilisateur = :utilisateur_id";
     $query = $pdo->prepare($sql);
-    $query->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+    $query->bindParam(':utilisateur_id', $userId, PDO::PARAM_INT);
+    $query->execute();
 
-    if ($query->execute()) {
-        // Suppression des informations du rendez-vous de la session
-        unset($_SESSION['jour_heure']);
+    // Mettre à jour la session en supprimant le rendez-vous
+    unset($_SESSION['rdv']);
 
-        // Redirection vers la page profil
-        header("Location: ./profil.php");
-    } else {
-        echo "Une erreur s'est produite lors de la suppression du rendez-vous.";
-    }
+    // Rediriger vers la page de profil avec un message de succès
+    $_SESSION['success'] = "Votre rendez-vous a été supprimé avec succès.";
+    header("Location: profil.php");
+    exit();
 } else {
-    // Redirection vers la page profil si aucun ID d'utilisateur n'est fourni
-    header("Location: ./profil.php");
+    // Rediriger vers la page de profil avec un message d'erreur si l'ID de l'utilisateur est manquant
+    $_SESSION['error'] = "Une erreur s'est produite. Impossible de supprimer le rendez-vous.";
+    header("Location: profil.php");
+    exit();
 }
+?>

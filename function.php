@@ -34,8 +34,3 @@ function getAllergiesOptions()
         'Autre' => 'Autre',
     ];
 }
-
-// pour supprimer la session
-function unsetUserSession() {
-    unset($_SESSION['utilisateur']);
-}

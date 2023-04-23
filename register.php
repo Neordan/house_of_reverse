@@ -24,7 +24,7 @@ if (!empty($_POST)) {
 
         if (isset($_POST['allergies'])) {
             //suite d'allergie séparé par une virgule
-            $allergies = implode(",", $_POST['allergies']);
+            $allergies = implode(", ", $_POST['allergies']);
         }
 
         $ongles = $_POST["ongles_ronges"];
@@ -80,23 +80,23 @@ if (!empty($_POST)) {
 <h2>Inscription</h2>
 <form class="register" method="post">
     <div class="info">
-        <label for="email">Quel est ton e-mail ?</label>
+        <label for="email">Quel est ton e-mail ? <span>*</span></label>
         <input type="text" name="email" id="email" autocomplete="off" required>
     </div>
     <div class="info">
-        <label for="nom">Quel est ton nom ?</label>
+        <label for="nom">Quel est ton nom ? <span>*</span></label>
         <input type="text" name="nom" id="nom" autocomplete="off" required>
     </div>
     <div class="info">
-        <label for="prenom">Quel est ton prénom ?</label>
+        <label for="prenom">Quel est ton prénom ? <span>*</span></label>
         <input type="text" name="prenom" id="prenom" autocomplete="off" required>
     </div>
     <div class="info">
-        <label for="age">Quel est ta date de naissance ?</label>
+        <label for="age">Quel est ta date de naissance ? <span>*</span></label>
         <input type="date" name="age" id="age" autocomplete="off" required>
     </div>
     <div class="info">
-        <label class="label-allergie" for="allergies" autocomplete="off">As tu des allergies ?</label><br>
+        <label class="label-allergie" for="allergies" autocomplete="off">As tu des allergies ? <span>*</span></label><br>
         <div class="allergies">
             <?php $allergies_options = getAllergiesOptions();
             foreach ($allergies_options as $key => $value) : ?>
@@ -109,7 +109,7 @@ if (!empty($_POST)) {
     </div>
 
     <div class="info">
-        <legend>Te ronges tu les ongles ? </legend>
+        <legend>Te ronges tu les ongles ? <span>*</span></legend>
         <div class="choix-etat">
             <div class="bon">
                 <input type="radio" name="ongles_ronges" id="oui" value="oui">
@@ -123,15 +123,15 @@ if (!empty($_POST)) {
     </div>
 
     <div class="info">
-        <label for="mdp1">Mot de passe :</label>
+        <label for="mdp1">Quel est ton mot de passe : <span>*</span></label>
         <input type="password" name="hash_mdp1" id="mpd1" autocomplete="off" required>
     </div>
     <div class="info">
-        <label for="mdp2">Vérifier mot de passe :</label>
+        <label for="mdp2">Vérifie le : <span>*</span></label>
         <input type="password" name="hash_mdp2" id="mpd2" autocomplete="off" required>
     </div>
     <input type="hidden" name="role" value="<?= $role ?>">
-    <button class="formulaire">Valider</button>
+    <button class="formulaire"><i class="fa-solid fa-check"></i></button>
 </form>
 
 <?php
