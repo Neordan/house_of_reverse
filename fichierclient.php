@@ -90,7 +90,7 @@ if ($resultInfos->execute()) {
 <?php else : ?>
     <table class="list-user">
         <tr>
-            <th>prenom</th>
+            <th>prénom</th>
             <th>nom</th>
             <th>age</th>
             <th>allergies</th>
@@ -124,29 +124,35 @@ if ($resultInfos->execute()) {
 <h3>Liste des rendez-vous</h3>
 <table class="user">
     <tr>
-        <th>prenom</th>
+        <th>prénom</th>
         <th>nom</th>
         <th>rendez-vous</th>
     </tr>
     <?php if (count($rdvs) > 0) {
-        foreach ($rdvs as $rdv) : ?>
+        foreach ($rdvs as $rdv) { ?>
             <tr>
                 <td><?= $rdv['prenom'] ?></td>
                 <td><?= $rdv['nom'] ?></td>
-                <td><?= $rdv['jour_heure'] ?></td>
+                <td>
+                <?php if (isset($rdv['jour_heure'])) {
+                    $rdv_date = new DateTime($rdv['jour_heure']);
+                    $formatted_rdv_date = $rdv_date->format('Y-m-d H:i');
+                    echo $formatted_rdv_date;
+                } ?></td>
                 <td>
                     <form action="./delete.php" method="get">
-                        <input type="hidden" name="<?= $rdv['id_rdv'] ?>">
+                        <input type="hidden" name="id_rdv" value="<?= $rdv['id_rdv'] ?>">
                         <button class="delete"><a href="delete.php?annulation=<?= $rdv['id_rdv']; ?>">Supprimer</a></button>
                     </form>
                 </td>
-
             </tr>
-    <?php endforeach;
+    <?php }
     } else {
         echo "Aucun rendez-vous";
     } ?>
 </table>
+
+
 
 <h3>Informations des rendez vous prochains</h3>
 

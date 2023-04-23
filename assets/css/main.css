@@ -24,7 +24,7 @@ main {
   position: relative;
   width: 80%;
   margin: 0 auto 25px auto;
-  padding: 60px;
+  padding: 60px 40px;
   padding-bottom: 15px;
 
   border-radius: 17px;
@@ -301,8 +301,7 @@ h1 {
 
 /******** CSS du block certificat *********/
 
-.certificate h3,
-.client h3 {
+h3{
   width: 65%;
   margin: auto;
   text-align: center;
@@ -311,8 +310,7 @@ h1 {
   color: #af7e82;
 }
 
-.certificate h3::before,
-.client h3:before {
+h3:before {
   display: flex;
   content: "";
   height: 3px;
@@ -321,8 +319,7 @@ h1 {
   background-color: #fcf7f4;
 }
 
-.certificate h3::after,
-.client h3:after {
+h3:after {
   display: flex;
   content: "";
   height: 3px;
@@ -672,13 +669,6 @@ h1 {
 
 /********* CSS de la page tarifs *******/
 
-.title-tarif {
-  font-size: 1rem;
-  padding: 6px 15px;
-  text-transform: uppercase;
-  background: #b6807f;
-  color: #e9e3e8;
-}
 
 .group-tarif {
   width: 75%;
@@ -1005,7 +995,9 @@ textarea::placeholder {
 /********* CSS du fichier client  *******/
 
 table {
-  width: 80%;
+ font-family: "Raleway";
+  width: 20%;
+  text-align: center;
 }
 
 .rechercheUt {
@@ -1013,31 +1005,66 @@ table {
   align-items: center;
   justify-content: center;
   height: 45px;
-  width: 60%;
+  width: 100%;
 }
 
-.rechercheUt form{
-  display: flex;
+.rechercheUt form {
+  width: 75%;
+  flex-direction: row;
   align-items: center;
-  margin:  0;
+  margin: 0;
 }
 
-.rechercheUt input{
+.rechercheUt input {
+  width: 80%;
   height: 45px;
   border: none;
   border: 2px solid #af7e82;
-  border-radius: 5px;
+  border-radius: 5px 0 0 5px;
   padding: 5px;
   margin: 0;
 }
 
 .rechercheUt button {
+  width: 10%;
   height: 45px;
-  color: #af7e82;
+  color: #fff;
   border: 2px solid #af7e82;
-  border-radius: 5px;
-  background-color: #fff;
+  border-radius: 0 5px 5px 0;
+  background-color: #af7e82;
   cursor: pointer;
+  margin: 0;
+  border-left: none;
+}
+
+.list-user {
+  margin-top: 25px;
+}
+
+tr {
+  text-transform: capitalize;
+  border: 1px solid #fff;
+  height: 32px;
+}
+
+th {
+  width: 30%;
+  border: 2px solid #af7e82;
+  height: 30px;
+  font-weight: bold;
+}
+
+th, td {
+  padding: 8px 16px;
+}
+
+tbody tr:nth-child(1) {
+  background-color: #af7e82;
+  color: #fff;
+}
+
+.user {
+  width: 90%;
 }
 
 /********* CSS du profil  *******/
