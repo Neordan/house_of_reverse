@@ -5,115 +5,77 @@ require "./core/header.php";
 ?>
 
 <h2>tarifs</h2>
-<h3 class="title-tarif">Lorem ipsum</h3>
+<h3 class="title-tarif">Prestations gel</h3>
 <div class="group-tarif">
     <div class="unique-tarif">
-        <p>Lorem ipsum dolor</p>
-        <p>X €</p>
+        <p>Gainage / 1h</p>
+        <p>35 €</p>
     </div>
     <hr>
     <div class="unique-tarif">
-        <p>Lorem ipsum</p>
-        <p>X €</p>
+        <p>Pose complète sur mesure / 2h</p>
+        <p>55 €</p>
     </div>
     <hr>
     <div class="unique-tarif">
-        <p>Lorem ipsum dolor isum</p>
-        <p>X €</p>
+        <p>Remplissage / 1h30</p>
+        <p>45 €</p>
     </div>
     <hr>
     <div class="unique-tarif">
-        <p>Lorem ipsum dolor</p>
-        <p>X €</p>
+        <p>Plus de deux ongles manquants</p>
+        <p>55 €</p>
     </div>
     <hr>
     <div class="unique-tarif">
-        <p>Lorem ipsum</p>
-        <p>X €</p>
+        <p>Dépose + soins / 30 min</p>
+        <p>20 €</p>
     </div>
     <hr>
 </div>
-<h3 class="title-tarif">Lorem ipsum</h3>
+<h3 class="title-tarif">Prestations vsp</h3>
 <div class="group-tarif">
     <div class="unique-tarif">
-        <p>Lorem ipsum dolor</p>
-        <p>X €</p>
+        <p>Renforcement / 1h</p>
+        <p>35 €</p>
     </div>
     <hr>
     <div class="unique-tarif">
-        <p>Lorem ipsum</p>
-        <p>X €</p>
+        <p>Remplissage / 1h30</p>
+        <p>40 €</p>
     </div>
     <hr>
     <div class="unique-tarif">
-        <p>Lorem ipsum dolor isum</p>
-        <p>X €</p>
-    </div>
-    <hr>
-    <div class="unique-tarif">
-        <p>Lorem ipsum dolor isum</p>
-        <p>X €</p>
-    </div>
-    <hr>
-    <div class="unique-tarif">
-        <p>Lorem ipsum dolor</p>
-        <p>X €</p>
-    </div>
-    <hr>
-    <div class="unique-tarif">
-        <p>Lorem ipsum</p>
-        <p>X €</p>
+        <p>Dépose + soins / 20</p>
+        <p>15 €</p>
     </div>
     <hr>
 </div>
-<h3 class="title-tarif">Lorem ipsum</h3>
+<h3 class="title-tarif">Nail art</h3>
 <div class="group-tarif">
     <div class="unique-tarif">
-        <p>Lorem ipsum dolor</p>
-        <p>X €</p>
+        <p>French Reverse (2 mains)</p>
+        <p>+ 20 €</p>
     </div>
     <hr>
     <div class="unique-tarif">
-        <p>Lorem ipsum</p>
-        <p>X €</p>
+        <p>Babyglitter (2 mains)</p>
+        <p>+ 15 €</p>
     </div>
     <hr>
     <div class="unique-tarif">
-        <p>Lorem ipsum dolor isum</p>
-        <p>X €</p>
+        <p>Effet Pierres Précieuses (2 mains)</p>
+        <p>+ 15 €</p>
     </div>
     <hr>
     <div class="unique-tarif">
-        <p>Lorem ipsum dolor isum</p>
-        <p>X €</p>
+        <p>French (2mains)</p>
+        <p>+ 10 €</p>
     </div>
     <hr>
     <div class="unique-tarif">
-        <p>Lorem ipsum dolor</p>
-        <p>X €</p>
-    </div>
-    <hr>
-    <div class="unique-tarif">
-        <p>Lorem ipsum</p>
-        <p>X €</p>
-    </div>
-    <hr>
-</div>
-<h3 class="title-tarif">Lorem ipsum</h3>
-<div class="group-tarif">
-    <div class="unique-tarif">
-        <p>Lorem ipsum dolor</p>
-        <p>X €</p>
-    </div>
-    <hr>
-    <div class="unique-tarif">
-        <p>Lorem ipsum</p>
-        <p>X €</p>
-    </div>
-    <hr>
-    <div class="unique-tarif">
-        <p>Lorem ipsum dolor isum</p>
-        <p>X €</p>
+        <p>Bijoux d'ongles</p>
+        <p>SUR DEVIS</p>
     </div>
     <hr>
 </div>
