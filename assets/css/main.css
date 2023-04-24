@@ -24,8 +24,7 @@ main {
   position: relative;
   width: 80%;
   margin: 0 auto 25px auto;
-  padding: 60px 40px;
-  padding-bottom: 15px;
+  padding: 60px 40px 25px 40px;
 
   border-radius: 17px;
   background-color: #e9e3e8;
@@ -55,9 +54,9 @@ h2 {
   text-align: center;
   text-transform: capitalize;
   font-family: "Cinzel";
-  color: #fbf8f6;
+  color: #fff;
   font-size: clamp(1.3rem, 3vw, 1.8rem);
-  background-color: #e9e3e8;
+  background-color: #dccbcb;
   border-width: 4px;
   border-style: solid;
   text-shadow: 1px 1px 0 #ceabab, -1px 1px 0 #ceabab, 1px -1px 0 #ceabab,
@@ -177,9 +176,8 @@ header {
   height: 5px;
   border-radius: 15px;
   margin: auto;
-  background: #CDAAAA;
-  box-shadow:  6px 6px 12px #825857,
-  -6px -6px 12px #b07675;
+  background: #cdaaaa;
+  box-shadow: 6px 6px 12px #825857, -6px -6px 12px #b07675;
 }
 
 /******** CSS de la navigation *********/
@@ -301,7 +299,7 @@ h1 {
 
 /******** CSS du block certificat *********/
 
-h3{
+h3 {
   width: 65%;
   margin: auto;
   text-align: center;
@@ -316,7 +314,7 @@ h3:before {
   height: 3px;
   width: 70%;
   margin: 20px auto 10px auto;
-  background-color: #fcf7f4;
+  background-color: #cdabab;
 }
 
 h3:after {
@@ -325,7 +323,7 @@ h3:after {
   height: 3px;
   width: 70%;
   margin: 10px auto 30px auto;
-  background-color: #fcf7f4;
+  background-color: #cdabab;
 }
 
 .document {
@@ -377,9 +375,8 @@ h3:after {
   content: "";
   height: 3px;
   border-radius: 5px;
-  width: 100%;
+  width: 80%;
   margin: auto;
-  left: 50%;
   margin-bottom: 12px;
   background-color: #ceaaaa;
 }
@@ -389,15 +386,14 @@ h3:after {
   content: "";
   height: 3px;
   border-radius: 5px;
-  width: 100%;
+  width: 80%;
   margin: auto;
-  left: 50%;
   margin-top: 12px;
   background-color: #ceaaaa;
 }
 
 .presta img {
-  width: 50%;
+  width: 60%;
   user-select: none;
 }
 
@@ -457,14 +453,14 @@ h3:after {
   font-size: 2rem;
   padding: 8px;
   border-radius: 13px;
-  box-shadow:  4px 4px 10px #8e605f,
-  -4px -4px 10px #a46e6d;
+  box-shadow: 4px 4px 10px #8e605f, -4px -4px 10px #a46e6d;
   color: #cdaaaa;
   font-family: "raleway";
   font-size: 1.2rem;
 }
 
-.logout:hover, .logout:active {
+.logout:hover,
+.logout:active {
   box-shadow: none;
   color: #fff;
 }
@@ -477,7 +473,6 @@ h3:after {
   margin: auto;
   gap: 20px;
 }
-
 
 .formulairelog p {
   font-size: 2.2rem;
@@ -517,14 +512,13 @@ h3:after {
   margin-top: 30px;
   transition: all 0.3s;
   cursor: pointer;
-  background: #E9E3E8;
-  box-shadow:  5px 5px 14px #cbc5ca,
-             -5px -5px 14px #ffffff;
+  background: #e9e3e8;
+  box-shadow: 5px 5px 14px #cbc5ca, -5px -5px 14px #ffffff;
 }
 
-.formulairelog button:hover, .formulairelog button:active {
-  box-shadow: inset 5px 5px 14px #cbc5ca,
-            inset -5px -5px 14px #ffffff;
+.formulairelog button:hover,
+.formulairelog button:active {
+  box-shadow: inset 5px 5px 14px #cbc5ca, inset -5px -5px 14px #ffffff;
 }
 
 .formulairelog button i {
@@ -559,61 +553,30 @@ h3:after {
 }
 
 /* ******** CSS de la page galerie  *******/
-.carousel {
-  height: 390px;
-}
 
-.container input[type="radio"] {
-  display: none;
-}
-
-.container {
-  width: 60%;
-  max-width: 304px;
-  margin: 50px auto;
-  transform-style: preserve-3d;
-}
-
-.cards {
-  width: 100%;
-  height: 250px;
-  position: relative;
-  margin-bottom: 20px;
-}
-
-.card {
-  position: absolute;
-  width: 100%;
+.image {
+  width: 91%;
   margin: auto;
-  transition: transform 0.4s ease;
-  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  row-gap: 30px;
 }
-.card img {
-  width: 100%;
-  border-radius: 10px;
+
+.image img {
+  width: 90%;
+  margin: auto;
   object-fit: cover;
+  filter: brightness(70%);
+  transition: 0.3s ease-in;
 }
-#item-1:checked ~ .cards #img-3,
-#item-2:checked ~ .cards #img-1,
-#item-3:checked ~ .cards #img-2 {
-  transform: translatex(-40%) scale(0.8);
-  opacity: 0.4;
-  z-index: 0;
+
+.image img:hover {
+  filter: brightness(110%);
 }
-#item-1:checked ~ .cards #img-2,
-#item-2:checked ~ .cards #img-3,
-#item-3:checked ~ .cards #img-1 {
-  transform: translatex(40%) scale(0.8);
-  opacity: 0.4;
-  z-index: 0;
-}
-#item-1:checked ~ .cards #img-1,
-#item-2:checked ~ .cards #img-2,
-#item-3:checked ~ .cards #img-3 {
-  transform: translatex(0) scale(1);
-  opacity: 1;
-  z-index: 1;
-}
+
+/* ******** CSS des avis  *******/
 
 .client {
   width: 85%;
@@ -622,7 +585,7 @@ h3:after {
 }
 
 .avis {
-  width:100%;
+  width: 100%;
   display: flex;
   overflow: hidden;
   position: relative;
@@ -669,10 +632,10 @@ h3:after {
 
 /********* CSS de la page tarifs *******/
 
-
 .group-tarif {
   width: 75%;
   margin: auto;
+  margin-bottom: 30px;
 }
 
 .unique-tarif {
@@ -687,14 +650,25 @@ hr {
 
 /********* CSS de la page contact  *******/
 
-.contact {
-  width: 65%;
-  font-family: "Raleway";
-  color: #af7e82;
-}
-
 .register {
   width: 70%;
+}
+
+.mobile-calendar {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#mobile-date {
+  margin-bottom: 15px;
+}
+
+#mobile-time {
+  margin-bottom: 6px;
+  width: 40%;
 }
 
 .info {
@@ -722,7 +696,7 @@ input:focus,
 textarea:focus,
 select:focus {
   outline: none;
-  border: 3px solid #c7787e;
+  border: 3px solid #996766;
 }
 
 input[type="file"] {
@@ -773,7 +747,7 @@ legend {
 }
 
 form span {
-  color:#723333
+  color: #723333;
 }
 
 .choix-art {
@@ -817,21 +791,20 @@ textarea::placeholder {
   font-size: 1.3rem;
   display: flex;
   align-items: center;
-  background: #E8E2E7;
+  background: #e8e2e7;
   border: none;
-  border: 2px solid #B88988;
-  color: #B88988;
+  border: 2px solid #b88988;
+  color: #b88988;
   margin: 28px 0 5px 0;
   cursor: pointer;
   border-radius: 50%;
   padding: 0 10px;
-  box-shadow:  5px 5px 14px #cbc5ca,
-             -5px -5px 14px #ffffff;
+  box-shadow: 5px 5px 14px #cbc5ca, -5px -5px 14px #ffffff;
 }
 
-.formulaire:hover, .formulaire:active {
-  box-shadow: inset 5px 5px 14px #cbc5ca,
-            inset -5px -5px 14px #ffffff;
+.formulaire:hover,
+.formulaire:active {
+  box-shadow: inset 5px 5px 14px #cbc5ca, inset -5px -5px 14px #ffffff;
 }
 
 /********* CSS du calendrier  *******/
@@ -839,13 +812,18 @@ textarea::placeholder {
 /* Container général pour l'agenda */
 
 .contact {
-  width: 100%;
+  width: 70%;
+  font-family: "Raleway";
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .agenda {
   display: none;
   flex-direction: column;
   align-items: center;
-  width: 90%;
+  width: 100%;
   max-width: 900px;
   margin: 0 auto;
   text-transform: capitalize;
@@ -853,7 +831,7 @@ textarea::placeholder {
   border-radius: 5px;
   padding: 20px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .agenda-nav {
@@ -867,7 +845,6 @@ textarea::placeholder {
 .agenda-nav a {
   text-decoration: none;
   color: #333;
-
 }
 
 .current {
@@ -908,7 +885,7 @@ textarea::placeholder {
   justify-content: center;
   align-items: center;
   margin-right: 10px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .slot {
@@ -926,7 +903,7 @@ textarea::placeholder {
 
 .agenda button {
   border: none;
-  background-color: #A47878;
+  background-color: #a47878;
   color: #fff;
   padding: 5px 10px;
   border-radius: 5px;
@@ -934,17 +911,19 @@ textarea::placeholder {
 }
 
 .agenda button:hover {
-  background-color: #A47878;
+  background-color: #a47878;
 }
 
 .agenda-body button.reserved {
   cursor: not-allowed;
-  color: #999;
-  text-decoration: line-through;
+  color: #fff;
+  font-weight: 600;
+  background-color: #996766;
+  font-size: 1rem;
 }
 
 .slot label {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   height: 55%;
   border-radius: 5px;
@@ -961,7 +940,7 @@ textarea::placeholder {
   cursor: pointer;
   color: #421f47;
   background-color: #fff;
-  border: #A47878 1px solid;
+  border: #a47878 1px solid;
 }
 
 .slot-radio {
@@ -990,12 +969,10 @@ textarea::placeholder {
   gap: 8px;
 }
 
-
-
 /********* CSS du fichier client  *******/
 
 table {
- font-family: "Raleway";
+  font-family: "Raleway";
   width: 20%;
   text-align: center;
 }
@@ -1054,7 +1031,8 @@ th {
   font-weight: bold;
 }
 
-th, td {
+th,
+td {
   padding: 8px 16px;
 }
 
@@ -1065,6 +1043,66 @@ tbody tr:nth-child(1) {
 
 .user {
   width: 90%;
+}
+
+.deleterendezvous {
+  border: none;
+
+  background-color: #825857;
+  padding: 6px;
+  border-radius: 3px;
+}
+.deleterendezvous:hover {
+  background-color: #825857dc;
+}
+
+.deleterendezvous a {
+  color: #fff;
+}
+
+.info-rdv-client {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: 2px solid #fff;
+  font-family: "Raleway";
+  padding: 10px;
+  gap: 10px;
+  border-radius: 8px;
+}
+
+.heurerdv {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.info-rdv-client img {
+  width: 80%;
+  margin: auto;
+}
+
+.info-rdv-client form {
+  margin: 10px auto;
+}
+
+.deleterendezvousclient {
+  width: 100%;
+}
+.deleterendezvousclient button {
+  border: none;
+  border-radius: 3px; 
+  width: 90%;
+  background-color: #825857;
+  padding: 8px;
+}
+
+.deleterendezvousclient a {
+  padding: 2px 50px;
+  color: #fff;
 }
 
 /********* CSS du profil  *******/
@@ -1261,7 +1299,7 @@ footer {
   .menu-toggle {
     display: none;
   }
- 
+
   .logout {
     font-size: 1.5rem;
   }
@@ -1273,11 +1311,11 @@ footer {
 
   .navordi-not-connected {
     width: 50%;
-    max-width: 455px;
+    max-width: 450px;
   }
-  
+
   .navordi-connected {
-    width: 65%;
+    width: 63%;
     min-width: 642px;
   }
 
@@ -1285,23 +1323,23 @@ footer {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    gap: 6px;
+    gap: 8px;
   }
 
   .navordi ul li {
     list-style: none;
   }
-  
+
   .navordi ul li a {
     color: #cdaaaa;
     text-decoration: none;
     font-size: 1.4rem;
     border-radius: 13px;
     padding: 8px;
-    box-shadow: 4px 4px 10px #8e605f, -4px -4px 10px #a46e6d;
+    box-shadow: 4px 4px 10px #8e605f;
     transition: 0.2s step-start;
   }
-  
+
   .navordi ul li a:hover {
     color: #fff;
     box-shadow: none;
@@ -1379,24 +1417,60 @@ footer {
   /* responsive register  */
 
   form label,
-legend {
-  font-weight: 600;
-  font-size: 1.3rem;
-  margin-bottom: 12px;
-  font-family: "Raleway";
-  color: #000000ae;
-}
+  legend {
+    font-weight: 600;
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+    font-family: "Raleway";
+    color: #000000ae;
+  }
+
+  /* responsive prestation  */
+
+  .title {
+    width: 42%;
+  }
+
+  .presta img {
+    width: 42%;
+  }
+
+  .fa-plus {
+    display: none;
+  }
+
+  .descriptionpresta {
+    height: auto;
+  }
+
+  .image img {
+    width: 45%;
+    height: 450px;
+  }
 
   /* responsive calendar  */
+
+  .contact {
+    width: 90%;
+  }
 
   .mobile-calendar {
     display: none;
   }
 
+  #inspiration, #ongle_actuel, #prestation {
+    width: 35%;
+  }
+
+  textarea {
+    width: 80%;
+  }
+
   .agenda {
     display: flex;
+    margin-bottom: 10px;
   }
-  
+
   /* responsive footer  */
   footer {
     padding: 28px 0;
@@ -1407,15 +1481,18 @@ legend {
     flex-direction: row;
   }
 
-  .insta, .tiktok {
+  .insta,
+  .tiktok {
     gap: 10px;
   }
 
-  .insta p, .tiktok p {
+  .insta p,
+  .tiktok p {
     font-size: 1.2rem;
   }
-  
-  .insta i, .tiktok i {
+
+  .insta i,
+  .tiktok i {
     font-size: 1.6rem;
   }
 

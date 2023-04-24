@@ -80,7 +80,7 @@ $prestations = $matches[1];
 <form class="contact" method="post" enctype="multipart/form-data">
 <input type="hidden" name="id_utilisateur" value="<?= $_SESSION['utilisateur']['id'] ?>">
 <div class="mobile-calendar">
-    <label for="mobile-date">Choisir la date :</label>
+    <label class="labelMobile" for="mobile-date">Choisir la date :</label>
     <input type="date" name="date-resa[]" id="mobile-date">
     <span id="date-error-message" style="display:none; color:red;">Les rendez-vous ne sont pas disponibles les dimanches et les lundis.</span>
     <label for="mobile-time">Choisir l'heure :</label>
@@ -170,7 +170,7 @@ if ($rdv) {
 </div>
 </div>
 <div class="info">
-    <label for="inspiration">Tes inspirations :</label>
+    <label for="inspiration">Tes inspirations : <span>*</sapn></label>
     <input type="file" name="inspiration" id="inspiration" require>
 </div>
 <div class="info">
@@ -178,7 +178,7 @@ if ($rdv) {
     <input type="file" name="ongle_actuel" id="ongle_actuel">
 </div>
 <div class="info">
-    <label for="prestation">Prestation souhaitée :</label>
+    <label for="prestation">Prestation souhaitée : <span>*</span></label>
     <select name="prestation" id="prestation">
         <option value="0">Sélectionner votre choix</option>
         <?php foreach ($prestations as $prestation) : ?>

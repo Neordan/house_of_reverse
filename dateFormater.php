@@ -7,7 +7,7 @@ $dateFormater = new IntlDateFormatter(
     IntlDateFormatter::FULL,    // Time type
     'Europe/Paris',             // Timezone
     IntlDateFormatter::GREGORIAN, // Calendrier
-    "EEEE dd MMMM yyyy"         // Pattern
+    "EEEE dd MMMM"         // Pattern
 );
 
 // Objet permettant de formater une date en français en toute lettre
