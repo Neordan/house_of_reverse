@@ -1,11 +1,11 @@
 <?php
 
-require "./core/config.php";
 
 // Fonction pour supprimer un enregistrement dans une table
 function deleteSession($table, $idChamp, $idValue, $redirectUrl) {
-    // Récupération de l'objet PDO global pour la connexion à la base de données
-    global $pdo;
+    
+    require "./core/config.php";
+    
 
     // Préparation de la requête SQL pour supprimer un enregistrement
     $sql = "DELETE FROM {$table} WHERE {$idChamp}=:id";
@@ -25,8 +25,8 @@ function deleteSession($table, $idChamp, $idValue, $redirectUrl) {
 }
 // Fonction pour supprimer un enregistrement dans une table
 function delete($table, $idChamp, $idValue, $redirectUrl) {
-    // Récupération de l'objet PDO global pour la connexion à la base de données
-    global $pdo;
+    
+    require "./core/config.php";
 
     // Préparation de la requête SQL pour supprimer un enregistrement
     $sql = "DELETE FROM {$table} WHERE {$idChamp}=:id";
@@ -49,10 +49,6 @@ function delete($table, $idChamp, $idValue, $redirectUrl) {
 if (isset($_GET['annulation'])) {
     // Appel de la fonction deleteRecord pour supprimer un rendez-vous
     delete('rdv', 'id_rdv', $_GET['annulation'], './fichierclient.php');
-}
-if (isset($_GET['supprdv'])) {
-    // Appel de la fonction deleteRecord pour supprimer un rendez-vous
-    delete('rdv', 'id_rdv', $_GET['supprdv'], './profil.php');
 }
 
 // Vérification de la présence du paramètre 'suppcompte'

@@ -1,3 +1,22 @@
+:root {
+  --bg-color: #fbf8f6;
+  --main-bg-color: #e9e3e8;
+  --title-bg-color: #dccbcb;
+  --menu-bg-color: #996766e0;
+  --nav-bg-color: #ddc4c4;
+  --title-font: 'Cinzel', serif;
+  --text-font: 'Raleway', sans-serif;
+  --accent-color: #ceaaaa;
+  --line-color: #cdabab;
+  --other-color : #cdaaaa;
+  --white : #fff;
+  --button : #825857;
+  --dark-pink : #996766;
+  --other-color-2: #af7e82;
+  --color-text-footer :#5e3535;
+}
+
+
 @import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Raleway:ital,wght@0,100;0,300;0,400;0,600;0,700;0,800;0,900;1,100&display=swap");
 
 @import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,300;0,400;0,600;0,700;0,800;0,900;1,100&display=swap");
@@ -9,7 +28,7 @@ body {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  background-color: #fbf8f6;
+  background-color: var(--bg-color);
 }
 
 body::-webkit-scrollbar {
@@ -25,14 +44,13 @@ main {
   width: 80%;
   margin: 0 auto 25px auto;
   padding: 60px 40px 25px 40px;
-
   border-radius: 17px;
-  background-color: #e9e3e8;
+  background-color: var(--main-bg-color);
 }
 
 p {
   margin: 0;
-  font-family: "Raleway";
+  font-family: var(--text-font);
 }
 
 a {
@@ -53,15 +71,15 @@ h2 {
   max-width: 570px;
   text-align: center;
   text-transform: capitalize;
-  font-family: "Cinzel";
-  color: #fff;
+  font-family: var(--title-font);
+  color: var(--white);
   font-size: clamp(1.3rem, 3vw, 1.8rem);
-  background-color: #dccbcb;
+  background-color: var(--title-bg-color);
   border-width: 4px;
   border-style: solid;
-  text-shadow: 1px 1px 0 #ceabab, -1px 1px 0 #ceabab, 1px -1px 0 #ceabab,
+  text-shadow: 1px 1px 0 var(--line-color), -1px 1px 0 var(--line-color), 1px -1px 0 var(--line-color),
     -1px -1px 0 #ceabab;
-  border-image: linear-gradient(to top, #fbf8f6 0%, #fbf8f6 33%, #ceaaaa 100%) 1;
+  border-image: linear-gradient(to top, var(--bg-color) 0%, var(--bg-color) 33%, var(--accent-color) 100%) 1;
   padding: 10px 3%;
   margin-top: -85px;
   margin-bottom: 22px;
@@ -76,64 +94,6 @@ form {
   width: 80%;
   margin: 15px auto 15px auto;
 }
-/********  CSS de la page de présentation *******/
-
-/* .before {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 999;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  background: url(./assets/img/Photos/IMG_9274.JPG) center/cover;
-  height: 100vh;
-  transition: transform 0.5s ease-out;
-}
-
-.hide {
-  transform: translateY(-100%);
-}
-
-.opacity {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  text-align: center;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.447);
-}
-
-.identity {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  flex-basis: 90%;
-}
-
-.identity img {
-  width: 400px;
-  margin: 0 auto;
-}
-
-h1 {
-  font-family: "Cinzel", serif;
-  text-transform: uppercase;
-  color: #ceaaaa;
-  font-size: 2rem;
-  font-weight: 600;
-  margin: 0;
-}
-
-.before a {
-  flex-basis: 20%;
-  color: #ffffff;
-  margin-bottom: 30px;
-  font-size: 3.5rem;
-  cursor: pointer;
-} */
 
 /*************** CSS du header *****************/
 
@@ -176,8 +136,8 @@ header {
   height: 5px;
   border-radius: 15px;
   margin: auto;
-  background: #cdaaaa;
-  box-shadow: 6px 6px 12px #825857, -6px -6px 12px #b07675;
+  background: var(--other-color);
+  box-shadow: 6px 6px 12px var(--button), -6px -6px 12px #b07675;
 }
 
 /******** CSS de la navigation *********/
@@ -193,7 +153,7 @@ header {
   gap: 18%;
   height: 100%;
   width: 100%;
-  background-color: #ddc4c4;
+  background-color: var(--nav-bg-color);
   z-index: 998;
 }
 
@@ -211,7 +171,7 @@ header {
 }
 
 .navigation ul li a {
-  font-family: "Cinzel", serif;
+  font-family: var(--title-font);
   color: #fcf7f4;
   font-weight: 700;
   font-size: 2.5rem;
@@ -219,7 +179,7 @@ header {
 }
 
 .close-menu {
-  color: #fbf8f6;
+  color: var(--bg-color);
   position: absolute;
   top: 20px;
   right: 25px;
@@ -227,7 +187,7 @@ header {
 }
 
 .fa-house {
-  color: #fbf8f6;
+  color: var(--bg-color);
   font-size: 2.2rem;
   margin-bottom: 60px;
 }
@@ -251,8 +211,8 @@ header {
 }
 
 h1 {
-  font-family: "Cinzel", serif;
-  color: #ceaaaa;
+  font-family: var(--title-font);
+  color: var(--accent-color);
   letter-spacing: 3px;
   font-weight: 500;
   text-transform: uppercase;
@@ -286,7 +246,6 @@ h1 {
 }
 
 .description p {
-  font-family: "Raleway";
   font-size: 1.2rem;
   line-height: 20px;
   text-align: justify;
@@ -303,9 +262,9 @@ h3 {
   width: 65%;
   margin: auto;
   text-align: center;
-  font-family: "Cinzel";
+  font-family: var(--title-font);
   font-size: 1.8rem;
-  color: #af7e82;
+  color: var(--other-color-2);
 }
 
 h3:before {
@@ -314,7 +273,7 @@ h3:before {
   height: 3px;
   width: 70%;
   margin: 20px auto 10px auto;
-  background-color: #cdabab;
+  background-color: var(--line-color);
 }
 
 h3:after {
@@ -323,7 +282,7 @@ h3:after {
   height: 3px;
   width: 70%;
   margin: 10px auto 30px auto;
-  background-color: #cdabab;
+  background-color: var(--line-color);
 }
 
 .document {
@@ -362,11 +321,11 @@ h3:after {
 }
 
 .title {
-  width: 80%;
+  width: 90%;
   text-align: center;
   font-size: 1.3rem;
   text-transform: uppercase;
-  color: #996766;
+  color: var(--dark-pink);
   margin: 0 auto 25px auto;
 }
 
@@ -378,7 +337,7 @@ h3:after {
   width: 80%;
   margin: auto;
   margin-bottom: 12px;
-  background-color: #ceaaaa;
+  background-color: var(--accent-color);
 }
 
 .title::after {
@@ -389,11 +348,11 @@ h3:after {
   width: 80%;
   margin: auto;
   margin-top: 12px;
-  background-color: #ceaaaa;
+  background-color: var(--accent-color);
 }
 
 .presta img {
-  width: 60%;
+  width: 65%;
   user-select: none;
 }
 
@@ -401,31 +360,31 @@ h3:after {
   font-size: 1rem;
   line-height: 23px;
   text-align: justify;
-  width: 75%;
+  width: 88%;
   margin: 25px auto;
   /* garder seulement 5 lignes */
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 6;
   overflow: hidden;
-  font-family: "Raleway";
+  font-family: var(--text-font);
   hyphens: auto;
 }
 
 .presta i {
-  color: #5e3535;
+  color: var(--color-text-footer);
   font-size: 1.2rem;
   border-radius: 50%;
   padding: 10px;
-  background: #e9e3e8;
-  box-shadow: 3px 3px 10px #a8a3a7, -3px -3px 10px #ffffff;
+  background: var(--main-bg-color);
+  box-shadow: 3px 3px 10px #a8a3a7, -3px -3px 10px var(--white);
 
   flex-shrink: 1;
   margin-bottom: 12px;
 }
 
 .presta i:active {
-  box-shadow: -6px -6px 10px #a8a3a7, 6px 6px 10px #ffffff;
+  box-shadow: -6px -6px 10px #a8a3a7, 6px 6px 10px var(--white);
 }
 
 .fa-minus {
@@ -441,7 +400,7 @@ h3:after {
   z-index: 999;
   height: 100vh;
   width: 100%;
-  background-color: #ddc4c4;
+  background-color: var(--nav-bg-color);
   display: none;
   flex-direction: column;
   justify-content: center;
@@ -450,23 +409,22 @@ h3:after {
 }
 
 .logout {
-  font-size: 2rem;
   padding: 8px;
   border-radius: 13px;
   box-shadow: 4px 4px 10px #8e605f, -4px -4px 10px #a46e6d;
-  color: #cdaaaa;
-  font-family: "raleway";
+  color: var(--other-color);
+  font-family: var(--text-font);
   font-size: 1.2rem;
 }
 
 .logout:hover,
 .logout:active {
   box-shadow: none;
-  color: #fff;
+  color: var(--white);
 }
 
 .formulairelog {
-  width: 60%;
+  width: 80%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -482,7 +440,7 @@ h3:after {
 .formulairelog input {
   width: 90%;
   height: 30px;
-  border: 2px solid #af7e82;
+  border: 2px solid var(--other-color-2);
   border-radius: 10px;
   padding: 5px 15px;
   margin: 6px;
@@ -494,7 +452,7 @@ h3:after {
 }
 
 .formulairelog input::placeholder {
-  font-family: "Raleway";
+  font-family: var(--text-font);
   font-weight: 700;
   color: #af7e82b6;
 }
@@ -505,20 +463,20 @@ h3:after {
 
 .formulairelog button {
   border: none;
-  border: 2px solid #af7e82;
+  border: 2px solid var(--other-color-2);
   border-radius: 50%;
   padding: 15px;
   border-radius: 50px;
   margin-top: 30px;
   transition: all 0.3s;
   cursor: pointer;
-  background: #e9e3e8;
-  box-shadow: 5px 5px 14px #cbc5ca, -5px -5px 14px #ffffff;
+  background: var(--main-bg-color);
+  box-shadow: 5px 5px 14px #cbc5ca, -5px -5px 14px var(--white);
 }
 
 .formulairelog button:hover,
 .formulairelog button:active {
-  box-shadow: inset 5px 5px 14px #cbc5ca, inset -5px -5px 14px #ffffff;
+  box-shadow: inset 5px 5px 14px #cbc5ca, inset -5px -5px 14px var(--white);
 }
 
 .formulairelog button i {
@@ -617,7 +575,7 @@ h3:after {
 
 .prev:hover,
 .next:hover {
-  background-color: #996766;
+  background-color: var(--dark-pink);
 }
 
 .prev {
@@ -651,7 +609,7 @@ hr {
 /********* CSS de la page contact  *******/
 
 .register {
-  width: 70%;
+  width: 80%;
 }
 
 .mobile-calendar {
@@ -688,7 +646,7 @@ input[type="date"] {
   width: 100%;
   padding: 8px;
   resize: none;
-  border: 2px solid #af7e82;
+  border: 2px solid var(--other-color-2);
   border-radius: 3px;
 }
 
@@ -696,7 +654,7 @@ input:focus,
 textarea:focus,
 select:focus {
   outline: none;
-  border: 3px solid #996766;
+  border: 3px solid var(--dark-pink);
 }
 
 input[type="file"] {
@@ -710,13 +668,13 @@ input[type="checkbox"] {
   -border-radius: 3px;
   height: 20px;
   width: 20px;
-  border: 1px solid #af7e82;
-  background: #fff;
-  box-shadow: inset 2px 2px 5px #d9d9d9, inset -2px -2px 5px #ffffff;
+  border: 1px solid var(--other-color-2);
+  background: var(--white);
+  box-shadow: inset 2px 2px 5px #d9d9d9, inset -2px -2px 5px var(--white);
 }
 input[type="checkbox"]:checked,
 input[type="radio"]:checked {
-  background: #af7e82;
+  background: var(--other-color-2);
   box-shadow: none;
   box-shadow: inset 2px 2px 5px #a38c8e, inset -2px -2px 5px #a48285;
 }
@@ -732,9 +690,9 @@ input[type="radio"] {
   border-radius: 50%;
   height: 15px;
   width: 15px;
-  border: 1px solid #af7e82;
-  background: #fff;
-  box-shadow: inset 2px 2px 5px #d9d9d9, inset -2px -2px 5px #ffffff;
+  border: 1px solid var(--other-color-2);
+  background: var(--white);
+  box-shadow: inset 2px 2px 5px #d9d9d9, inset -2px -2px 5px var(--white);
 }
 
 form label,
@@ -742,7 +700,7 @@ legend {
   font-weight: 600;
   font-size: 1.2rem;
   margin-bottom: 12px;
-  font-family: "Raleway";
+  font-family: var(--text-font);
   color: #000000ae;
 }
 
@@ -799,12 +757,12 @@ textarea::placeholder {
   cursor: pointer;
   border-radius: 50%;
   padding: 0 10px;
-  box-shadow: 5px 5px 14px #cbc5ca, -5px -5px 14px #ffffff;
+  box-shadow: 5px 5px 14px #cbc5ca, -5px -5px 14px var(--white);
 }
 
 .formulaire:hover,
 .formulaire:active {
-  box-shadow: inset 5px 5px 14px #cbc5ca, inset -5px -5px 14px #ffffff;
+  box-shadow: inset 5px 5px 14px #cbc5ca, inset -5px -5px 14px var(--white);
 }
 
 /********* CSS du calendrier  *******/
@@ -813,7 +771,7 @@ textarea::placeholder {
 
 .contact {
   width: 70%;
-  font-family: "Raleway";
+  font-family: var(--text-font);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -898,13 +856,13 @@ textarea::placeholder {
   margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  background-color: #fff;
+  background-color: var(--white);
 }
 
 .agenda button {
   border: none;
   background-color: #a47878;
-  color: #fff;
+  color: var(--white);
   padding: 5px 10px;
   border-radius: 5px;
   cursor: pointer;
@@ -916,9 +874,9 @@ textarea::placeholder {
 
 .agenda-body button.reserved {
   cursor: not-allowed;
-  color: #fff;
+  color: var(--white);
   font-weight: 600;
-  background-color: #996766;
+  background-color: var(--dark-pink);
   font-size: 1rem;
 }
 
@@ -939,7 +897,7 @@ textarea::placeholder {
 .slot button {
   cursor: pointer;
   color: #421f47;
-  background-color: #fff;
+  background-color: var(--white);
   border: #a47878 1px solid;
 }
 
@@ -959,7 +917,7 @@ textarea::placeholder {
 
 .slot-radio:checked + label {
   background-color: #a47878e3;
-  color: #fff;
+  color: var(--white);
 }
 
 /************** CSS register ***********/
@@ -972,7 +930,7 @@ textarea::placeholder {
 /********* CSS du fichier client  *******/
 
 table {
-  font-family: "Raleway";
+  font-family: var(--text-font);
   width: 20%;
   text-align: center;
 }
@@ -996,7 +954,7 @@ table {
   width: 80%;
   height: 45px;
   border: none;
-  border: 2px solid #af7e82;
+  border: 2px solid var(--other-color-2);
   border-radius: 5px 0 0 5px;
   padding: 5px;
   margin: 0;
@@ -1005,10 +963,10 @@ table {
 .rechercheUt button {
   width: 10%;
   height: 45px;
-  color: #fff;
-  border: 2px solid #af7e82;
+  color: var(--white);
+  border: 2px solid var(--other-color-2);
   border-radius: 0 5px 5px 0;
-  background-color: #af7e82;
+  background-color: var(--other-color-2);
   cursor: pointer;
   margin: 0;
   border-left: none;
@@ -1020,13 +978,13 @@ table {
 
 tr {
   text-transform: capitalize;
-  border: 1px solid #fff;
+  border: 1px solid var(--white);
   height: 32px;
 }
 
 th {
   width: 30%;
-  border: 2px solid #af7e82;
+  border: 2px solid var(--other-color-2);
   height: 30px;
   font-weight: bold;
 }
@@ -1037,8 +995,8 @@ td {
 }
 
 tbody tr:nth-child(1) {
-  background-color: #af7e82;
-  color: #fff;
+  background-color: var(--other-color-2);
+  color: var(--white);
 }
 
 .user {
@@ -1048,7 +1006,7 @@ tbody tr:nth-child(1) {
 .deleterendezvous {
   border: none;
 
-  background-color: #825857;
+  background-color: var(--button);
   padding: 6px;
   border-radius: 3px;
 }
@@ -1057,7 +1015,7 @@ tbody tr:nth-child(1) {
 }
 
 .deleterendezvous a {
-  color: #fff;
+  color: var(--white);
 }
 
 .info-rdv-client {
@@ -1068,8 +1026,8 @@ tbody tr:nth-child(1) {
   justify-content: center;
   align-items: center;
   text-align: center;
-  border: 2px solid #fff;
-  font-family: "Raleway";
+  border: 2px solid var(--white);
+  font-family: var(--text-font);
   padding: 10px;
   gap: 10px;
   border-radius: 8px;
@@ -1096,13 +1054,13 @@ tbody tr:nth-child(1) {
   border: none;
   border-radius: 3px; 
   width: 90%;
-  background-color: #825857;
+  background-color: var(--button);
   padding: 8px;
 }
 
 .deleterendezvousclient a {
   padding: 2px 50px;
-  color: #fff;
+  color: var(--white);
 }
 
 /********* CSS du profil  *******/
@@ -1123,14 +1081,14 @@ tbody tr:nth-child(1) {
 .delete {
   width: 70%;
   margin: auto;
-  background-color: #cdaaaa;
+  background-color: var(--other-color);
   text-align: center;
   border-radius: 5px;
   margin-top: 26px;
   color: #000;
   font-weight: 500;
   padding: 10px 2%;
-  font-family: "Raleway";
+  font-family: var(--text-font);
   border: none;
   font-size: clamp(0.8rem, 3vw, 1.2rem);
 }
@@ -1138,7 +1096,7 @@ tbody tr:nth-child(1) {
 .prrdv:hover,
 .delete:hover {
   background-color: #976767;
-  color: #cdaaaa;
+  color: var(--other-color);
   font-weight: 700;
 }
 
@@ -1173,7 +1131,7 @@ tbody tr:nth-child(1) {
   margin: auto;
   height: 30px;
   border-radius: 8px;
-  background: #e9e3e8;
+  background: var(--main-bg-color);
   padding: 8px 15px;
 }
 
@@ -1194,10 +1152,10 @@ tbody tr:nth-child(1) {
 #deleteRdvButton {
   text-align: center;
   width: 60%;
-  background-color: #cdaaaa;
+  background-color: var(--other-color);
   color: #000;
   padding: 8px;
-  font-family: "Raleway";
+  font-family: var(--text-font);
   border-radius: 8px;
 }
 /********* CSS du footer  *******/
@@ -1206,9 +1164,9 @@ footer {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: #996766;
-  color: #5e3535;
-  font-family: "Raleway", sans-serif;
+  background: var(--dark-pink);
+  color: var(--color-text-footer);
+  font-family: var(--text-font);
   padding: 20px 0;
 }
 
@@ -1226,7 +1184,7 @@ footer {
   justify-content: center;
   align-items: center;
   flex-basis: 50%;
-  color: #5e3535;
+  color: var(--color-text-footer);
   gap: 6px;
 }
 
@@ -1257,7 +1215,7 @@ footer {
 
 .nav-down a {
   font-weight: 600;
-  color: #5e3535;
+  color: var(--color-text-footer);
 }
 
 .nav-down ul::before {
@@ -1270,7 +1228,7 @@ footer {
   margin: auto;
   height: 1px;
   z-index: 2;
-  background-color: #5e3535;
+  background-color: var(--color-text-footer);
 }
 
 .nav-down ul::after {
@@ -1283,7 +1241,7 @@ footer {
   margin: auto;
   height: 1px;
   z-index: 2;
-  background-color: #5e3535;
+  background-color: var(--color-text-footer);
 }
 
 .copy {
@@ -1306,7 +1264,7 @@ footer {
 
   .navordi {
     display: flex;
-    font-family: "Raleway", sans-serif;
+    font-family: var(--text-font);
   }
 
   .navordi-not-connected {
@@ -1331,7 +1289,7 @@ footer {
   }
 
   .navordi ul li a {
-    color: #cdaaaa;
+    color: var(--other-color);
     text-decoration: none;
     font-size: 1.4rem;
     border-radius: 13px;
@@ -1341,7 +1299,7 @@ footer {
   }
 
   .navordi ul li a:hover {
-    color: #fff;
+    color: var(--white);
     box-shadow: none;
   }
 
@@ -1410,6 +1368,10 @@ footer {
 
   /* responsive login  */
 
+  .formulairelog {
+    width: 50%;
+  }
+
   .formulairelog a {
     font-size: 0.9rem;
   }
@@ -1421,8 +1383,12 @@ footer {
     font-weight: 600;
     font-size: 1.3rem;
     margin-bottom: 12px;
-    font-family: "Raleway";
+    font-family: var(--text-font);
     color: #000000ae;
+  }
+
+  .register {
+    width: 50%;
   }
 
   /* responsive prestation  */
@@ -1433,14 +1399,6 @@ footer {
 
   .presta img {
     width: 42%;
-  }
-
-  .fa-plus {
-    display: none;
-  }
-
-  .descriptionpresta {
-    height: auto;
   }
 
   .image img {

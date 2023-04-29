@@ -1,5 +1,4 @@
 <?php
-// date_processing.php
 
 // Ce fichier traite les dates pour un système de réservation.
 
