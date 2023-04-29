@@ -1,4 +1,5 @@
 <?php
+$page_title = "Se connecter";
 require_once "./core/header.php";
 
 // Vérifier si les champs email et mot de passe sont définis et non vides

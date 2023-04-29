@@ -1,4 +1,5 @@
 <?php 
+$page_title = "Accueil";
 require "./core/header.php";
 
 ?>

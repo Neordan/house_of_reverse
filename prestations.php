@@ -1,4 +1,5 @@
 <?php
+$page_title = "Prestations";
 require "./core/header.php";
 require "./function.php";
 ?>

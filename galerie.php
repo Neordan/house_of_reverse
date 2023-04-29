@@ -1,5 +1,5 @@
 <?php
-
+$page_title = "Galerie";
 require "./core/header.php";
 
 ?>

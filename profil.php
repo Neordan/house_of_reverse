@@ -1,20 +1,21 @@
 <?php
+$page_title = "Mon profil";
 require "./core/header.php";
 ?>
 <h2>Mon profil</h2>
-<?php if (isset($_SESSION['rdv']['jour_heure'])) :
+<?php if (isset($_SESSION['rdv']['jour_heure']) && !empty($_SESSION['rdv']['jour_heure'])) :
     $rdv_date = new DateTime($_SESSION['rdv']['jour_heure']);
     $formatted_rdv_date = $dateFormaterAvecHeure->format($rdv_date);
 ?>
-    <?php if (isset($_SESSION['rdv']['jour_heure'])) : ?>
-        <div class="rdv-details">
-            <p>Rendez-vous prévu le: <?= $formatted_rdv_date ?></p>
-            <form class="sup" method="get" action="./delete_rdv.php">
-                <input type="hidden" name="supprdv" value="<?= $_SESSION['utilisateur']['id'] ?>">
-                <button id="deleteRdvButton">Supprimer mon rendez-vous</button>
-            </form>
-        </div>
-    <?php endif; ?>
+    <div class="rdv-details">
+        <p>Rendez-vous prévu le: <?= $formatted_rdv_date ?></p>
+        <form method="post" action="./delete.php">
+            <input type="hidden" name="rdv_id" value="<?= $_SESSION['rdv']['jour_heure'] ?>">
+            <button id="deleteRdvButton" type="submit">Supprimer le rendez-vous</button>
+        </form>
+    </div>
+<?php else: ?>
+    <p>Aucun rendez-vous prévu pour le moment.</p>
 <?php endif; ?>
 <form method="post" class="pf-container">
     <div class="compte">

@@ -1,4 +1,6 @@
 <?php
+
+$page_title = "Rendez-vous";
 require "./core/header.php";
 require "./core/config.php";
 

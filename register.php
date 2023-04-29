@@ -1,4 +1,5 @@
 <?php
+$page_title = "Inscription";
 require "./core/header.php";
 require "./function.php";
 

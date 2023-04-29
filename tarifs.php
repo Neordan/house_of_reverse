@@ -1,5 +1,5 @@
 <?php
-
+$page_title = "Tarif";
 require "./core/header.php";
 
 ?>

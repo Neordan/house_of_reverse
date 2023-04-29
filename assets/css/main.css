@@ -73,7 +73,7 @@ h2 {
   text-transform: capitalize;
   font-family: var(--title-font);
   color: var(--white);
-  font-size: clamp(1.3rem, 3vw, 1.8rem);
+  font-size: clamp(1.6rem, 4.5vw, 2.5rem);
   background-color: var(--title-bg-color);
   border-width: 4px;
   border-style: solid;
@@ -217,7 +217,7 @@ h1 {
   font-weight: 500;
   text-transform: uppercase;
   margin: 30px auto 0 auto;
-  font-size: 2rem;
+  font-size: clamp(1.5rem,4.5vw, 2.5rem);
 }
 
 .logo h1::first-letter {
@@ -262,8 +262,9 @@ h3 {
   width: 65%;
   margin: auto;
   text-align: center;
+  text-transform: capitalize;
   font-family: var(--title-font);
-  font-size: 1.8rem;
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
   color: var(--other-color-2);
 }
 
@@ -323,7 +324,7 @@ h3:after {
 .title {
   width: 90%;
   text-align: center;
-  font-size: 1.3rem;
+  font-size: clamp(1.1rem, 3vw, 1.8rem);
   text-transform: uppercase;
   color: var(--dark-pink);
   margin: 0 auto 25px auto;
@@ -591,7 +592,7 @@ h3:after {
 /********* CSS de la page tarifs *******/
 
 .group-tarif {
-  width: 75%;
+  width: 86%;
   margin: auto;
   margin-bottom: 30px;
 }
@@ -1094,7 +1095,8 @@ tbody tr:nth-child(1) {
 }
 
 .prrdv:hover,
-.delete:hover {
+.delete:hover,
+#deleteRdvButton:hover {
   background-color: #976767;
   color: var(--other-color);
   font-weight: 700;
@@ -1156,7 +1158,10 @@ tbody tr:nth-child(1) {
   color: #000;
   padding: 8px;
   font-family: var(--text-font);
-  border-radius: 8px;
+  border-radius: 7px;
+  border: none;
+  border: 1px solid var(--dark-pink);
+  cursor: pointer;
 }
 /********* CSS du footer  *******/
 
@@ -1254,6 +1259,15 @@ footer {
 
 /* pour l'ordinateur */
 @media screen and (min-width: 900px) {
+
+  h2 {
+    font-size: 2.6rem;
+  }
+
+  h3, .title {
+    font-size: 1.5rem;
+  }
+
   .menu-toggle {
     display: none;
   }
@@ -1427,6 +1441,12 @@ footer {
   .agenda {
     display: flex;
     margin-bottom: 10px;
+  }
+ 
+  /* responsive tarif  */
+
+  .group-tarif {
+    width: 70%;
   }
 
   /* responsive footer  */

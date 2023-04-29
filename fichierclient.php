@@ -1,5 +1,5 @@
 <?php
-
+$page_title = "Fichier client";
 require "./core/config.php";
 require "./core/header.php";
 
@@ -136,7 +136,7 @@ if ($resultInfos->execute()) {
                 <td>
                 <?php if (isset($rdv['jour_heure'])) {
                     $rdv_date = new DateTime($rdv['jour_heure']);
-                    $formatted_rdv_date = $rdv_date->format('d m Y àH:i');
+                    $formatted_rdv_date = $rdv_date->format('d m Y à H:i');
                     echo $formatted_rdv_date;
                 } ?></td>
                 <td>
