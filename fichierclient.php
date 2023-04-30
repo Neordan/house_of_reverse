@@ -24,7 +24,7 @@ if ($result->execute()) {
 // lister les rdv
 $sql1 = "SELECT nom, prenom, id_rdv, jour_heure 
 FROM rdv r 
-JOIN utilisateur u WHERE r.id_utilisateur = u.id ORDER BY jour_heure ASC";
+JOIN utilisateur u ON r.id_utilisateur = u.id ORDER BY jour_heure ASC";
 
 
 $resultRdv = $pdo->prepare($sql1);
@@ -37,7 +37,7 @@ if ($resultRdv->execute()) {
 // lister les infos complémentaires du rendez-vous
 $sql2 = "SELECT nom, prenom, id_rdv, jour_heure, inspiration, ongle_actuel, prestation, message 
 FROM rdv r 
-JOIN utilisateur u WHERE r.id_utilisateur = u.id ORDER BY jour_heure ASC LIMIT 3";
+JOIN utilisateur u ON r.id_utilisateur = u.id ORDER BY jour_heure ASC LIMIT 3";
 
 $resultInfos = $pdo->prepare($sql2);
 if ($resultInfos->execute()) {

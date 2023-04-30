@@ -28,12 +28,12 @@ require "./core/header.php";
 <div class="client">
     <h3>avis client</h3>
     <div class="avis">
-    <button class="prev">&#10094;</button>
+    <button class="prev"><i class="fa-solid fa-chevron-left"></i></button>
         <img src="./assets/img/avis/avis.jpg" alt="Avis d'une cliente n°1">
         <img src="./assets/img/avis/avis2.jpg" alt="Avis d'une cliente n°2">
         <img src="./assets/img/avis/avis3.jpg" alt="Avis d'une cliente n°3">
         <img src="./assets/img/avis/avis4.jpg" alt="Avis d'une cliente n°4">
-        <button class="next">&#10095;</button>
+        <button class="next"><i class="fa-solid fa-chevron-right"></i></button>
     </div>
 </div>
 

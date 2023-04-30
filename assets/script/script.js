@@ -183,26 +183,6 @@ function initToggleDescription() {
 
 
 
-// verouiller les lundi et dimanche du calendrier mobile \\
-// document.getElementById('mobile-date').addEventListener('change', function() {
-//   const date = new Date(this.value);
-//   const day = date.getDay();
-//   const errorMessage = document.getElementById('date-error-message');
-  
-//   if (day === 0 || day === 1) {
-//     errorMessage.style.display = 'block';
-//     this.setCustomValidity('Les rendez-vous ne sont pas disponibles les dimanches et les lundis.');
-//   } else {
-//     errorMessage.style.display = 'none';
-//     this.setCustomValidity('');
-//   }
-// });
-
-
-
-
-
-
 
 
 

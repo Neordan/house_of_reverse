@@ -46,20 +46,19 @@ if (!empty($_POST)) {
         $query->bindParam(":prestation", $prestation, PDO::PARAM_STR);
         $query->bindParam(":message", $message, PDO::PARAM_STR);
 
-            if ($query->execute()) {
-                $_SESSION['utilisateur']['id'] = $id;
-                    // Rediriger vers la page d'accueil
-                    $_SESSION['rdv']['jour_heure'] = $rdv;
-                    header('Location: ./profil.php');
-                } else {
-                    echo "Erreur 1.";
-                }
-                
-            } else {
-                echo "Vous avez déjà pris rdv";
-            }
+        if ($query->execute()) {
+            $_SESSION['utilisateur']['id'] = $id;
+            // Rediriger vers la page d'accueil
+            $_SESSION['rdv']['jour_heure'] = $rdv;
+            header('Location: ./profil.php');
+        } else {
+            echo "Erreur 1.";
         }
-    
+    } else {
+        echo "Vous avez déjà pris rdv";
+    }
+}
+
 
 // Récupération des prestations de la base de données (ENUM)
 require "./core/config.php";
@@ -80,116 +79,115 @@ $prestations = $matches[1];
 
 <h2>contact</h2>
 <form class="contact" method="post" enctype="multipart/form-data">
-<input type="hidden" name="id_utilisateur" value="<?= $_SESSION['utilisateur']['id'] ?>">
-<div class="mobile-calendar">
-    <label class="labelMobile" for="mobile-date">Choisir la date :</label>
-    <input type="date" name="date-resa[]" id="mobile-date">
-    <span id="date-error-message" style="display:none; color:red;">Les rendez-vous ne sont pas disponibles les dimanches et les lundis.</span>
-    <label for="mobile-time">Choisir l'heure :</label>
-    <select name="date-resa[]" id="mobile-time">
-        <?php foreach ($slots as $slot): ?>
-            <option value="<?= $slot; ?>"><?= $slot; ?></option>
-        <?php endforeach; ?>
-    </select>
-</div>
-<div class="agenda">
-
-    <!-- Navigation de l'agenda -->
-    <div class="agenda-nav">
-        <div class="previous">
-            <a href="?start-date=<?= $debutSemainePrecedente->format("Y-m-d"); ?>">&lt;&lt; <?= $dateFormater->format($debutSemainePrecedente); ?></a>
-        </div>
-        <div class="current">
-            <a href="?start-date=<?= (new DateTime())->format("Y-m-d"); ?>"><?= $dateFormater->format($startDate); ?></a>
-        </div>
-        <div class="next1">
-            <a href="?start-date=<?= $debutSemaineSuivante->format("Y-m-d"); ?>"><?= $dateFormater->format($debutSemaineSuivante); ?> &gt;&gt;</a>
-        </div>
+    <input type="hidden" name="id_utilisateur" value="<?= $_SESSION['utilisateur']['id'] ?>">
+    <div class="mobile-calendar">
+        <label class="labelMobile" for="mobile-date">Choisir la date :</label>
+        <input type="date" name="date-resa[]" id="mobile-date">
+        <label for="mobile-time">Choisir l'heure :</label>
+        <select name="date-resa[]" id="mobile-time">
+            <?php foreach ($slots as $slot) : ?>
+                <option value="<?= $slot; ?>"><?= $slot; ?></option>
+            <?php endforeach; ?>
+        </select>
     </div>
+    <div class="agenda">
 
-    <!-- En-têtes des jours -->
-    <div class="agenda-header">
-        <div class="hours-header">
-            <!-- En-tête de la colonne des créneaux horaires -->
-        </div>
-        <?php foreach ($calendrier as $jour) :
-            $jour->setTime(10, 0); ?>
-            <div class="day">
-                <?= $dateFormater->format($jour); ?>
+        <!-- Navigation de l'agenda -->
+        <div class="agenda-nav">
+            <div class="previous">
+                <a href="?start-date=<?= $debutSemainePrecedente->format("Y-m-d"); ?>">&lt;&lt; <?= $dateFormater->format($debutSemainePrecedente); ?></a>
             </div>
-        <?php endforeach; ?>
-    </div>
+            <div class="current">
+                <a href="?start-date=<?= (new DateTime())->format("Y-m-d"); ?>"><?= $dateFormater->format($startDate); ?></a>
+            </div>
+            <div class="next1">
+                <a href="?start-date=<?= $debutSemaineSuivante->format("Y-m-d"); ?>"><?= $dateFormater->format($debutSemaineSuivante); ?> &gt;&gt;</a>
+            </div>
+        </div>
 
-    <div class="hr"></div>
+        <!-- En-têtes des jours -->
+        <div class="agenda-header">
+            <div class="hours-header">
+                <!-- En-tête de la colonne des créneaux horaires -->
+            </div>
+            <?php foreach ($calendrier as $jour) :
+                $jour->setTime(10, 0); ?>
+                <div class="day">
+                    <?= $dateFormater->format($jour); ?>
+                </div>
+            <?php endforeach; ?>
+        </div>
 
-    <!-- Corps de l'agenda -->
-    <div class="agenda-body">
-        <!-- Affichage des créneaux -->
-        <?php foreach ($calendrier as $jour) : ?>
-            <div class="slots">
-                <?php
-                // Définir les créneaux horaires souhaités
-                $slots = ['10:00', '13:30', '16:30'];
-                ?>
-                <?php foreach ($slots as $slot) : ?>
+        <div class="hr"></div>
+
+        <!-- Corps de l'agenda -->
+        <div class="agenda-body">
+            <!-- Affichage des créneaux -->
+            <?php foreach ($calendrier as $jour) : ?>
+                <div class="slots">
                     <?php
-                    // Configurer l'heure du jour en cours avec le créneau actuel
-                    $jour->setTime(...explode(':', $slot));
+                    // Définir les créneaux horaires souhaités
+                    $slots = ['10:00', '13:30', '16:30'];
                     ?>
-                    <div class="slot">
-                        <?php if ((new DateTime()) < $jour && $jour->format("w") != 0 && $jour->format("w") != 1) : ?>
-                            <?php if (isset($_SESSION['utilisateur']["id"])) : ?>
-                                <?php
-                                // Recherche du rendez-vous pour le créneau actuel
-                                $sql = "SELECT * FROM rdv WHERE jour_heure=:rdv";
-$query = $pdo->prepare($sql);
-$rdv_time = $jour->format("Y-m-d H:i");
-$query->bindParam(":rdv", $rdv_time, PDO::PARAM_STR);
-$query->execute();
-$rdv = $query->fetch();
+                    <?php foreach ($slots as $slot) : ?>
+                        <?php
+                        // Configurer l'heure du jour en cours avec le créneau actuel
+                        $jour->setTime(...explode(':', $slot));
+                        ?>
+                        <div class="slot">
+                            <?php if ((new DateTime()) < $jour && $jour->format("w") != 0 && $jour->format("w") != 1) : ?>
+                                <?php if (isset($_SESSION['utilisateur']["id"])) : ?>
+                                    <?php
+                                    // Recherche du rendez-vous pour le créneau actuel
+                                    $sql = "SELECT * FROM rdv WHERE jour_heure=:rdv";
+                                    $query = $pdo->prepare($sql);
+                                    $rdv_time = $jour->format("Y-m-d H:i");
+                                    $query->bindParam(":rdv", $rdv_time, PDO::PARAM_STR);
+                                    $query->execute();
+                                    $rdv = $query->fetch();
 
-// Remplir la variable de session 'rdv' avec les informations de rendez-vous
-if ($rdv) {
-    $_SESSION['rdv'] = $rdv;
-}
-                                ?>
-                                <?php if ($rdv == null) : ?>
-                                    <input type="radio" name="date-resa" value="<?= $jour->format("Y-m-d H:i"); ?>" id="slot-<?= $jour->format("Y-m-d-H-i"); ?>" class="slot-radio">
-                                    <label for="slot-<?= $jour->format("Y-m-d-H-i"); ?>"><?= $jour->format("H:i"); ?></label>
+                                    // Remplir la variable de session 'rdv' avec les informations de rendez-vous
+                                    if ($rdv) {
+                                        $_SESSION['rdv'] = $rdv;
+                                    }
+                                    ?>
+                                    <?php if ($rdv == null) : ?>
+                                        <input type="radio" name="date-resa" value="<?= $jour->format("Y-m-d H:i"); ?>" id="slot-<?= $jour->format("Y-m-d-H-i"); ?>" class="slot-radio">
+                                        <label for="slot-<?= $jour->format("Y-m-d-H-i"); ?>"><?= $jour->format("H:i"); ?></label>
+                                    <?php else : ?>
+                                        <button class="reserved">Reservé</button>
+                                    <?php endif; ?>
                                 <?php else : ?>
                                     <button class="reserved">Reservé</button>
                                 <?php endif; ?>
                             <?php else : ?>
-                                <button class="reserved">Reservé</button>
-<?php endif; ?>
-<?php else : ?>
-<button class="reserved"></button>
-<?php endif; ?>
-</div>
-<?php endforeach; ?>
-</div>
-<?php endforeach; ?>
-</div>
-</div>
-<div class="info">
-    <label for="inspiration">Tes inspirations : <span>*</sapn></label>
-    <input type="file" name="inspiration" id="inspiration" require>
-</div>
-<div class="info">
-    <label for="ongle_actuel">Tes ongles :</label>
-    <input type="file" name="ongle_actuel" id="ongle_actuel">
-</div>
-<div class="info">
-    <label for="prestation">Prestation souhaitée : <span>*</span></label>
-    <select name="prestation" id="prestation">
-        <option value="0">Sélectionner votre choix</option>
-        <?php foreach ($prestations as $prestation) : ?>
-            <option value="<?= $prestation; ?>"><?= $prestation; ?></option>
-        <?php endforeach; ?>
-    </select>
-</div>
-<div class="info">
-    <label for="message">Précisions:</label>
-    <textarea name="message" id="message" rows="5" placeholder="Ton message .."></textarea>
-</div>
-<button class="formulaire"><i class="fa-solid fa-check"></i></button>
+                                <button class="reserved"></button>
+                            <?php endif; ?>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+    <div class="info">
+        <label for="inspiration">Tes inspirations : <span>*</span></label>
+        <input type="file" name="inspiration" id="inspiration" require>
+    </div>
+    <div class="info">
+        <label for="ongle_actuel">Tes ongles :</label>
+        <input type="file" name="ongle_actuel" id="ongle_actuel">
+    </div>
+    <div class="info">
+        <label for="prestation">Prestation souhaitée : <span>*</span></label>
+        <select name="prestation" id="prestation">
+            <option value="0">Sélectionner votre choix</option>
+            <?php foreach ($prestations as $prestation) : ?>
+                <option value="<?= $prestation; ?>"><?= $prestation; ?></option>
+            <?php endforeach; ?>
+        </select>
+    </div>
+    <div class="info">
+        <label for="message">Précisions:</label>
+        <textarea name="message" id="message" rows="5" placeholder="Ton message .."></textarea>
+    </div>
+    <button class="formulaire"><i class="fa-solid fa-check"></i></button>

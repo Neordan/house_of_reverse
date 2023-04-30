@@ -4,8 +4,6 @@
   --title-bg-color: #dccbcb;
   --menu-bg-color: #996766e0;
   --nav-bg-color: #ddc4c4;
-  --title-font: 'Cinzel', serif;
-  --text-font: 'Raleway', sans-serif;
   --accent-color: #ceaaaa;
   --line-color: #cdabab;
   --other-color : #cdaaaa;
@@ -14,6 +12,8 @@
   --dark-pink : #996766;
   --other-color-2: #af7e82;
   --color-text-footer :#5e3535;
+  --title-font: 'Cinzel', serif;
+  --text-font: 'Raleway', sans-serif;
 }
 
 
@@ -84,6 +84,7 @@ h2 {
   margin-top: -85px;
   margin-bottom: 22px;
   white-space: nowrap;
+  user-select: none;
 }
 
 form {
@@ -92,7 +93,7 @@ form {
   justify-content: center;
   align-items: center;
   width: 80%;
-  margin: 15px auto 15px auto;
+  margin: 15px auto;
 }
 
 /*************** CSS du header *****************/
@@ -266,6 +267,7 @@ h3 {
   font-family: var(--title-font);
   font-size: clamp(1.2rem, 3vw, 1.8rem);
   color: var(--other-color-2);
+  user-select: none;
 }
 
 h3:before {
@@ -850,7 +852,6 @@ textarea::placeholder {
 .slot {
   width: 100%;
   height: 40px;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1287,8 +1288,7 @@ footer {
   }
 
   .navordi-connected {
-    width: 63%;
-    min-width: 642px;
+    width: 70%;
   }
 
   .navordi ul {
