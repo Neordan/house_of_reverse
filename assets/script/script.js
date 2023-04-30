@@ -69,39 +69,6 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
           
-
-
-//zoom des certificats\\
-const zoomImages = document.querySelectorAll('.img');
-          
-// boucle sur chaque image sélectionnée
-zoomImages.forEach(image => {
-  image.addEventListener('click', () => {
-    // Si l'image est agrandie, on retire le zoom en supprimant la classe "zoomer"
-    if (image.classList.contains('zoomer')) {
-      image.classList.remove('zoomer');
-    } else {
-      // Sinon, on ajoute la classe "zoomer" pour agrandir l'image
-      image.classList.add('zoomer');
-    }
-  });
-});
-
-// On ajoute un écouteur d'événement "click" au document et event : objet représnetant une action sur la page web
-document.addEventListener('click', event => {
-  // Si l'élément cliqué n'a pas la classe "zoomer"
-  if (!event.target.classList.contains('zoomer')) {
-    // boucle sur chaque image sélectionnée qui ont la classe
-    zoomImages.forEach(image => {
-      // On supprime la classe "zoomed" de chaque image
-      image.classList.remove('zoomer');
-    });
-  }
-});
-
-
-
-
 //slide avis \\
 let avisImages = document.querySelectorAll(".avis img");
 let currentIndex = 0;
