@@ -1,9 +1,8 @@
 <?php
 $page_title = "Inscription";
-require "./core/header.php";
+require_once "./core/header.php";
 require "./function.php";
 
-require "./core/config.php";
 
 $allergies_options = getAllergiesOptions();
 
@@ -11,32 +10,33 @@ $role = "utilisateur";
 
 // Vérifie si le formulaire a été envoyé
 if (!empty($_POST)) {
-
+    
     // Vérifie que tous les champs du formulaire sont remplis
-
+    
     // Vérifie que les mots de passe sont identiques
     if ($_POST["hash_mdp1"] == $_POST["hash_mdp2"]) {
-
+        
         // Initialise les variables
         $email = trim($_POST["email"]);
         $nom = trim($_POST["nom"]);
         $prenom = trim($_POST["prenom"]);
         $age = $_POST["age"];
-
+        
         if (isset($_POST['allergies'])) {
             //suite d'allergie séparé par une virgule
             $allergies = implode(", ", $_POST['allergies']);
         }
-
+        
         $ongles = $_POST["ongles_ronges"];
-
+        
         // Hashage du mot de passe
         $hash_mdp = $_POST["hash_mdp1"];
         $options = [
             'cost' => 12,
         ];
         $hash_mdp = password_hash($_POST["hash_mdp1"], PASSWORD_BCRYPT, $options);
-
+        
+        require_once "./core/config.php";
         // Requête SQL pour insérer les informations dans la table utilisateur
         $sql = "INSERT INTO utilisateur (email, nom, prenom, age, allergies, ongles_ronges, role, hash_mdp) VALUES (:email, :nom, :prenom, :age, :allergies, :ongles_ronges, :role, :hash_mdp)";
 
@@ -136,5 +136,5 @@ if (!empty($_POST)) {
 </form>
 
 <?php
-require "./core/footer.php"
+require_once "./core/footer.php"
 ?>

@@ -33,7 +33,7 @@ if (!empty($_POST)) {
         $id = $_SESSION["utilisateur"]["id"];
         $rdv = $_POST["date-resa"][0] . " " . $_POST["date-resa"][1];
         $prestation = $_POST["prestation"];
-        $inspiration = !empty($_FILES['inspiration']['name']) ? "assets/img/clients/" . $_FILES['inspiration']['name'] : null;
+        $inspiration = "assets/img/clients/" . $_FILES['inspiration']['name'];
         $ongle_actuel = !empty($_FILES['ongle_actuel']['name']) ? "assets/img/clients/" . $_FILES['ongle_actuel']['name'] : null;
         $message = !empty($_POST['message']) ? htmlspecialchars(trim($_POST['message'])) : null;
 
@@ -125,10 +125,6 @@ $prestations = $matches[1];
             <!-- Affichage des créneaux -->
             <?php foreach ($calendrier as $jour) : ?>
                 <div class="slots">
-                    <?php
-                    // Définir les créneaux horaires souhaités
-                    $slots = ['10:00', '13:30', '16:30'];
-                    ?>
                     <?php foreach ($slots as $slot) : ?>
                         <?php
                         // Configurer l'heure du jour en cours avec le créneau actuel
@@ -191,3 +187,8 @@ $prestations = $matches[1];
         <textarea name="message" id="message" rows="5" placeholder="Ton message .."></textarea>
     </div>
     <button class="formulaire"><i class="fa-solid fa-check"></i></button>
+
+<?php 
+
+require_once "./core/footer.php";
+?>

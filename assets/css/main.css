@@ -1287,6 +1287,7 @@ footer {
     max-width: 450px;
   }
 
+
   .navordi-connected {
     width: 70%;
   }
@@ -1295,22 +1296,27 @@ footer {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    gap: 8px;
+    gap: 10px;
   }
 
   .navordi ul li {
     list-style: none;
-  }
-
-  .navordi ul li a {
+    text-align: center;
+    width: 35%;
+    display: flex;
+    justify-content: center;
+}
+  
+.navordi ul li a {
     color: var(--other-color);
     text-decoration: none;
     font-size: 1.4rem;
     border-radius: 13px;
-    padding: 8px;
+    padding: 8px 0;
     box-shadow: 4px 4px 10px #8e605f;
     transition: 0.2s step-start;
-  }
+    flex-grow: 1;
+}
 
   .navordi ul li a:hover {
     color: var(--white);
@@ -1478,7 +1484,7 @@ footer {
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
-
+    width: 70%;
     margin: auto;
     margin-top: 35px;
   }

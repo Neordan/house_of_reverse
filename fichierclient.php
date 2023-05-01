@@ -1,7 +1,7 @@
 <?php
 $page_title = "Fichier client";
 require "./core/config.php";
-require "./core/header.php";
+require_once "./core/header.php";
 
 // Autorisation à l'admin d'aller au fichier client
 if ($_SESSION['utilisateur']['role'] != "admin") {
@@ -182,4 +182,4 @@ if ($resultInfos->execute()) {
         echo "Aucun rendez-vous";
     } ?>
 
-<?php require "./core/footer.php"; ?>
+<?php require_once "./core/footer.php"; ?>

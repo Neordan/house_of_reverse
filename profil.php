@@ -1,6 +1,6 @@
 <?php
 $page_title = "Mon profil";
-require "./core/header.php";
+require_once "./core/header.php";
 ?>
 <h2>Mon profil</h2>
 <?php if (isset($_SESSION['rdv']['jour_heure']) && !empty($_SESSION['rdv']['jour_heure'])) :
@@ -52,5 +52,5 @@ require "./core/header.php";
 </form>
 
 <?php
-require "./core/footer.php";
+require_once "./core/footer.php";
 ?>

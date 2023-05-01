@@ -1,7 +1,6 @@
 <?php
 
 /**
-
 Génère le code HTML pour afficher une prestation avec un titre, une image et une description.
 @param string $title Le titre de la prestation.
 @param string $photoUrl L'URL de l'image de la prestation.

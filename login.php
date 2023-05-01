@@ -70,5 +70,5 @@ if (isset($_POST["email"]) && $_POST["email"] != "" &&
 </div>
 
 <?php
-require "./core/footer.php";
+require_once "./core/footer.php";
 ?>

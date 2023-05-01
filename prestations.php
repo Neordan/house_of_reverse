@@ -1,6 +1,6 @@
 <?php
 $page_title = "Prestations";
-require "./core/header.php";
+require_once "./core/header.php";
 require "./function.php";
 ?>
 
@@ -37,4 +37,4 @@ En somme, le remplissage en prothésie ongulaire est une technique indispensable
 
 
 
-<?php require "./core/footer.php"; ?>
+<?php require_once "./core/footer.php"; ?>

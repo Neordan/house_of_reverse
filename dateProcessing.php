@@ -16,8 +16,8 @@ if (isset($_GET["start-date"])) {
     $startDate = new DateTime();
 }
 
-// Convertit l'objet DateTime en chaîne de caractères avec le format 'Y-m-d'
-$stringDate = $startDate->format("Y-m-d");
+// Convertit l'objet DateTime en chaîne de caractères avec le format 'd-m-Y'
+$stringDate = $startDate->format("d-m-Y");
 
 // Déterminer le jour de la semaine pour faire partir l'agenda du lundi
 $daysOfWeek = [
@@ -31,7 +31,7 @@ $daysOfWeek = [
 ];
 
 // Obtient l'index du jour de la semaine (0 pour dimanche, 1 pour lundi, etc.)
-$dayOfWeekIndex = (int)$startDate->format("w");
+$dayOfWeekIndex = $startDate->format("w");
 // Calcule l'index pour trouver le lundi le plus proche
 $mondayIndex = $dayOfWeekIndex === 0 ? 1 : -$dayOfWeekIndex + 1;
 

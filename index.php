@@ -1,6 +1,6 @@
-<?php 
+<?php
 $page_title = "Accueil";
-require "./core/header.php";
+require_once "./core/header.php";
 
 ?>
 
@@ -10,13 +10,14 @@ require "./core/header.php";
     <p>Je suis ravie de vous présenter mes services en matière de soins des ongles. Exercant ce métier
         depuis 2 ans, je suis passionnée par le soin et la beauté des ongles. Mon objectif est de vous offrir
         des soins de qualité pour que vous puissiez arborer des ongles sains et élégants.
-    <br><br>
+        <br><br>
         Je propose une large gamme de services pour les mains et les pieds, allant du nettoyage des ongles à la
         pose
         de vernis, en passant par la manucure et la pédicure. Je suis aussi spécialisée dans les techniques
         d'extension d'ongles pour celleux qui désirent une longueur et une forme parfaite. Je travaille avec des
         produits
-        de qualité supérieure pour garantir des résultats durables et sains.</p>
+        de qualité supérieure pour garantir des résultats durables et sains.
+    </p>
 </section>
 <section class="certificate">
     <h3>mes certifications</h3>
@@ -28,7 +29,7 @@ require "./core/header.php";
 <div class="client">
     <h3>avis client</h3>
     <div class="avis">
-    <button class="prev"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="prev"><i class="fa-solid fa-chevron-left"></i></button>
         <img src="./assets/img/avis/avis.jpg" alt="Avis d'une cliente n°1">
         <img src="./assets/img/avis/avis2.jpg" alt="Avis d'une cliente n°2">
         <img src="./assets/img/avis/avis3.jpg" alt="Avis d'une cliente n°3">
@@ -37,6 +38,6 @@ require "./core/header.php";
     </div>
 </div>
 
-    <?php
-    require "./core/footer.php";
-    ?>
+<?php
+require_once "./core/footer.php";
+?>

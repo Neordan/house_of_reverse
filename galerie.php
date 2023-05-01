@@ -1,6 +1,6 @@
 <?php
 $page_title = "Galerie";
-require "./core/header.php";
+require_once "./core/header.php";
 
 ?>
 
@@ -20,5 +20,5 @@ require "./core/header.php";
 </div>
 
 <?php
-require "./core/footer.php"
+require_once "./core/footer.php"
 ?>
