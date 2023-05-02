@@ -1305,6 +1305,7 @@ footer {
     width: 35%;
     display: flex;
     justify-content: center;
+    white-space: nowrap;
 }
   
 .navordi ul li a {

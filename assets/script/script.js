@@ -2,7 +2,6 @@
 // Menu hamburger
 
 const menuToggle =  document.querySelector('.menu-toggle');
-const menuBars = document.querySelectorAll('.menu-bar');
 const menu = document.querySelector('nav');
 const closeMenu = document.querySelector('.close-menu')
 
