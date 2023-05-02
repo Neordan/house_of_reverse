@@ -47,7 +47,6 @@ require_once "./core/header.php";
                 <a href="delete.php?suppcompte=<?= $_SESSION['utilisateur']['id']; ?>" class="delete" id="deleteAccountButton">Supprimer mon compte</a>
 
             </form>
-            <?php var_dump($_SESSION['rdv']['jour_heure']) ?>
         </div>
     </form>
 </div>

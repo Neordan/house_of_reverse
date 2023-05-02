@@ -65,7 +65,6 @@ require "./dateFormater.php";
                     <li><a href="./prestations.php">Prestations</a></li>
                     <li><a href="./galerie.php">Galerie</a></li>
                     <li><a href="./tarifs.php">Tarifs</a></li>
-
                     <?php if (isset($_SESSION['utilisateur'])) : ?>
                         <?php if ($_SESSION['utilisateur']['role'] == 'utilisateur') : ?>
                             <li><a href='./profil.php'>Profil</a></li>
