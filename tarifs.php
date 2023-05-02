@@ -5,7 +5,7 @@ require_once "./core/header.php";
 ?>
 
 <h2>tarifs</h2>
-<h3 class="title">Prestations gel</h3>
+<h3>Prestations gel</h3>
 <div class="group-tarif">
     <div class="unique-tarif">
         <p>Gainage / 1h</p>
@@ -33,7 +33,7 @@ require_once "./core/header.php";
     </div>
     <hr>
 </div>
-<h3 class="title">Prestations vsp</h3>
+<h3>Prestations vsp</h3>
 <div class="group-tarif">
     <div class="unique-tarif">
         <p>Renforcement / 1h</p>
@@ -51,7 +51,7 @@ require_once "./core/header.php";
     </div>
     <hr>
 </div>
-<h3 class="title">Nail art</h3>
+<h3>Nail art</h3>
 <div class="group-tarif">
     <div class="unique-tarif">
         <p>French Reverse (2 mains)</p>

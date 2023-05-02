@@ -73,7 +73,7 @@ h2 {
   text-transform: capitalize;
   font-family: var(--title-font);
   color: var(--white);
-  font-size: clamp(1.6rem, 4.5vw, 2.5rem);
+  font-size: clamp(1.6rem, 4.5vw, 2.3rem);
   background-color: var(--title-bg-color);
   border-width: 4px;
   border-style: solid;
@@ -92,7 +92,6 @@ form {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 80%;
   margin: 15px auto;
 }
 
@@ -207,7 +206,7 @@ header {
 .logo {
   display: flex;
   flex-direction: column;
-  margin-top: 80px;
+  margin-top: 75px;
   text-align: center;
 }
 
@@ -265,7 +264,7 @@ h3 {
   text-align: center;
   text-transform: capitalize;
   font-family: var(--title-font);
-  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
   color: var(--other-color-2);
   user-select: none;
 }
@@ -323,37 +322,6 @@ h3:after {
   padding-bottom: 20px;
 }
 
-.title {
-  width: 90%;
-  text-align: center;
-  font-size: clamp(1.1rem, 3vw, 1.8rem);
-  text-transform: uppercase;
-  color: var(--dark-pink);
-  margin: 0 auto 25px auto;
-}
-
-.title::before {
-  display: flex;
-  content: "";
-  height: 3px;
-  border-radius: 5px;
-  width: 80%;
-  margin: auto;
-  margin-bottom: 12px;
-  background-color: var(--accent-color);
-}
-
-.title::after {
-  display: flex;
-  content: "";
-  height: 3px;
-  border-radius: 5px;
-  width: 80%;
-  margin: auto;
-  margin-top: 12px;
-  background-color: var(--accent-color);
-}
-
 .presta img {
   width: 65%;
   user-select: none;
@@ -365,7 +333,7 @@ h3:after {
   text-align: justify;
   width: 88%;
   margin: 25px auto;
-  /* garder seulement 5 lignes */
+  /* garder seulement 6 lignes */
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 6;
@@ -395,29 +363,15 @@ h3:after {
 }
 
 /*************** CSS de la page login *****************/
-.login {
-  position: fixed;
-  top: 0;
-  left: 0;
-  margin: 0;
-  z-index: 999;
-  height: 100vh;
-  width: 100%;
-  background-color: var(--nav-bg-color);
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
 .logout {
+  width: 150px;
   padding: 8px;
   border-radius: 13px;
   box-shadow: 4px 4px 10px #8e605f, -4px -4px 10px #a46e6d;
   color: var(--other-color);
   font-family: var(--text-font);
   font-size: 1.2rem;
+  text-align: center;
 }
 
 .logout:hover,
@@ -441,13 +395,8 @@ h3:after {
 }
 
 .formulairelog input {
-  width: 90%;
   height: 30px;
-  border: 2px solid var(--other-color-2);
-  border-radius: 10px;
-  padding: 5px 15px;
   margin: 6px;
-  border: none;
 }
 
 .formulairelog input:focus {
@@ -496,9 +445,6 @@ h3:after {
   justify-content: end;
 }
 
-.mdp {
-  color: #bab6b9;
-}
 
 .creation-container {
   margin: auto;
@@ -529,13 +475,9 @@ h3:after {
   width: 90%;
   margin: auto;
   object-fit: cover;
-  filter: brightness(70%);
-  transition: 0.3s ease-in;
 }
 
-.image img:hover {
-  filter: brightness(110%);
-}
+
 
 /* ******** CSS des avis  *******/
 
@@ -745,15 +687,12 @@ textarea::placeholder {
 }
 
 .formulaire {
-  display: flex;
-  justify-content: center;
   width: 50px;
   height: 50px;
   font-size: 1.3rem;
   display: flex;
   align-items: center;
   background: #e8e2e7;
-  border: none;
   border: 2px solid #b88988;
   color: #b88988;
   margin: 28px 0 5px 0;
@@ -1073,6 +1012,10 @@ tbody tr:nth-child(1) {
   width: 85%;
 }
 
+.compte form {
+  width: 100%;
+}
+
 .onglet {
   display: flex;
   flex-direction: column;
@@ -1146,6 +1089,10 @@ tbody tr:nth-child(1) {
   align-items: center;
 }
 
+.rdv-details form {
+  width: 70%;
+}
+
 .rdv-details p {
   width: 100%;
   text-align: center;
@@ -1154,7 +1101,7 @@ tbody tr:nth-child(1) {
 
 #deleteRdvButton {
   text-align: center;
-  width: 60%;
+  width: 100%;
   background-color: var(--other-color);
   color: #000;
   padding: 8px;
@@ -1261,13 +1208,13 @@ footer {
 /* pour l'ordinateur */
 @media screen and (min-width: 900px) {
 
-  h2 {
-    font-size: 2.6rem;
+  /* h2 {
+    font-size: 2.4rem;
   }
 
   h3, .title {
-    font-size: 1.5rem;
-  }
+    font-size: 1.6rem;
+  } */
 
   .menu-toggle {
     display: none;
@@ -1283,8 +1230,8 @@ footer {
   }
 
   .navordi-not-connected {
-    width: 50%;
-    max-width: 450px;
+    width: 65%;
+ 
   }
 
 
@@ -1296,7 +1243,7 @@ footer {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    gap: 10px;
+    gap: 25px;
   }
 
   .navordi ul li {
@@ -1325,7 +1272,7 @@ footer {
   }
 
   .logo {
-    margin-top: 100px;
+    margin-top: 120px;
   }
 
   .logo img {
@@ -1341,6 +1288,7 @@ footer {
   }
 
   /*description*/
+
   .description {
     display: flex;
     align-items: center;
@@ -1387,6 +1335,12 @@ footer {
     right: 15px;
   }
 
+  /* responsive profil */
+
+  .rdv-details form {
+    width: 40%;
+  }
+
   /* responsive login  */
 
   .formulairelog {
@@ -1395,6 +1349,10 @@ footer {
 
   .formulairelog a {
     font-size: 0.9rem;
+  }
+
+  .formulairelog form {
+    width: 100%;
   }
 
   /* responsive register  */
@@ -1412,6 +1370,10 @@ footer {
     width: 50%;
   }
 
+  .compte form { 
+    width: 70%; 
+  }
+
   /* responsive prestation  */
 
   .title {
@@ -1425,6 +1387,12 @@ footer {
   .image img {
     width: 45%;
     height: 450px;
+    filter: brightness(70%);
+    transition: 0.3s ease-in;
+  }
+
+  .image img:hover {
+    filter: brightness(110%);
   }
 
   /* responsive calendar  */
@@ -1453,7 +1421,7 @@ footer {
   /* responsive tarif  */
 
   .group-tarif {
-    width: 70%;
+    width: 80%;
   }
 
   /* responsive footer  */
@@ -1485,7 +1453,7 @@ footer {
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
-    width: 70%;
+    width: 90%;
     margin: auto;
     margin-top: 35px;
   }

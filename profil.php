@@ -14,11 +14,11 @@ require_once "./core/header.php";
             <button id="deleteRdvButton" type="submit">Supprimer le rendez-vous</button>
         </form>
     </div>
-<?php else: ?>
+<?php else : ?>
     <p>Aucun rendez-vous prévu pour le moment.</p>
 <?php endif; ?>
-<form method="post" class="pf-container">
-    <div class="compte">
+<div class="compte">
+    <form method="post" class="pf-container">
         <div class="pf-struct">
             <input type="text" name="prenom" value="<?= isset($_SESSION['utilisateur']['prenom']) ? ucfirst($_SESSION['utilisateur']['prenom']) : '' ?> " placeholder="Prénom" id="change" disabled>
             <input type="text" name="nom" value="<?= isset($_SESSION['utilisateur']['nom']) ? ucfirst($_SESSION['utilisateur']['nom']) : '' ?>" placeholder="Nom" id="change" disabled>
@@ -45,11 +45,12 @@ require_once "./core/header.php";
             <form class="deleterdv" action="./delete.php" method="get">
                 <input type="hidden" name="<?= $_SESSION['utilisateur']['id'] ?>">
                 <a href="delete.php?suppcompte=<?= $_SESSION['utilisateur']['id']; ?>" class="delete" id="deleteAccountButton">Supprimer mon compte</a>
+
             </form>
+            <?php var_dump($_SESSION['rdv']['jour_heure']) ?>
         </div>
-    </div>
-    </div>
-</form>
+    </form>
+</div>
 
 <?php
 require_once "./core/footer.php";

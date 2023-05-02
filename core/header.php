@@ -52,7 +52,9 @@ require "./dateFormater.php";
                     <li><a href="./tarifs.php">Tarifs</a></li>
                     <?php if (!empty($_SESSION['utilisateur'])) {  ?>
                         <li><a href='./profil.php'>Profil</a></li>
-                        <li><a href='./contact.php'>RDV</a></li>
+                        <?php if (!isset($_SESSION['rdv']['jour_heure'])) { ?>
+                            <li><a href='./contact.php'>RDV</a></li>
+                        <?php } ?>
                     <?php } ?>
                 </ul>
                 <a href="./index.php"><i class="fa-solid fa-house"></i></a>
@@ -67,7 +69,9 @@ require "./dateFormater.php";
                     <?php if (isset($_SESSION['utilisateur'])) : ?>
                         <?php if ($_SESSION['utilisateur']['role'] == 'utilisateur') : ?>
                             <li><a href='./profil.php'>Profil</a></li>
-                            <li><a href='./contact.php'>RDV</a></li>
+                            <?php if (!isset($_SESSION['rdv']['jour_heure'])) { ?>
+                                <li><a href='./contact.php'>RDV</a></li>
+                            <?php } ?>
                         <?php elseif ($_SESSION['utilisateur']['role'] == 'admin') : ?>
                             <li><a href='./fichierClient.php'>Fichier client</a></li>
                         <?php endif; ?>

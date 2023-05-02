@@ -1,4 +1,3 @@
-
 // Menu hamburger
 
 const menuToggle =  document.querySelector('.menu-toggle');
@@ -12,8 +11,6 @@ menuToggle.addEventListener('click', () => {
 closeMenu.addEventListener('click', () => {
   menu.style.display = 'none';
 })  
-
-
 
 
 // si l'utilisateur clique sur aucune les autres sont désactivés \\
@@ -35,16 +32,17 @@ document.addEventListener("DOMContentLoaded", function() {
             }
             
             // Ajoutez un écouteur d'événement 'click' pour la case à cocher "Aucune"
+            if(aucuneAllergie) {
             aucuneAllergie.addEventListener('click', function() {
               toggleAllergies(!aucuneAllergie.checked);
             });
-          
+            
             // Ajoutez un écouteur d'événement 'click' pour les autres cases à cocher
             allergiesCheckboxes.forEach(function(checkbox) {
-            if (checkbox.id !== 'Aucune') {
-              checkbox.addEventListener('click', function() {
-                if (checkbox.checked) {
-                  aucuneAllergie.checked = false;
+              if (checkbox.id !== 'Aucune') {
+                checkbox.addEventListener('click', function() {
+                  if (checkbox.checked) {
+                    aucuneAllergie.checked = false;
                 }
               });
             }
@@ -54,18 +52,21 @@ document.addEventListener("DOMContentLoaded", function() {
           if (aucuneAllergie.checked) {
             toggleAllergies(false);
           }
-        });
+        }
+      });
         
 // modal pour valider la suppression du compte
 document.addEventListener("DOMContentLoaded", function() {
   const deleteAccountButton = document.getElementById("deleteAccountButton");
-            
-  deleteAccountButton.addEventListener("click", function(event) {
-    const result = confirm("Êtes-vous sûr de vouloir supprimer votre compte?");
-    if (!result) {
-      event.preventDefault();
-    }
-  });
+   
+  if (deleteAccountButton) {
+    deleteAccountButton.addEventListener("click", function(event) {
+      const result = confirm("Êtes-vous sûr de vouloir supprimer votre compte?");
+      if (!result) {
+        event.preventDefault();
+      }
+    });
+  }
 });
           
 //slide avis \\
