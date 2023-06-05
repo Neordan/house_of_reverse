@@ -1,7 +1,7 @@
 <?php
 $page_title = "Prestations";
 require_once "./core/header.php";
-require "./function.php";
+require "./actions/function.php";
 ?>
 
 <h2>mes prestations</h2>

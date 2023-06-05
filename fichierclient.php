@@ -2,13 +2,15 @@
 $page_title = "Fichier client";
 require "./core/config.php";
 require_once "./core/header.php";
+require "./actions/function.php";
 
 // Autorisation à l'admin d'aller au fichier client
 if ($_SESSION['utilisateur']['role'] != "admin") {
     header("location: ./index.php");
+    exit(); // Ajout d'une instruction exit() pour arrêter l'exécution du script après la redirection
 }
 $q = "";
-require "./rechercheUt.php";
+require "./actions/rechercheUt.php";
 
 // requete sql pour lister les clients
 $sql = "SELECT nom, prenom, age, allergies, ongles_ronges FROM utilisateur ORDER BY prenom ASC";
@@ -50,7 +52,7 @@ if ($resultInfos->execute()) {
 
 <h2>Liste des utilisateurs</h2>
 <div class="rechercheUt">
-    <form method="get" action="">
+    <form method="get">
         <input id="search" type="search" name="q" placeholder="Rechercher par utilisateur">
         <button><i class="fa-solid fa-magnifying-glass"></i></button>
     </form>
@@ -70,17 +72,8 @@ if ($resultInfos->execute()) {
             <tr>
                 <td><?= htmlspecialchars($result['prenom']) ?></td>
                 <td><?= htmlspecialchars($result['nom']) ?></td>
-                <?php
-                if (isset($result['age'])) {
-                    $birthdate = new DateTime($result['age']);
-                    $today = new DateTime();
-                    $interval = $birthdate->diff($today);
-                    $age = $interval->y;
-                } else {
-                    $age = '';
-                }
-                ?>
-                <td><?= htmlspecialchars($age) ?></td>
+                <td><?= htmlspecialchars(calculateAge($user['age'])) ?></td>
+
                 <td><?= htmlspecialchars($result['allergies']) ?></td>
                 <td><?= htmlspecialchars($result['ongles_ronges']) ?></td>
                 <!-- Ajoutez les autres cellules si nécessaire -->
@@ -101,19 +94,10 @@ if ($resultInfos->execute()) {
                 <tr>
                     <td><?= $user['prenom'] ?></td>
                     <td><?= $user['nom'] ?></td>
-                    <?php
-                    if (isset($user['age'])) {
-                        $birthdate = new DateTime($user['age']);
-                        $today = new DateTime();
-                        $interval = $birthdate->diff($today);
-                        $age = $interval->y;
-                    } else {
-                        $age = '';
-                    }
-                    ?>
-                    <td><?= $age ?></td>
+                    <td><?= htmlspecialchars(calculateAge($user['age'])) ?></td>
+
                     <td><?= $user['allergies'] ?></td>
-                    <td><?= $user['ongles_ronges'] ?></td>
+                    <td><?= htmlspecialchars($user['ongles_ronges']) ?></td>
                     <td></td>
                 </tr>
             <?php endforeach; ?>
@@ -131,16 +115,17 @@ if ($resultInfos->execute()) {
     <?php if (count($rdvs) > 0) {
         foreach ($rdvs as $rdv) { ?>
             <tr>
-                <td><?= $rdv['prenom'] ?></td>
-                <td><?= $rdv['nom'] ?></td>
+                <td><?= htmlspecialchars($rdv['prenom']) ?></td>
+                <td><?= htmlspecialchars($rdv['nom']) ?></td>
                 <td>
-                <?php if (isset($rdv['jour_heure'])) {
-                    $rdv_date = new DateTime($rdv['jour_heure']);
-                    $formatted_rdv_date = $rdv_date->format('d m Y à H:i');
-                    echo $formatted_rdv_date;
-                } ?></td>
+                    <?php if (isset($rdv['jour_heure'])) {
+                        $rdv_date = new DateTime($rdv['jour_heure']);
+                        $formatted_rdv_date = $rdv_date->format('d m Y à H:i');
+                        echo htmlspecialchars($formatted_rdv_date);
+                    } ?>
+                </td>
                 <td>
-                    <form action="./delete.php" method="get">
+                    <form action="./actions/delete.php" method="get">
                         <input type="hidden" name="id_rdv" value="<?= $rdv['id_rdv'] ?>">
                         <button class="deleterendezvous"><a href="delete.php?annulation=<?= $rdv['id_rdv']; ?>">Supprimer</a></button>
                     </form>
@@ -155,31 +140,31 @@ if ($resultInfos->execute()) {
 
 
 <h3>Informations des prochains rendez vous</h3>
-    <?php if (count($resultInfo) > 0) {
-        foreach ($resultInfo as $rdv) { ?>
-            <div class="info-rdv-client">
-                <div class="heurerdv">
-                    <?php if (isset($rdv['jour_heure'])) :
-                        $rdv_date = new DateTime($rdv['jour_heure']);
-                        $formatted_rdv_date = $rdv_date->format('d m Y à H:i');
-                    ?><?= $formatted_rdv_date ?></div>
-            <?php endif; ?>
-                <div class="pn"><?= $rdv['prenom'] ?> <?= $rdv['nom'] ?></div>
-            <div class="info-presta"><?= $rdv['prestation'] ?></div>
-            <div class="info-inspi"><img src="./<?= $rdv['inspiration'] ?>"></div>
-            <div class="info-ongle"><?php if (isset($rdv['ongle_actuel'])) : ?><img src="./<?= $rdv['ongle_actuel'] ?>"><?php endif; ?></div>
-            <div class="info-message"><?= isset($rdv['message']) ? $rdv['message'] : "" ?></div>
-            <div class="deleterendezvousclient">
-                <form action="./delete.php" method="get">
-                    <input type="hidden" name="id_rdv" value="<?= $rdv['id_rdv'] ?>">
-                    <button><a href="delete.php?annulation=<?= $rdv['id_rdv']; ?>">Supprimer</a></button>
-                </form>
-            </div>
-            </div>
-    <?php
-        }
-    } else {
-        echo "Aucun rendez-vous";
-    } ?>
+<?php if (count($resultInfo) > 0) {
+    foreach ($resultInfo as $rdv) { ?>
+        <div class="info-rdv-client">
+            <div class="heurerdv">
+                <?php if (isset($rdv['jour_heure'])) :
+                    $rdv_date = new DateTime($rdv['jour_heure']);
+                    $formatted_rdv_date = $rdv_date->format('d m Y à H:i');
+                ?><?= $formatted_rdv_date ?></div>
+        <?php endif; ?>
+        <div class="pn"><?= htmlspecialchars($rdv['prenom']) ?> <?= htmlspecialchars($rdv['nom']) ?></div>
+        <div class="info-presta"><?= htmlspecialchars($rdv['prestation']) ?></div>
+        <div class="info-inspi"><img src="./<?= htmlspecialchars($rdv['inspiration']) ?>"></div>
+        <div class="info-ongle"><?php if (isset($rdv['ongle_actuel'])) : ?><img src="./<?= htmlspecialchars($rdv['ongle_actuel']) ?>"><?php endif; ?></div>
+        <div class="info-message"><?= isset($rdv['message']) ? htmlspecialchars($rdv['message']) : "" ?></div>
+        <div class="deleterendezvousclient">
+            <form action="./actions/delete.php" method="get">
+                <input type="hidden" name="id_rdv" value="<?= $rdv['id_rdv'] ?>">
+                <button><a href="delete.php?annulation=<?= $rdv['id_rdv']; ?>">Supprimer</a></button>
+            </form>
+        </div>
+        </div>
+<?php
+    }
+} else {
+    echo "Aucun rendez-vous";
+} ?>
 
 <?php require_once "./core/footer.php"; ?>

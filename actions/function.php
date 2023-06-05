@@ -33,3 +33,19 @@ function getAllergiesOptions()
         'Autre' => 'Autre',
     ];
 }
+
+/**
+ * Calcule l'âge à partir de la date de naissance.
+ *
+ * @param string $birthDate La date de naissance au format YYYY-MM-DD.
+ * @return int L'âge en années.
+ */
+
+function calculateAge($birthDate)
+{
+    $today = new DateTime(); // Date actuelle
+    $birthdate = new DateTime($birthDate); // Date de naissance
+    $interval = $birthdate->diff($today); // Calcul de l'âge
+    $age = $interval->y; // Années
+    return $age;
+}

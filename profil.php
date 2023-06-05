@@ -1,6 +1,7 @@
 <?php
 $page_title = "Mon profil";
 require_once "./core/header.php";
+require "./actions/function.php"
 ?>
 <h2>Mon profil</h2>
 <?php if (isset($_SESSION['rdv']['jour_heure']) && !empty($_SESSION['rdv']['jour_heure'])) :
@@ -9,7 +10,7 @@ require_once "./core/header.php";
 ?>
     <div class="rdv-details">
         <p>Rendez-vous prévu le: <?= $formatted_rdv_date ?></p>
-        <form method="post" action="./delete.php">
+        <form method="post" action="./actions/delete.php">
             <input type="hidden" name="rdv_id" value="<?= $_SESSION['rdv']['jour_heure'] ?>">
             <button id="deleteRdvButton" type="submit">Supprimer le rendez-vous</button>
         </form>
@@ -23,18 +24,9 @@ require_once "./core/header.php";
             <input type="text" name="prenom" value="<?= isset($_SESSION['utilisateur']['prenom']) ? ucfirst($_SESSION['utilisateur']['prenom']) : '' ?> " placeholder="Prénom" id="change" disabled>
             <input type="text" name="nom" value="<?= isset($_SESSION['utilisateur']['nom']) ? ucfirst($_SESSION['utilisateur']['nom']) : '' ?>" placeholder="Nom" id="change" disabled>
 
-            <!-- affichage de l'age en int  -->
-            <?php
-            if (isset($_SESSION['utilisateur']['age'])) {
-                $birthdate = new DateTime($_SESSION['utilisateur']['age']);
-                $today = new DateTime();
-                $interval = $birthdate->diff($today);
-                $age = $interval->y;
-            } else {
-                $age = '';
-            }
-            ?>
-            <input type="text" name="age" value="<?= $age ?> ans" placeholder="Âge" id="change" disabled>
+        
+
+            <input type="text" name="age" value="<?= calculateAge($_SESSION['utilisateur']['age']) ?> ans" placeholder="Âge" id="change" disabled>
             <input type="text" name="allergies" value="<?= isset($_SESSION['utilisateur']['allergies']) ? $_SESSION['utilisateur']['allergies'] : '' ?>" placeholder="Allergies" id="change" disabled>
             <input type="text" name="email" value="<?= isset($_SESSION['utilisateur']['email']) ? $_SESSION['utilisateur']['email'] : '' ?>" placeholder="Email" id="change" disabled>
         </div>
@@ -42,7 +34,7 @@ require_once "./core/header.php";
             <?php if (!isset($_SESSION['rdv']['jour_heure'])) : ?>
                 <a class="prrdv" href="./contact.php">Prendre rendez-vous</a>
             <?php endif ?>
-            <form class="deleterdv" action="./delete.php" method="get">
+            <form class="deleterdv" action="./actions/delete.php" method="get">
                 <input type="hidden" name="<?= $_SESSION['utilisateur']['id'] ?>">
                 <a href="delete.php?suppcompte=<?= $_SESSION['utilisateur']['id']; ?>" class="delete" id="deleteAccountButton">Supprimer mon compte</a>
 
