@@ -118,11 +118,11 @@ if ($resultInfos->execute()) {
                 <td><?= htmlspecialchars($rdv['prenom']) ?></td>
                 <td><?= htmlspecialchars($rdv['nom']) ?></td>
                 <td>
-                    <?php if (isset($rdv['jour_heure'])) {
-                        $rdv_date = new DateTime($rdv['jour_heure']);
-                        $formatted_rdv_date = $rdv_date->format('d m Y à H:i');
-                        echo htmlspecialchars($formatted_rdv_date);
-                    } ?>
+                    <?php if (isset($rdv['jour_heure'])) :
+                        $formatted_rdv_date = formatDateHeureEnFrancais($rdv['jour_heure']);
+
+                        echo $formatted_rdv_date;
+                    endif; ?>
                 </td>
                 <td>
                     <form action="./actions/delete.php" method="get">
@@ -145,21 +145,36 @@ if ($resultInfos->execute()) {
         <div class="info-rdv-client">
             <div class="heurerdv">
                 <?php if (isset($rdv['jour_heure'])) :
-                    $rdv_date = new DateTime($rdv['jour_heure']);
-                    $formatted_rdv_date = $rdv_date->format('d m Y à H:i');
-                ?><?= $formatted_rdv_date ?></div>
-        <?php endif; ?>
-        <div class="pn"><?= htmlspecialchars($rdv['prenom']) ?> <?= htmlspecialchars($rdv['nom']) ?></div>
-        <div class="info-presta"><?= htmlspecialchars($rdv['prestation']) ?></div>
-        <div class="info-inspi"><img src="../<?= htmlspecialchars($rdv['inspiration']) ?>"></div>
-        <div class="info-ongle"><?php if (isset($rdv['ongle_actuel'])) : ?><img src="../<?= htmlspecialchars($rdv['ongle_actuel']) ?>"><?php endif; ?></div>
-        <div class="info-message"><?= isset($rdv['message']) ? htmlspecialchars($rdv['message']) : "" ?></div>
-        <div class="deleterendezvousclient">
-            <form action="./actions/delete.php" method="get">
-                <input type="hidden" name="id_rdv" value="<?= $rdv['id_rdv'] ?>">
-                <button><a href="../actions/delete.php?annulation= <?= $rdv['id_rdv']; ?>">Supprimer</a></button>
-            </form>
-        </div>
+                    $formatted_rdv_date = formatDateHeureEnFrancais($rdv['jour_heure']);
+
+                    echo $formatted_rdv_date;
+                endif; ?>
+            </div>
+            <div class="pn">
+                <p>
+                    Client.e : <?= htmlspecialchars($rdv['prenom']) ?> <?= htmlspecialchars($rdv['nom']) ?>
+                </p>
+            </div>
+            <div class="info-presta">
+                <p>
+                    Prestation : <?= htmlspecialchars($rdv['prestation']) ?>
+                </p>
+            </div>
+            <div class="info-inspi">
+                <img src="../<?= htmlspecialchars($rdv['inspiration']) ?>">
+            </div>
+            <div class="<?php echo isset($rdv['ongle_actuel']) ? 'info-ongle' : ''; ?>">
+                <?= isset($rdv['ongle_actuel']) ? "<img src=\"../" . htmlspecialchars($rdv['ongle_actuel']) . "\">" : ""; ?>
+            </div>
+            <div class="info-message">
+                <?= isset($rdv['message']) ? htmlspecialchars($rdv['message']) : "" ?>
+            </div>
+            <div class="deleterendezvousclient">
+                <form action="./actions/delete.php" method="get">
+                    <input type="hidden" name="id_rdv" value="<?= $rdv['id_rdv'] ?>">
+                    <button><a href="../actions/delete.php?annulation= <?= $rdv['id_rdv']; ?>">Supprimer</a></button>
+                </form>
+            </div>
         </div>
 <?php
     }

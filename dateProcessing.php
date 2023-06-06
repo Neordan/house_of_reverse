@@ -9,16 +9,6 @@ $dateFormater = new IntlDateFormatter(
     "EEEE dd MMMM"         // format de la date
 );
 
-// Objet permettant de formater une date en français en toute lettre
-$dateFormaterAvecHeure = new IntlDateFormatter(
-    'fr-FR',                    
-    IntlDateFormatter::LONG,    
-    IntlDateFormatter::SHORT,   
-    'Europe/Paris',            
-    IntlDateFormatter::GREGORIAN, 
-    "EEEE d MMMM yyyy 'à' HH:mm" 
-);
-
 // Ce fichier traite les dates pour un système de réservation.
 
 // Vérifie si la date de début est définie via GET

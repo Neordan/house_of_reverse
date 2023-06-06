@@ -49,3 +49,19 @@ function calculateAge($birthDate)
     $age = $interval->y; // Années
     return $age;
 }
+
+/**
+ * Formate une date (avec l'heure) en français.
+ *
+ * @param string $dateTexte La date au format texte à formater.
+ * @return string La date formatée en français.
+ */
+function formatDateHeureEnFrancais($dateTexte) {
+    $date = new DateTime($dateTexte);
+    
+    // Configuration de l'objet IntlDateFormatter pour le format français
+    $formatter = new IntlDateFormatter('fr_FR', IntlDateFormatter::FULL, IntlDateFormatter::SHORT);
+    $formattedDate = $formatter->format($date);
+
+    return $formattedDate;
+}

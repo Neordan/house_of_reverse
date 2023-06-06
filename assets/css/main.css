@@ -975,7 +975,7 @@ tbody tr:nth-child(1) {
   padding: 6px;
   border-radius: 3px;
 }
-.deleterendezvous:hover {
+.deleterendezvous:hover, .deleterendezvousclient button:hover {
   background-color: #825857dc;
 }
 
@@ -1018,18 +1018,18 @@ tbody tr:nth-child(1) {
 .deleterendezvousclient button {
   border: none;
   border-radius: 3px; 
-  width: 90%;
   background-color: var(--button);
-  padding: 8px;
+  padding: 15px 0px;
 }
 
 .deleterendezvousclient a {
-  padding: 2px 50px;
-  color: var(--white);
+  padding: 15px 50px;
+  color: var(--white);  
+  font-size: 1.1rem;
 }
 
 .info-inspi, .info-ongle {
-  width: 0%;
+  width: 80%;
   height: 400px;
 }
 
