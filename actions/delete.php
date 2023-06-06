@@ -38,9 +38,9 @@ if (isset($_GET['suppcompte'])) {
     delete('utilisateur', 'id', $_GET['suppcompte'], '../index.php', 'utilisateur');
 }
 
-if (isset($_POST['rdv_id'])) {
+if (isset($_GET['rdv_id'])) {
     // Appel de la fonction delete pour supprimer un rendez-vous
-    delete('rdv', 'jour_heure', $_POST['rdv_id'], '../pages/profil.php', 'rdv');
+    delete('rdv', 'jour_heure', $_GET['rdv_id'], '../pages/profil.php', 'rdv');
     unset($_SESSION['rdv']['jour_heure']);
 } else {
     echo "Une erreur est survenue.";
