@@ -1,6 +1,6 @@
 <?php
 $page_title = "Tarif";
-require_once "./core/header.php";
+require_once "../core/header.php";
 
 ?>
 
@@ -80,5 +80,5 @@ require_once "./core/header.php";
     <hr>
 </div>
 <?php
-require_once "./core/footer.php"
+require_once "../core/footer.php"
 ?>

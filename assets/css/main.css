@@ -109,6 +109,7 @@ header {
 
 .menu {
   position: fixed;
+  top: 0;
   z-index: 5;
   display: flex;
   justify-content: space-between;
@@ -118,6 +119,7 @@ header {
   padding: 10px 25px;
   background-color: #996766e0;
   border-radius: 0 0 8px 8px;
+    transition: top 0.3s ease-in-out;
 }
 
 /********Menu Hamburger**************/

@@ -1,8 +1,8 @@
 <?php
 $page_title = "Fichier client";
-require "./core/config.php";
-require_once "./core/header.php";
-require "./actions/function.php";
+require "../core/config.php";
+require_once "../core/header.php";
+require "../actions/function.php";
 
 // Autorisation à l'admin d'aller au fichier client
 if ($_SESSION['utilisateur']['role'] != "admin") {
@@ -10,7 +10,7 @@ if ($_SESSION['utilisateur']['role'] != "admin") {
     exit(); // Ajout d'une instruction exit() pour arrêter l'exécution du script après la redirection
 }
 $q = "";
-require "./actions/rechercheUt.php";
+require "../actions/rechercheUt.php";
 
 // requete sql pour lister les clients
 $sql = "SELECT nom, prenom, age, allergies, ongles_ronges FROM utilisateur ORDER BY prenom ASC";
@@ -167,4 +167,4 @@ if ($resultInfos->execute()) {
     echo "Aucun rendez-vous";
 } ?>
 
-<?php require_once "./core/footer.php"; ?>
+<?php require_once "../core/footer.php"; ?>

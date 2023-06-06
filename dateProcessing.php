@@ -1,4 +1,5 @@
 <?php
+require "./dateFormater.php";
 
 // Ce fichier traite les dates pour un système de réservation.
 

@@ -1,6 +1,6 @@
 <?php
 $page_title = "Se connecter";
-require_once "./core/header.php";
+require_once "../core/header.php";
 
 // Vérifier si les champs email et mot de passe sont définis et non vides
 if (isset($_POST["email"]) && $_POST["email"] != "" &&
@@ -70,5 +70,5 @@ if (isset($_POST["email"]) && $_POST["email"] != "" &&
 </div>
 
 <?php
-require_once "./core/footer.php";
+require_once "../core/footer.php";
 ?>

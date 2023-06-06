@@ -1,6 +1,6 @@
 <?php
 $page_title = "Mon profil";
-require_once "./core/header.php";
+require_once "../core/header.php";
 require "./actions/function.php"
 ?>
 <h2>Mon profil</h2>
@@ -44,5 +44,5 @@ require "./actions/function.php"
 </div>
 
 <?php
-require_once "./core/footer.php";
+require_once "../core/footer.php";
 ?>

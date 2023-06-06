@@ -1,6 +1,6 @@
 <?php
 $page_title = "Inscription";
-require_once "./core/header.php";
+require_once "../core/header.php";
 require "./actions/function.php";
 
 
@@ -36,7 +36,7 @@ if (!empty($_POST)) {
         ];
         $hash_mdp = password_hash($_POST["hash_mdp1"], PASSWORD_BCRYPT, $options);
         
-        require_once "./core/config.php";
+        require_once "../core/config.php";
         // Requête SQL pour insérer les informations dans la table utilisateur
         $sql = "INSERT INTO utilisateur (email, nom, prenom, age, allergies, ongles_ronges, role, hash_mdp) VALUES (:email, :nom, :prenom, :age, :allergies, :ongles_ronges, :role, :hash_mdp)";
 
@@ -136,5 +136,5 @@ if (!empty($_POST)) {
 </form>
 
 <?php
-require_once "./core/footer.php"
+require_once "../core/footer.php"
 ?>

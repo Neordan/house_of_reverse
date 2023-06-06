@@ -69,45 +69,50 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 });
           
-//slide avis \\
-let avisImages = document.querySelectorAll(".avis img");
-let currentIndex = 0;
-let prevButton = document.querySelector(".prev");
-let nextButton = document.querySelector(".next");
+//slide avis
+document.addEventListener("DOMContentLoaded", () => {
+  let avisImages = document.querySelectorAll(".avis img");
+  let currentIndex = 0;
+  let prevButton = document.querySelector(".prev");
+  let nextButton = document.querySelector(".next");
 
-function showSlide(index) {
+  function showSlide(index) {
     avisImages.forEach((img) => {
-        img.style.display = "none";
+      img.style.display = "none";
     });
 
     if (index >= avisImages.length) {
-        currentIndex = 0;
+      currentIndex = 0;
     } else if (index < 0) {
-        currentIndex = avisImages.length - 1;
+      currentIndex = avisImages.length - 1;
     }
 
-    avisImages[currentIndex].style.display = "block";
-}
+    if (avisImages[currentIndex]) {
+      avisImages[currentIndex].style.display = "block";
+    }
+  }
 
-function changeSlide(step) {
+  function changeSlide(step) {
     currentIndex += step;
     showSlide(currentIndex);
-}
+  }
 
-showSlide(currentIndex);
+  showSlide(currentIndex);
 
-prevButton.addEventListener("click", () => {
+  prevButton.addEventListener("click", () => {
     changeSlide(-1);
+  });
+
+  nextButton.addEventListener("click", () => {
+    changeSlide(1);
+  });
+
+  // Change de slide toutes les 5 secondes
+  setInterval(() => {
+    changeSlide(1);
+  }, 5000);
 });
 
-nextButton.addEventListener("click", () => {
-    changeSlide(1);
-});
-
-// Change slide every 3 seconds
-setInterval(() => {
-    changeSlide(1);
-}, 7000);
 
 
 
@@ -147,9 +152,25 @@ function initToggleDescription() {
   });
 }
 
+// Animation de la navbar au défilement
 
+// Récupère l'élément de navigation
+let navigation = document.querySelector('.menu');
+var previousScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
 
+window.addEventListener('scroll', function() {
+  var currentPosition = window.pageYOffset || document.documentElement.scrollTop;
 
+  if (currentPosition > previousScrollPosition) {
+    // Défilement vers le bas
+    navigation.style.top = '-150px';
+  } else {
+    // Défilement vers le haut
+    navigation.style.top = '0';
+  }
+
+  previousScrollPosition = currentPosition;
+});
 
 
 
