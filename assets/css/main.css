@@ -1028,6 +1028,16 @@ tbody tr:nth-child(1) {
   color: var(--white);
 }
 
+.info-inspi, .info-ongle {
+  width: 0%;
+  height: 400px;
+}
+
+.info-inspi img, .info-ongle img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
 /********* CSS du profil  *******/
 
 .compte {
