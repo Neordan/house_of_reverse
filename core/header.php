@@ -36,7 +36,7 @@ date_default_timezone_set("Europe/Paris");
             <?php if (isset($_SESSION['utilisateur'])) {  ?>
                 <a class="logout" href='../actions/logout.php'>Déconnexion</a>
             <?php } else { ?>
-                <a class="logout" href='../login.php'>Connexion</a>
+                <a class="logout" href='../pages/login.php'>Connexion</a>
             <?php } ?>
 
             <div class="menu-toggle">

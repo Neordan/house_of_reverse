@@ -9,7 +9,7 @@ if (isset($_GET['q']) && !empty($_GET['q'])) {
     }
     $searchTerm = trim($_GET['q']);
     
-    require_once "./core/config.php";
+    require_once "../core/config.php";
     // Rechercher les utilisateurs dont le nom ou le prénom correspondent au terme de recherche
     $sql = "SELECT * FROM utilisateur WHERE nom LIKE :search_term OR prenom LIKE :search_term";
     $query = $pdo->prepare($sql);

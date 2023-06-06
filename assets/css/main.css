@@ -104,7 +104,6 @@ header {
   align-items: center;
   width: 80%;
   margin: auto;
-  padding: 0 60px;
 }
 
 .menu {
@@ -114,8 +113,8 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 90%;
-  margin: 0;
+  width: 85%;
+  margin: 0 5%;
   padding: 10px 25px;
   background-color: #996766e0;
   border-radius: 0 0 8px 8px;
@@ -560,7 +559,7 @@ hr {
 }
 
 .mobile-calendar {
-  width: 50%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -573,7 +572,7 @@ hr {
 
 #mobile-time {
   margin-bottom: 6px;
-  width: 40%;
+  width: 60%;
 }
 
 .info {
@@ -693,6 +692,7 @@ textarea::placeholder {
   height: 50px;
   font-size: 1.3rem;
   display: flex;
+  justify-content: center;
   align-items: center;
   background: #e8e2e7;
   border: 2px solid #b88988;
@@ -714,7 +714,7 @@ textarea::placeholder {
 /* Container général pour l'agenda */
 
 .contact {
-  width: 70%;
+  width: 80%;
   font-family: var(--text-font);
   display: flex;
   flex-direction: column;
@@ -1210,13 +1210,7 @@ footer {
 /* pour l'ordinateur */
 @media screen and (min-width: 900px) {
 
-  /* h2 {
-    font-size: 2.4rem;
-  }
-
-  h3, .title {
-    font-size: 1.6rem;
-  } */
+ 
 
   .menu-toggle {
     display: none;

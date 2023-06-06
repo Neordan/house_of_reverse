@@ -3,7 +3,7 @@ session_start();
 
 // Fonction générique pour supprimer un enregistrement dans une table
 function delete($table, $idChamp, $idValue, $redirectUrl, $sessionKey = null) {
-    require_once "./core/config.php";
+    require_once "../core/config.php";
 
     // Préparation de la requête SQL pour supprimer un enregistrement
     $sql = "DELETE FROM {$table} WHERE {$idChamp}=:id";
@@ -29,18 +29,18 @@ function delete($table, $idChamp, $idValue, $redirectUrl, $sessionKey = null) {
 // Vérification de la présence du paramètre 'annulation'
 if (isset($_GET['annulation'])) {
     // Appel de la fonction delete pour supprimer un rendez-vous
-    delete('rdv', 'id_rdv', $_GET['annulation'], './fichierclient.php');
+    delete('rdv', 'id_rdv', $_GET['annulation'], '../pages/fichierclient.php');
 }
 
 // Vérification de la présence du paramètre 'suppcompte'
 if (isset($_GET['suppcompte'])) {
     // Appel de la fonction delete pour supprimer un compte utilisateur
-    delete('utilisateur', 'id', $_GET['suppcompte'], './index.php', 'utilisateur');
+    delete('utilisateur', 'id', $_GET['suppcompte'], '../index.php', 'utilisateur');
 }
 
 if (isset($_POST['rdv_id'])) {
     // Appel de la fonction delete pour supprimer un rendez-vous
-    delete('rdv', 'jour_heure', $_POST['rdv_id'], './profil.php', 'rdv');
+    delete('rdv', 'jour_heure', $_POST['rdv_id'], '../pages/profil.php', 'rdv');
     unset($_SESSION['rdv']['jour_heure']);
 } else {
     echo "Une erreur est survenue.";

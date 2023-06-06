@@ -11,7 +11,7 @@ if (isset($_POST["email"]) && $_POST["email"] != "" &&
 
     try {
         // Charger la configuration de la base de données
-        require_once "./core/config.php";
+        require_once "../core/config.php";
 
         // Préparer la requête SQL pour récupérer l'utilisateur correspondant à l'email fourni
         $sql = "SELECT * FROM utilisateur WHERE email LIKE :email";

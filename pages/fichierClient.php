@@ -72,7 +72,7 @@ if ($resultInfos->execute()) {
             <tr>
                 <td><?= htmlspecialchars($result['prenom']) ?></td>
                 <td><?= htmlspecialchars($result['nom']) ?></td>
-                <td><?= htmlspecialchars(calculateAge($user['age'])) ?></td>
+                <td><?= htmlspecialchars(calculateAge($result['age'])) ?> ans</td>
 
                 <td><?= htmlspecialchars($result['allergies']) ?></td>
                 <td><?= htmlspecialchars($result['ongles_ronges']) ?></td>
@@ -127,7 +127,7 @@ if ($resultInfos->execute()) {
                 <td>
                     <form action="./actions/delete.php" method="get">
                         <input type="hidden" name="id_rdv" value="<?= $rdv['id_rdv'] ?>">
-                        <button class="deleterendezvous"><a href="delete.php?annulation=<?= $rdv['id_rdv']; ?>">Supprimer</a></button>
+                        <button class="deleterendezvous"><a href="../actions/delete.php?annulation=<?= $rdv['id_rdv']; ?>">Supprimer</a></button>
                     </form>
                 </td>
             </tr>
@@ -157,7 +157,7 @@ if ($resultInfos->execute()) {
         <div class="deleterendezvousclient">
             <form action="./actions/delete.php" method="get">
                 <input type="hidden" name="id_rdv" value="<?= $rdv['id_rdv'] ?>">
-                <button><a href="delete.php?annulation=<?= $rdv['id_rdv']; ?>">Supprimer</a></button>
+                <button><a href="../actions/delete.php?annulation= <?= $rdv['id_rdv']; ?>">Supprimer</a></button>
             </form>
         </div>
         </div>
