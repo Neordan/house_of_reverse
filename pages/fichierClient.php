@@ -151,8 +151,8 @@ if ($resultInfos->execute()) {
         <?php endif; ?>
         <div class="pn"><?= htmlspecialchars($rdv['prenom']) ?> <?= htmlspecialchars($rdv['nom']) ?></div>
         <div class="info-presta"><?= htmlspecialchars($rdv['prestation']) ?></div>
-        <div class="info-inspi"><img src="./<?= htmlspecialchars($rdv['inspiration']) ?>"></div>
-        <div class="info-ongle"><?php if (isset($rdv['ongle_actuel'])) : ?><img src="./<?= htmlspecialchars($rdv['ongle_actuel']) ?>"><?php endif; ?></div>
+        <div class="info-inspi"><img src="../<?= htmlspecialchars($rdv['inspiration']) ?>"></div>
+        <div class="info-ongle"><?php if (isset($rdv['ongle_actuel'])) : ?><img src="../<?= htmlspecialchars($rdv['ongle_actuel']) ?>"><?php endif; ?></div>
         <div class="info-message"><?= isset($rdv['message']) ? htmlspecialchars($rdv['message']) : "" ?></div>
         <div class="deleterendezvousclient">
             <form action="./actions/delete.php" method="get">
