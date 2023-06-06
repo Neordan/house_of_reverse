@@ -28,9 +28,6 @@ $dateFormaterAvecHeure = new IntlDateFormatter(
     </div>
 <?php else : ?>
     <p>Aucun rendez-vous prévu pour le moment.</p>
-    <?php if (isset($_SESSION['rdv']['jour_heure'])) : ?>
-        <p>Vous avez annulé votre rendez-vous.</p>
-    <?php endif; ?>
 <?php endif; ?>
 <div class="compte">
     <form method="post" class="pf-container">

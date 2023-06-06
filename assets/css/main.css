@@ -713,8 +713,8 @@ textarea::placeholder {
 
 /* Message d'erreurs */
 
-.error-container {
-  width: 60%;
+.error-container{
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -30,8 +30,6 @@ if (!empty($_POST)) {
         // Si la date et l'heure sont sélectionnées via le calendrier mobile, les utiliser
         if (is_array($_POST["date-resa"]) && count($_POST["date-resa"]) > 1) {
             $rdv = $_POST["date-resa"][0] . " " . $_POST["date-resa"][1];
-        } else {
-            $errors[] = "Veuillez sélectionner une date et une heure pour le rendez-vous.";
         }
 
         // Enregistrement du fichier d'inspiration
@@ -63,7 +61,7 @@ if (!empty($_POST)) {
             $rdv = $_POST["date-resa"][0] . " " . $_POST["date-resa"][1];
             $prestation = $_POST["prestation"];
             $inspiration = "assets/img/clients/" . $inspirationFileName;
-
+            $message = $_POST["message"];
             // Préparation de la requête et exécution
             $stmt = $pdo->prepare($sql);
             $stmt->bindParam(':id', $id);
@@ -71,10 +69,14 @@ if (!empty($_POST)) {
             $stmt->bindParam(':inspiration', $inspiration);
             $stmt->bindParam(':ongle_actuel', $ongle_actuel);
             $stmt->bindParam(':prestation', $prestation);
-            $stmt->bindParam(':message', $_POST["message"]);
+            $stmt->bindParam(':message', $message);
             $stmt->execute();
 
             // Confirmation de la réservation
+            //Mise à jour de la variable de session rdv
+            $_SESSION['rdv'] = [
+                'jour_heure' => $rdv
+           ];
             header('Location: ./profil.php');
             exit;
         }
@@ -115,13 +117,22 @@ $prestations = $matches[1];
     <input type="hidden" name="id_utilisateur" value="<?= $_SESSION['utilisateur']['id'] ?>">
     <div class="mobile-calendar">
         <label class="labelMobile" for="mobile-date">Choisir la date :</label>
-        <input type="date" name="date-resa[]" id="mobile-date">
+        <input type="date" name="date-resa[]" id="mobile-date" require>
         <label for="mobile-time">Choisir l'heure :</label>
-        <select name="date-resa[]" id="mobile-time">
+        <select name="date-resa[]" id="mobile-time" require>
+            <option value="">---</option>
             <?php foreach ($slots as $slot) : ?>
                 <option value="<?= $slot; ?>"><?= $slot; ?></option>
             <?php endforeach; ?>
         </select>
+        <?php
+        if (!empty($_POST)) : ?>
+            <?php
+            // Si les champs date et heure ne sont pas remplis, afficher un message d'erreur
+            if (empty($_POST['date-resa'][0]) || empty($_POST['date-resa'][1])) : ?>
+                <p class="error-container">Veuillez remplir les deux champs.</p>
+            <?php endif; ?>
+        <?php endif; ?>
     </div>
     <div class="desktop-calendar">
 
