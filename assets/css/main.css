@@ -711,7 +711,28 @@ textarea::placeholder {
 
 /********* CSS du calendrier  *******/
 
-/* Container général pour l'agenda */
+/* Message d'erreurs */
+
+.error-container {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 20px;
+  font-family: var(--text-font);
+  color: var(--white);
+  font-weight: 600;
+  background: #b22b2b;
+  border: 2px solid #5e0b0b;
+  border-radius: 5px;
+}
+
+.error-container ul {
+  list-style: none;
+}
+
+/* Container général pour le desktop-calendar */
 
 .contact {
   width: 80%;
@@ -721,7 +742,7 @@ textarea::placeholder {
   justify-content: center;
   align-items: center;
 }
-.agenda {
+.desktop-calendar {
   display: none;
   flex-direction: column;
   align-items: center;
@@ -802,7 +823,7 @@ textarea::placeholder {
   background-color: var(--white);
 }
 
-.agenda button {
+.desktop-calendar button {
   border: none;
   background-color: #a47878;
   color: var(--white);
@@ -811,7 +832,7 @@ textarea::placeholder {
   cursor: pointer;
 }
 
-.agenda button:hover {
+.desktop-calendar button:hover {
   background-color: #a47878;
 }
 
@@ -1409,7 +1430,7 @@ footer {
     width: 80%;
   }
 
-  .agenda {
+  .desktop-calendar {
     display: flex;
     margin-bottom: 10px;
   }
