@@ -1,7 +1,8 @@
 <?php
 $page_title = "Inscription";
 require_once "../core/header.php";
-require "./actions/function.php";
+require "../actions/function.php";
+
 
 
 $allergies_options = getAllergiesOptions();

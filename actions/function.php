@@ -12,8 +12,10 @@ function generatePresta($title, $photoUrl, $description)
     $presta = '
     <div class="presta">
             <h3>' . $title . '</h3>
+            <div class="info-presta">
             <img src="' . $photoUrl . '" alt="' . $title . '">
             <p class="descriptionpresta">' . $description . '</p>
+            </div>
             <i class="fa-solid fa-plus"></i>
             <i class="fa-solid fa-minus"></i>
         </div>

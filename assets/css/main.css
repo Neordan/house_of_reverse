@@ -359,6 +359,13 @@ h3:after {
   box-shadow: -6px -6px 10px #a8a3a7, 6px 6px 10px var(--white);
 }
 
+.info-presta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
 .fa-minus {
   display: none;
 }
@@ -966,6 +973,7 @@ tbody tr:nth-child(1) {
 
 .user {
   width: 90%;
+  margin: 25px 0;
 }
 
 .deleterendezvous {
@@ -1421,6 +1429,17 @@ footer {
 
   .image img:hover {
     filter: brightness(110%);
+  }
+
+  .info-presta {
+    width: 85%;
+    margin: 0 auto 40px auto;
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  .ingo-presta p {
+    display: block;
   }
 
   /* responsive calendar  */

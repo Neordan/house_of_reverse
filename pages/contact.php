@@ -6,7 +6,7 @@ require "../core/header.php";
 require "../core/config.php";
 
 // Traitement des dates de réservations
-require "../dateProcessing.php";
+require "../actions/dateProcessing.php";
 
 $slots = ['10:00', '13:30', '16:30'];
 
@@ -231,7 +231,7 @@ $prestations = $matches[1];
         <textarea name="message" id="message" rows="5" placeholder="Ton message .."></textarea>
     </div>
     <button class="formulaire"><i class="fa-solid fa-check"></i></button>
-
+</form>
     <?php
 
     require_once "../core/footer.php";

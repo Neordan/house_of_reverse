@@ -4,7 +4,7 @@ require_once "../core/header.php";
 require_once "../actions/function.php";
 ?>
 
-<h2>Mon profil</h2> <
+<h2>Mon profil</h2>
 
 <?php if (isset($_SESSION['rdv']['jour_heure']) && !empty($_SESSION['rdv']['jour_heure'])) :
     // Formatage de la date et de l'heure du rendez-vous en français
@@ -49,11 +49,12 @@ require_once "../actions/function.php";
                 <a class="prrdv" href="./contact.php">Prendre rendez-vous</a> 
             <?php endif ?>
             <!-- Formulaire pour supprimer le rendez-vous -->
-            <form class="deleterdv" action="../actions/delete.php" method="get"> 
+            <form class="deleterdv" action="../actions/delete.php" method="get">
+
                 <!-- Champ caché contenant l'identifiant de l'utilisateur -->
                 <input type="hidden" name="<?= $_SESSION['utilisateur']['id'] ?>"> 
                 <!-- Lien pour supprimer le compte utilisateur -->
-                <a href="delete.php?suppcompte=<?= $_SESSION['utilisateur']['id']; ?>" class="delete" id="deleteAccountButton">Supprimer mon compte</a> 
+                <a href="/actions/delete.php?suppcompte=<?= $_SESSION['utilisateur']['id']; ?>" class="delete" id="deleteAccountButton">Supprimer mon compte</a> 
             </form>
         </div>
     </form>

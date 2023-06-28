@@ -106,21 +106,20 @@ if ($resultInfos->execute()) {
 <?php endif; ?>
 
 <h3>Liste des rendez-vous</h3>
-<table class="user">
-    <tr>
-        <th>prénom</th>
-        <th>nom</th>
-        <th>rendez-vous</th>
-    </tr>
-    <?php if (count($rdvs) > 0) {
-        foreach ($rdvs as $rdv) { ?>
+<?php if (count($rdvs) > 0) { ?>
+    <table class="user">
+        <tr>
+            <th>prénom</th>
+            <th>nom</th>
+            <th>rendez-vous</th>
+        </tr>
+        <?php foreach ($rdvs as $rdv) { ?>
             <tr>
                 <td><?= htmlspecialchars($rdv['prenom']) ?></td>
                 <td><?= htmlspecialchars($rdv['nom']) ?></td>
                 <td>
                     <?php if (isset($rdv['jour_heure'])) :
                         $formatted_rdv_date = formatDateHeureEnFrancais($rdv['jour_heure']);
-
                         echo $formatted_rdv_date;
                     endif; ?>
                 </td>
@@ -131,11 +130,12 @@ if ($resultInfos->execute()) {
                     </form>
                 </td>
             </tr>
-    <?php }
-    } else {
-        echo "Aucun rendez-vous";
-    } ?>
-</table>
+        <?php } ?>
+    </table>
+<?php } else {
+    echo "Aucun rendez-vous";
+} ?>
+
 
 
 
