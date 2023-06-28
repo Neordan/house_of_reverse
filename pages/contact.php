@@ -1,6 +1,5 @@
 <?php
 
-
 $page_title = "Rendez-vous";
 require "../core/header.php";
 require "../core/config.php";
@@ -62,6 +61,7 @@ if (!empty($_POST)) {
             $prestation = $_POST["prestation"];
             $inspiration = "assets/img/clients/" . $inspirationFileName;
             $message = $_POST["message"];
+        
             // Préparation de la requête et exécution
             $stmt = $pdo->prepare($sql);
             $stmt->bindParam(':id', $id);
@@ -71,17 +71,18 @@ if (!empty($_POST)) {
             $stmt->bindParam(':prestation', $prestation);
             $stmt->bindParam(':message', $message);
             $stmt->execute();
-
+        
             // Confirmation de la réservation
-            //Mise à jour de la variable de session rdv
+            // Mise à jour de la variable de session 'rdv'
             $_SESSION['rdv'] = [
                 'jour_heure' => $rdv
-           ];
+            ];
+        
             header('Location: ./profil.php');
             exit;
+        } else {
+            $errors[] = "Veuillez remplir tous les champs obligatoires.";
         }
-    } else {
-        $errors[] = "Veuillez remplir tous les champs obligatoires.";
     }
 }
 

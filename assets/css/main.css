@@ -70,7 +70,6 @@ h2 {
   min-width: 200px;
   max-width: 570px;
   text-align: center;
-  text-transform: capitalize;
   font-family: var(--title-font);
   color: var(--white);
   font-size: clamp(1.6rem, 4.5vw, 2.3rem);
@@ -83,6 +82,10 @@ h2 {
   padding: 10px 3%;
   margin: -85px auto 22px auto;
   user-select: none;
+}
+
+h2::first-letter {
+  text-transform: uppercase;
 }
 
 form {
@@ -259,7 +262,7 @@ h1 {
 /******** CSS du block certificat *********/
 
 h3 {
-  width: 65%;
+  width: 100%;
   margin: auto;
   text-align: center;
   text-transform: capitalize;
@@ -273,7 +276,7 @@ h3:before {
   display: flex;
   content: "";
   height: 3px;
-  width: 70%;
+  width: 90%;
   margin: 20px auto 10px auto;
   background-color: var(--line-color);
 }
