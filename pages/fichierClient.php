@@ -66,7 +66,6 @@ if ($resultInfos->execute()) {
             <th>age</th>
             <th>allergies</th>
             <th>ongles rongés</th>
-            <!-- Ajoutez les autres colonnes si nécessaire -->
         </tr>
         <?php foreach ($results as $result) : ?>
             <tr>
@@ -76,7 +75,6 @@ if ($resultInfos->execute()) {
 
                 <td><?= htmlspecialchars($result['allergies']) ?></td>
                 <td><?= htmlspecialchars($result['ongles_ronges']) ?></td>
-                <!-- Ajoutez les autres cellules si nécessaire -->
             </tr>
         <?php endforeach; ?>
     </table>

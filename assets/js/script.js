@@ -69,51 +69,50 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
           
-//slide avis
 document.addEventListener("DOMContentLoaded", () => {
   let avisImages = document.querySelectorAll(".avis img");
   let currentIndex = 0;
   let prevButton = document.querySelector(".prev");
   let nextButton = document.querySelector(".next");
 
-  function showSlide(index) {
-    avisImages.forEach((img) => {
-      img.style.display = "none";
+  if (avisImages.length > 0 && prevButton && nextButton) {
+    function showSlide(index) {
+      avisImages.forEach((img) => {
+        img.style.display = "none";
+      });
+
+      if (index >= avisImages.length) {
+        currentIndex = 0;
+      } else if (index < 0) {
+        currentIndex = avisImages.length - 1;
+      }
+
+      if (avisImages[currentIndex]) {
+        avisImages[currentIndex].style.display = "block";
+      }
+    }
+
+    function changeSlide(step) {
+      currentIndex += step;
+      showSlide(currentIndex);
+    }
+
+    showSlide(currentIndex);
+
+    prevButton.addEventListener("click", () => {
+      changeSlide(-1);
     });
 
-    if (index >= avisImages.length) {
-      currentIndex = 0;
-    } else if (index < 0) {
-      currentIndex = avisImages.length - 1;
-    }
+    nextButton.addEventListener("click", () => {
+      changeSlide(1);
+    });
 
-    if (avisImages[currentIndex]) {
-      avisImages[currentIndex].style.display = "block";
-    }
+    // Change de slide toutes les 5 secondes
+    setInterval(() => {
+      changeSlide(1);
+    }, 5000);
   }
-
-  function changeSlide(step) {
-    currentIndex += step;
-    showSlide(currentIndex);
-  }
-
-  showSlide(currentIndex);
-
-  prevButton.addEventListener("click", () => {
-    changeSlide(-1);
-  });
-
-  nextButton.addEventListener("click", () => {
-    changeSlide(1);
-  });
-
-  // Change de slide toutes les 5 secondes
-  setInterval(() => {
-    changeSlide(1);
-  }, 5000);
 });
-
-
 
 
 
@@ -171,6 +170,7 @@ window.addEventListener('scroll', function() {
 
   previousScrollPosition = currentPosition;
 });
+
 
 
 

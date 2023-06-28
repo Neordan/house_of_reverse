@@ -36,5 +36,4 @@ En somme, le remplissage en prothésie ongulaire est une technique indispensable
 <?= generatePresta('Réparation', '../assets/img/Photos/exemplevsp.jpg', 'Le vernis semi-permanent est une technique de manucure professionnelle qui permet d\'obtenir une couleur de vernis durable sur les ongles. Il est facile à appliquer, sèche rapidement sous une lampe LED ou UV, et peut durer jusqu\'à 3 semaines sans s\'écailler ou se décolorer. Il peut être retiré facilement sans endommager l\'ongle naturel en le limant légèrement et en le trempant dans une solution de dissolvant. Cette technique est idéale pour ceux qui cherchent une manucure à longue durée et qui ne veulent pas faire de retouches régulières.') ?>
 
 
-
 <?php require_once "../core/footer.php"; ?>

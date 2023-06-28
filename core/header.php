@@ -31,7 +31,7 @@ date_default_timezone_set("Europe/Paris");
 
     <!------ Partie du header ------->
 
-    <header>
+    <header id="top">
         <div class="menu">
             <?php if (isset($_SESSION['utilisateur'])) {  ?>
                 <a class="logout" href='../actions/logout.php'>Déconnexion</a>
@@ -78,7 +78,7 @@ date_default_timezone_set("Europe/Paris");
                 </ul>
             </nav>
         </div>
-        <div class="logo">
+        <div class="logo" >
             <h1>house of reverse</h1>
             <img src="../assets/img/Logo1.PNG" alt="Logo de House of reverse">
         </div>

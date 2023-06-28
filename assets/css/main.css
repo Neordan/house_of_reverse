@@ -21,6 +21,10 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,300;0,400;0,600;0,700;0,800;0,900;1,100&display=swap");
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -277,7 +281,7 @@ h3:before {
   content: "";
   height: 3px;
   width: 90%;
-  margin: 20px auto 10px auto;
+  margin: 30px auto 10px auto;
   background-color: var(--line-color);
 }
 
@@ -286,7 +290,7 @@ h3:after {
   content: "";
   height: 3px;
   width: 70%;
-  margin: 10px auto 30px auto;
+  margin: 20px auto 30px auto;
   background-color: var(--line-color);
 }
 
@@ -322,12 +326,12 @@ h3:after {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 20px;
 }
 
 .presta img {
   width: 65%;
   user-select: none;
+  border-radius: 10px;
 }
 
 .descriptionpresta {
@@ -1189,6 +1193,27 @@ tbody tr:nth-child(1) {
   border: 1px solid var(--dark-pink);
   cursor: pointer;
 }
+
+
+/********* CSS de la fleche up  *******/
+.btn-up {
+  position: fixed;
+  bottom: 60px;
+  right: 20px;
+}
+
+.btn-up a {
+  position: relative;
+  z-index: 999;
+  text-decoration: none;
+  background: var(--bg-color);
+  border: 2px solid var(--dark-pink);
+  border-radius: 50%;
+  padding: 15px;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+}
+
+
 /********* CSS du footer  *******/
 
 footer {
