@@ -81,9 +81,7 @@ h2 {
     -1px -1px 0 #ceabab;
   border-image: linear-gradient(to top, var(--bg-color) 0%, var(--bg-color) 33%, var(--accent-color) 100%) 1;
   padding: 10px 3%;
-  margin-top: -85px;
-  margin-bottom: 22px;
-  white-space: nowrap;
+  margin: -85px auto 22px auto;
   user-select: none;
 }
 
@@ -219,6 +217,7 @@ h1 {
   text-transform: uppercase;
   margin: 30px auto 0 auto;
   font-size: clamp(1.5rem,4.5vw, 2.5rem);
+  white-space: nowrap;
 }
 
 .logo h1::first-letter {
@@ -363,7 +362,7 @@ h3:after {
   display: flex;
   flex-direction: column;
   align-items: center;
-
+  justify-content: center;
 }
 
 .fa-minus {
@@ -903,8 +902,10 @@ textarea::placeholder {
 
 table {
   font-family: var(--text-font);
-  width: 20%;
+  width: 100%;
   text-align: center;
+  display: block;
+  overflow-x: auto;
 }
 
 .rechercheUt {
@@ -945,8 +946,9 @@ table {
 }
 
 .list-user {
-  margin-top: 25px;
+  margin-top: 15px;
 }
+
 
 tr {
   text-transform: capitalize;
@@ -973,7 +975,6 @@ tbody tr:nth-child(1) {
 
 .user {
   width: 90%;
-  margin: 25px 0;
 }
 
 .deleterendezvous {
@@ -996,6 +997,7 @@ tbody tr:nth-child(1) {
   flex-direction: column;
   width: 90%;
   margin: auto;
+  margin-bottom: 10px;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -1007,8 +1009,8 @@ tbody tr:nth-child(1) {
 }
 
 .heurerdv {
-  font-size: 1.2rem;
-  font-weight: 600;
+  font-size: 1.3rem;
+  font-weight: 700;
 }
 
 .info-rdv-client img {
@@ -1038,7 +1040,20 @@ tbody tr:nth-child(1) {
 
 .info-inspi, .info-ongle {
   width: 80%;
-  height: 400px;
+  height: 500px;
+}
+
+.info-inspi p, .info-ongle p {
+  margin-bottom: -30px;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+
+.info-message p {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 25px;
 }
 
 .info-inspi img, .info-ongle img {
@@ -1046,6 +1061,24 @@ tbody tr:nth-child(1) {
   height: 100%;
   object-fit: contain;
 }
+
+.info-message, .info-inspi, .info-ongle {
+  border: 3px solid #996766;
+  padding: 20px;
+  border-radius: 10px;
+  width: 85%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.pn p span, .info-presta p span {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+
+
 /********* CSS du profil  *******/
 
 .compte {

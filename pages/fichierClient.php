@@ -98,7 +98,6 @@ if ($resultInfos->execute()) {
 
                     <td><?= $user['allergies'] ?></td>
                     <td><?= htmlspecialchars($user['ongles_ronges']) ?></td>
-                    <td></td>
                 </tr>
             <?php endforeach; ?>
         <?php endif; ?>
@@ -112,6 +111,7 @@ if ($resultInfos->execute()) {
             <th>prénom</th>
             <th>nom</th>
             <th>rendez-vous</th>
+            <th>annuler</th>
         </tr>
         <?php foreach ($rdvs as $rdv) { ?>
             <tr>
@@ -152,21 +152,24 @@ if ($resultInfos->execute()) {
             </div>
             <div class="pn">
                 <p>
-                    Client.e : <?= htmlspecialchars($rdv['prenom']) ?> <?= htmlspecialchars($rdv['nom']) ?>
+                    <span>Client.e</span> : <?= htmlspecialchars($rdv['prenom']) ?> <?= htmlspecialchars($rdv['nom']) ?>
                 </p>
             </div>
             <div class="info-presta">
                 <p>
-                    Prestation : <?= htmlspecialchars($rdv['prestation']) ?>
+                    <span>Prestation :</span> <?= htmlspecialchars($rdv['prestation']) ?>
                 </p>
             </div>
             <div class="info-inspi">
+                <p>Inspiration</p>
                 <img src="../<?= htmlspecialchars($rdv['inspiration']) ?>">
             </div>
-            <div class="<?php echo isset($rdv['ongle_actuel']) ? 'info-ongle' : ''; ?>">
+            <div class="<?= isset($rdv['ongle_actuel']) ? 'info-ongle ongle-actuel' : 'info-ongle'; ?>">
+                <p>Ongle actuel</p>
                 <?= isset($rdv['ongle_actuel']) ? "<img src=\"../" . htmlspecialchars($rdv['ongle_actuel']) . "\">" : ""; ?>
             </div>
             <div class="info-message">
+                <p>Message</p>
                 <?= isset($rdv['message']) ? htmlspecialchars($rdv['message']) : "" ?>
             </div>
             <div class="deleterendezvousclient">
