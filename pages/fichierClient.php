@@ -69,6 +69,7 @@ if ($resultInfos->execute()) {
 
 <h4>Liste des clients</h4>
 
+<!-- Vérification si des résultats sont disponibles -->
 <?php if (isset($results) && !empty($results)) : ?>
     <!-- Affiche les résultats de la barre de recherche -->
     <table class="list-user">
@@ -90,6 +91,7 @@ if ($resultInfos->execute()) {
         <?php endforeach; ?>
     </table>
 <?php else : ?>
+    <!-- si aucune recherche alors ça affiche tout les utilisateurs -->
     <table class="list-user">
         <tr>
             <th>prénom</th>
@@ -113,6 +115,8 @@ if ($resultInfos->execute()) {
 <?php endif; ?>
 
 <h4>Liste des rendez-vous</h4>
+
+<!-- Vérification si des rendez-vous sont disponibles -->
 <?php if (count($rdvs) > 0) { ?>
     <table class="user">
         <tr>
@@ -133,6 +137,7 @@ if ($resultInfos->execute()) {
                 </td>
                 <td>
                     <form action="./actions/delete.php" method="get">
+                        <!-- Utilise un formulaire pour supprimer un rendez-vous -->
                         <input type="hidden" name="id_rdv" value="<?= $rdv['id_rdv'] ?>">
                         <button class="deleterendezvous"><a href="../actions/delete.php?annulation=<?= $rdv['id_rdv']; ?>">Supprimer</a></button>
                     </form>
