@@ -23,10 +23,12 @@ if ($result->execute()) {
     echo "aucun utilisateur";
 }
 
-// lister les rdv triés par ordre croissant de jour_heure.
+// lister les rdv triés par ordre croissant de jour_heure en joignant deux tables.
 $sql1 = "SELECT nom, prenom, id_rdv, jour_heure 
-FROM rdv r 
-JOIN utilisateur u ON r.id_utilisateur = u.id ORDER BY jour_heure ASC";
+         FROM rdv r 
+         JOIN utilisateur u ON r.id_utilisateur = u.id 
+         ORDER BY jour_heure ASC";
+
 // Préparation de la requête SQL & elle est stockée dans $resultRdv. 
 $resultRdv = $pdo->prepare($sql1);
 
