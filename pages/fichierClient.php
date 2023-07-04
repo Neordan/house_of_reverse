@@ -23,16 +23,19 @@ if ($result->execute()) {
     echo "aucun utilisateur";
 }
 
-// lister les rdv
+// lister les rdv triés par ordre croissant de jour_heure.
 $sql1 = "SELECT nom, prenom, id_rdv, jour_heure 
 FROM rdv r 
 JOIN utilisateur u ON r.id_utilisateur = u.id ORDER BY jour_heure ASC";
-
-
+// Préparation de la requête SQL & elle est stockée dans $resultRdv. 
 $resultRdv = $pdo->prepare($sql1);
+
+// Si l'exécution réussit, le bloc de code suivant est exécuté.
 if ($resultRdv->execute()) {
+    // Récupère tous les résultats de la requête et les stocke dans la variable $rdvs.
     $rdvs = $resultRdv->fetchAll();
 } else {
+    // Affiche le message "Aucun rendez-vous".
     echo "Aucun rendez-vous";
 }
 

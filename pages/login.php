@@ -5,7 +5,8 @@ require_once "../core/header.php";
 // Vérifier si les champs email et mot de passe sont définis et non vides
 if (isset($_POST["email"]) && $_POST["email"] != "" &&
     isset($_POST["hash_mdp"]) && $_POST["hash_mdp"] != "") {
-    // Obtenir les valeurs des champs email et mot de passe et supprimer tout caractère inutile au début et à la fin
+    // Obtenir les valeurs des champs email et mot de passe et supprimer 
+    // tout caractère inutile au début et à la fin
     $email = htmlspecialchars(trim($_POST["email"]));
     $password = htmlspecialchars(trim($_POST["hash_mdp"]));
 
@@ -41,7 +42,8 @@ if (isset($_POST["email"]) && $_POST["email"] != "" &&
                 $_SESSION['utilisateur']['email'] = $results['email'];
                 $_SESSION['utilisateur']['role'] = $results['role'];
 
-                // Rediriger l'utilisateur vers la page appropriée en fonction de son rôle (admin ou utilisateur)
+                // Rediriger l'utilisateur vers la page appropriée en fonction de 
+                // son rôle (admin ou utilisateur)
                 if ($results['role'] == "admin") {
                     header('Location: fichierClient.php');
                 } else {

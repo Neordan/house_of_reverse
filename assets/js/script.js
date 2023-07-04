@@ -60,10 +60,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const deleteAccountButton = document.getElementById("deleteAccountButton");
    
   if (deleteAccountButton) {
-    deleteAccountButton.addEventListener("click", (event) => {
+    deleteAccountButton.addEventListener("click", (e) => {
       const result = confirm("Êtes-vous sûr de vouloir supprimer votre compte?");
       if (!result) {
-        event.preventDefault();
+        e.preventDefault();
       }
     });
   }
@@ -155,10 +155,10 @@ function initToggleDescription() {
 
 // Récupère l'élément de navigation
 let navigation = document.querySelector('.menu');
-var previousScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+let previousScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
 
 window.addEventListener('scroll', function() {
-  var currentPosition = window.pageYOffset || document.documentElement.scrollTop;
+  let currentPosition = window.pageYOffset || document.documentElement.scrollTop;
 
   if (currentPosition > previousScrollPosition) {
     // Défilement vers le bas
