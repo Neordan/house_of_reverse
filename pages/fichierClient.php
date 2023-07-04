@@ -13,8 +13,9 @@ $q = "";
 require "../actions/rechercheUt.php";
 
 // requete sql pour lister les clients
-$sql = "SELECT nom, prenom, age, allergies, ongles_ronges FROM utilisateur ORDER BY prenom ASC";
-
+$sql = "SELECT nom, prenom, age, allergies, ongles_ronges 
+        FROM utilisateur 
+        ORDER BY prenom ASC";
 
 $result = $pdo->prepare($sql);
 if ($result->execute()) {
@@ -24,13 +25,14 @@ if ($result->execute()) {
 }
 
 // lister les rdv triés par ordre croissant de jour_heure en joignant deux tables.
-$sql1 = "SELECT nom, prenom, id_rdv, jour_heure 
+$sql = "SELECT nom, prenom, id_rdv, jour_heure 
          FROM rdv r 
-         JOIN utilisateur u ON r.id_utilisateur = u.id 
+         JOIN utilisateur u 
+         ON r.id_utilisateur = u.id 
          ORDER BY jour_heure ASC";
 
 // Préparation de la requête SQL & elle est stockée dans $resultRdv. 
-$resultRdv = $pdo->prepare($sql1);
+$resultRdv = $pdo->prepare($sql);
 
 // Si l'exécution réussit, le bloc de code suivant est exécuté.
 if ($resultRdv->execute()) {
@@ -42,11 +44,13 @@ if ($resultRdv->execute()) {
 }
 
 // lister les infos complémentaires du rendez-vous
-$sql2 = "SELECT nom, prenom, id_rdv, jour_heure, inspiration, ongle_actuel, prestation, message 
-FROM rdv r 
-JOIN utilisateur u ON r.id_utilisateur = u.id ORDER BY jour_heure ASC LIMIT 3";
+$sql = "SELECT nom, prenom, id_rdv, jour_heure, inspiration, ongle_actuel, prestation, message 
+        FROM rdv r 
+        JOIN utilisateur u 
+        ON r.id_utilisateur = u.id 
+        ORDER BY jour_heure ASC LIMIT 3";
 
-$resultInfos = $pdo->prepare($sql2);
+$resultInfos = $pdo->prepare($sql);
 if ($resultInfos->execute()) {
     $resultInfo = $resultInfos->fetchAll();
 } else {
@@ -55,7 +59,7 @@ if ($resultInfos->execute()) {
 ?>
 
 
-<h2>Liste des utilisateurs</h2>
+<h2>Fichier client</h2>
 <div class="rechercheUt">
     <form method="get">
         <input id="search" type="search" name="q" placeholder="Rechercher par utilisateur">
@@ -63,7 +67,10 @@ if ($resultInfos->execute()) {
     </form>
 </div>
 
+<h4>Liste des clients</h4>
+
 <?php if (isset($results) && !empty($results)) : ?>
+    <!-- Affiche les résultats de la barre de recherche -->
     <table class="list-user">
         <tr>
             <th>prenom</th>
@@ -76,8 +83,7 @@ if ($resultInfos->execute()) {
             <tr>
                 <td><?= htmlspecialchars($result['prenom']) ?></td>
                 <td><?= htmlspecialchars($result['nom']) ?></td>
-                <td><?= htmlspecialchars(calculateAge($result['age'])) ?> ans</td>
-
+                <td><?= htmlspecialchars(calculateAge($result['age'])) ?></td>
                 <td><?= htmlspecialchars($result['allergies']) ?></td>
                 <td><?= htmlspecialchars($result['ongles_ronges']) ?></td>
             </tr>
@@ -98,7 +104,6 @@ if ($resultInfos->execute()) {
                     <td><?= $user['prenom'] ?></td>
                     <td><?= $user['nom'] ?></td>
                     <td><?= htmlspecialchars(calculateAge($user['age'])) ?></td>
-
                     <td><?= $user['allergies'] ?></td>
                     <td><?= htmlspecialchars($user['ongles_ronges']) ?></td>
                 </tr>
@@ -107,7 +112,7 @@ if ($resultInfos->execute()) {
     </table>
 <?php endif; ?>
 
-<h3>Liste des rendez-vous</h3>
+<h4>Liste des rendez-vous</h4>
 <?php if (count($rdvs) > 0) { ?>
     <table class="user">
         <tr>
@@ -142,7 +147,7 @@ if ($resultInfos->execute()) {
 
 
 
-<h3>Informations des prochains rendez vous</h3>
+<h4>Informations des prochains rendez vous</h4>
 <?php if (count($resultInfo) > 0) {
     foreach ($resultInfo as $rdv) { ?>
         <div class="info-rdv-client">
