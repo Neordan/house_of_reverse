@@ -289,7 +289,7 @@ h3:after {
   content: "";
   height: 3px;
   width: 70%;
-  margin: 20px auto 30px auto;
+  margin: 10px auto 30px auto;
   background-color: var(--line-color);
 }
 

@@ -58,7 +58,6 @@ if ($resultInfos->execute()) {
 }
 ?>
 
-
 <h2>Fichier client</h2>
 <div class="rechercheUt">
     <form method="get">
