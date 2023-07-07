@@ -1508,8 +1508,12 @@ footer {
     gap: 20px;
   }
 
-  .ingo-presta p {
+  .info-presta p {
     display: block;
+  }
+
+  .fa-plus, .fa-minus {
+    display: none;
   }
 
   /* responsive calendar  */

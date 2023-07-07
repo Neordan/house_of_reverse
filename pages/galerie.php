@@ -16,7 +16,7 @@ require_once "../core/header.php";
     <img src="../assets/img/Photos/IMG-0656.JPG" alt="Exemple d'ongle">
     <img src="../assets/img/Photos/IMG-0657.JPG" alt="Exemple d'ongle">
     <img src="../assets/img/Photos/IMG-0658.JPG" alt="Exemple d'ongle">
-    <img src="./assets/img/Photos/IMG-0659.JPG" alt="Exemple d'ongle">
+    <img src="../assets/img/Photos/IMG-0659.JPG" alt="Exemple d'ongle">
 </div>
 
 <?php
