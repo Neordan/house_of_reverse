@@ -9,8 +9,6 @@ if ($_SESSION['utilisateur']['role'] != "admin") {
     header("location: ./index.php");
     exit(); // Ajout d'une instruction exit() pour arrêter l'exécution du script après la redirection
 }
-$q = "";
-require "../actions/rechercheUt.php";
 
 // requete sql pour lister les clients
 $sql = "SELECT nom, prenom, age, allergies, ongles_ronges 
@@ -56,6 +54,8 @@ if ($resultInfos->execute()) {
 } else {
     echo "Aucun rendez-vous";
 }
+
+require "../actions/rechercheUt.php";
 ?>
 
 <h2>Fichier client</h2>
