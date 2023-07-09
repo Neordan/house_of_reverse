@@ -137,7 +137,6 @@ if ($resultInfos->execute()) {
                 <td>
                     <form action="./actions/delete.php" method="get">
                         <!-- Utilise un formulaire pour supprimer un rendez-vous -->
-                        <input type="hidden" name="id_rdv" value="<?= $rdv['id_rdv'] ?>">
                         <button class="deleterendezvous"><a href="../actions/delete.php?annulation=<?= $rdv['id_rdv']; ?>">Supprimer</a></button>
                     </form>
                 </td>
@@ -186,7 +185,6 @@ if ($resultInfos->execute()) {
             </div>
             <div class="deleterendezvousclient">
                 <form action="./actions/delete.php" method="get">
-                    <input type="hidden" name="id_rdv" value="<?= $rdv['id_rdv'] ?>">
                     <button><a href="../actions/delete.php?annulation= <?= $rdv['id_rdv']; ?>">Supprimer</a></button>
                 </form>
             </div>
