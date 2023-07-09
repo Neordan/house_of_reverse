@@ -1,15 +1,13 @@
-<?php 
+<?php
 //informations de connexion
-    $dbhost = trim("localhost");
-    $dbport = trim("3306");
-    $dbname = trim("houseofreverse");
+$dbhost = trim("localhost");
+$dbport = trim("3306");
+$dbname = trim("houseofreverse");
 
-    $dbuser = "root";
-    $dbpassword = "";
+$dbuser = "root";
+$dbpassword = "";
 
-    // DATA SOURCE NAME
-    $dsn = "mysql:host=$dbhost; port=$dbport; dbname=$dbname; charset=utf8";
+// DATA SOURCE NAME
+$dsn = "mysql:host=$dbhost; port=$dbport; dbname=$dbname; charset=utf8";
 
-    $pdo = new PDO($dsn, $dbuser, $dbpassword);
-
-    
+$pdo = new PDO($dsn, $dbuser, $dbpassword);

@@ -78,7 +78,7 @@ date_default_timezone_set("Europe/Paris");
                 </ul>
             </nav>
         </div>
-        <div class="logo" >
+        <div class="logo">
             <h1>house of reverse</h1>
             <img src="../assets/img/Logo1.PNG" alt="Logo de House of reverse">
         </div>

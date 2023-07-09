@@ -3,8 +3,10 @@ $page_title = "Se connecter";
 require_once "../core/header.php";
 
 // Vérifier si les champs email et mot de passe sont définis et non vides
-if (isset($_POST["email"]) && $_POST["email"] != "" &&
-    isset($_POST["hash_mdp"]) && $_POST["hash_mdp"] != "") {
+if (
+    isset($_POST["email"]) && $_POST["email"] != "" &&
+    isset($_POST["hash_mdp"]) && $_POST["hash_mdp"] != ""
+) {
     // Obtenir les valeurs des champs email et mot de passe et supprimer 
     // tout caractère inutile au début et à la fin
     $email = htmlspecialchars(trim($_POST["email"]));

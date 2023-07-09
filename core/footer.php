@@ -1,7 +1,7 @@
 </main>
 
 <div class="btn-up">
-<a href="#top"><i class="fa-solid fa-chevron-up" style="color: #825857;"></i></a>
+    <a href="#top"><i class="fa-solid fa-chevron-up" style="color: #825857;"></i></a>
 
 </div>
 <footer>

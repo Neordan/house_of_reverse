@@ -61,7 +61,7 @@ if (!empty($_POST)) {
             $prestation = $_POST["prestation"];
             $inspiration = "assets/img/clients/" . $inspirationFileName;
             $message = $_POST["message"];
-        
+
             // Préparation de la requête et exécution
             $stmt = $pdo->prepare($sql);
             $stmt->bindParam(':id', $id);
@@ -71,13 +71,13 @@ if (!empty($_POST)) {
             $stmt->bindParam(':prestation', $prestation);
             $stmt->bindParam(':message', $message);
             $stmt->execute();
-        
+
             // Confirmation de la réservation
             // Mise à jour de la variable de session 'rdv'
             $_SESSION['rdv'] = [
                 'jour_heure' => $rdv
             ];
-        
+
             header('Location: ./profil.php');
             exit;
         } else {
@@ -233,7 +233,7 @@ $prestations = $matches[1];
     </div>
     <button class="formulaire"><i class="fa-solid fa-check"></i></button>
 </form>
-    <?php
+<?php
 
-    require_once "../core/footer.php";
-    ?>
+require_once "../core/footer.php";
+?>
