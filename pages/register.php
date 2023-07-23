@@ -102,7 +102,7 @@ if (!empty($_POST)) {
 <form class="register" method="post">
     <div class="info">
         <label for="email">Quel est ton e-mail ? <span>*</span></label>
-        <input type="text" name="email" id="email" autocomplete="off" required>
+        <input type="text" name="email" id="email" autocomplete="on" required>
     </div>
     <div class="info">
         <label for="nom">Quel est ton nom ? <span>*</span></label>

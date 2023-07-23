@@ -19,7 +19,7 @@
         <ul>
             <li><a href="../index.php">Accueil</a>
             </li>
-            <li><a href="#">Politique de protection des données</a></li>
+            <li><a href="../pages/politique.php">Politique de protection des données</a></li>
             <li><a href="../pages/modalitedevente.php">Modalité de vente</a></li>
         </ul>
     </div>
