@@ -51,8 +51,6 @@ require_once "../actions/function.php";
             <!-- Formulaire pour supprimer le rendez-vous -->
             <form class="deleterdv" action="../actions/delete.php" method="get">
 
-                <!-- Champ caché contenant l'identifiant de l'utilisateur -->
-                <input type="hidden" name="<?= $_SESSION['utilisateur']['id'] ?>">
                 <!-- Lien pour supprimer le compte utilisateur -->
                 <a href="/actions/delete.php?suppcompte=<?= $_SESSION['utilisateur']['id']; ?>" class="delete" id="deleteAccountButton">Supprimer mon compte</a>
             </form>

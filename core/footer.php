@@ -34,6 +34,15 @@
     document.addEventListener('DOMContentLoaded', function() {
         initToggleDescription();
     });
+
+    function onClick(e) {
+        e.preventDefault();
+        grecaptcha.enterprise.ready(async () => {
+            const token = await grecaptcha.enterprise.execute('6LcdrEknAAAAAOGZX9njn_jn-1DqJWLzdGS8CEvF', {
+                action: 'LOGIN'
+            });
+        });
+    }
 </script>
 
 </html>

@@ -15,7 +15,7 @@ date_default_timezone_set("Europe/Paris");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="House of Reverse est un site de rendez-vous et d'information pour les services de prothésie ongulaire. Découvrez nos prestations, galerie et tarifs, et prenez rendez-vous pour vos besoins de beauté.">
     <link rel="icon" type="image/png" href="../assets/img/Logo/Logoicon.jpg">
-    <meta name="keywords" content="prothésie ongulaire, rendez-vous, prestations, tarifs, galerie, beauté">
+    <meta name="keywords" content="prothésie ongulaire, ongle, beauté">
     <meta property="og:title" content="House of reverse - <?= $page_title ?>">
     <meta property="og:description" content="House of Reverse est un site de rendez-vous et d'information pour les services de prothésie ongulaire. Découvrez nos prestations, galerie et tarifs, et prenez rendez-vous pour vos besoins de beauté.">
     <meta property="og:image" content="../assets/img/Logo/Logoicon.jpg">
@@ -25,6 +25,10 @@ date_default_timezone_set("Europe/Paris");
     <link rel="stylesheet" href="../assets/css/main.css">
 
     <script src="../assets/js/script.js" defer></script>
+    <script src="../assets/js/validate.js" defer></script>
+    <script src="https://www.google.com/recaptcha/enterprise.js?render=6LcdrEknAAAAAOGZX9njn_jn-1DqJWLzdGS8CEvF"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
 </head>
 
 <body>

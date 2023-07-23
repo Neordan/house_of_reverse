@@ -3,24 +3,43 @@ $page_title = "Inscription";
 require_once "../core/header.php";
 require "../actions/function.php";
 
-
-
 $allergies_options = getAllergiesOptions();
-
 $role = "utilisateur";
 
 // Vérifie si le formulaire a été envoyé
 if (!empty($_POST)) {
 
-    // Vérifie que tous les champs du formulaire sont remplis
+    // Vérifier le reCAPTCHA
+    $recaptchaResponse = $_POST['g-recaptcha-response'];
+    $secretKey = "6LchyEknAAAAAN1qfYaGjTow8p96i-FkemQ1vUO0";
+    $url = 'https://www.google.com/recaptcha/api/siteverify';
+    $data = array('secret' => $secretKey, 'response' => $recaptchaResponse);
+
+    $options = array(
+        'http' => array(
+            'header' => "Content-type: application/x-www-form-urlencoded\r\n",
+            'method' => 'POST',
+            'content' => http_build_query($data)
+        )
+    );
+
+    $context = stream_context_create($options);
+    $response = file_get_contents($url, false, $context);
+    $recaptchaResult = json_decode($response);
+
+    // Vérifie si le reCAPTCHA est valide
+    if (!$recaptchaResult->success) {
+        echo "Veuillez cocher la case reCAPTCHA avant de soumettre le formulaire.";
+        exit();
+    }
 
     // Vérifie que les mots de passe sont identiques
     if ($_POST["hash_mdp1"] == $_POST["hash_mdp2"]) {
 
         // Initialise les variables
-        $email = trim($_POST["email"]);
-        $nom = trim($_POST["nom"]);
-        $prenom = trim($_POST["prenom"]);
+        $email = htmlspecialchars(trim($_POST["email"]));
+        $nom = htmlspecialchars(trim($_POST["nom"]));
+        $prenom = htmlspecialchars(trim($_POST["prenom"]));
         $age = $_POST["age"];
 
         if (isset($_POST['allergies'])) {
@@ -31,7 +50,7 @@ if (!empty($_POST)) {
         $ongles = $_POST["ongles_ronges"];
 
         // Hashage du mot de passe
-        $hash_mdp = $_POST["hash_mdp1"];
+        $hash_mdp = trim($_POST["hash_mdp1"]);
         $options = [
             'cost' => 12,
         ];
@@ -40,7 +59,6 @@ if (!empty($_POST)) {
         require_once "../core/config.php";
         // Requête SQL pour insérer les informations dans la table utilisateur
         $sql = "INSERT INTO utilisateur (email, nom, prenom, age, allergies, ongles_ronges, role, hash_mdp) VALUES (:email, :nom, :prenom, :age, :allergies, :ongles_ronges, :role, :hash_mdp)";
-
 
         $register = $pdo->prepare($sql);
 
@@ -124,15 +142,24 @@ if (!empty($_POST)) {
         </div>
     </div>
 
-    <div class="info">
+    <div class="info password-container">
         <label for="mdp1">Quel est ton mot de passe : <span>*</span></label>
-        <input type="password" name="hash_mdp1" id="mpd1" autocomplete="off" required>
+        <input type="password" name="hash_mdp1" id="password" autocomplete="off" required>
+        <span></span>
+        <div class="progress-bar-container">
+            <div id="progress-bar"></div>
+        </div>
     </div>
-    <div class="info">
+    <div class="info confirm-container">
         <label for="mdp2">Vérifie le : <span>*</span></label>
-        <input type="password" name="hash_mdp2" id="mpd2" autocomplete="off" required>
+        <input type="password" name="hash_mdp2" id="confirm" autocomplete="off" required>
+        <span></span>
+        <div class="confirm-password-message">
+            <span></span>
+        </div>
     </div>
     <input type="hidden" name="role" value="<?= $role ?>">
+    <div class="g-recaptcha" data-sitekey="6LchyEknAAAAAEcHU9WHe2goizMCBf-QRq05X5w6"></div>
     <button class="formulaire"><i class="fa-solid fa-check"></i></button>
 </form>
 
