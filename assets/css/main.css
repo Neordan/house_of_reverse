@@ -1378,6 +1378,18 @@ footer {
   font-size: 1.2rem;
 }
 
+/* css de la page de la politique de confidentialité  */
+
+.politique {
+  width: 100%;
+  margin: auto;
+  font-family: var(--text-font);
+  font-size: 1.1rem;
+  line-height: 1.5rem;
+  text-align: justify;
+  hyphens: auto;
+}
+
 /* Responsive */
 
 @media screen and (max-width: 500px) {

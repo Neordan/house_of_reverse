@@ -6,7 +6,6 @@ require_once "../core/header.php";
 
 <h2>Politique de protection des données</h2>
 <div class="politique">
-    <p>La présente politique de protection des données personnelles a pour objectif de vous informer sur la manière dont nous collectons et traitons vos données personnelles dans le cadre de votre utilisation de notre site internet.</p>
     <p>La présente politique de protection des données personnelles peut être modifiée ou complétée à tout moment par notre société, notamment en vue de se conformer à toute évolution légale, réglementaire, jurisprudentielle ou technologique. Dans un tel cas, la date de sa mise à jour sera clairement identifiée en tête de la présente politique. Ces modifications engagent l’Utilisateur dès leur mise en ligne. Il convient par conséquent que l’Utilisateur consulte régulièrement la présente politique de protection des données personnelles et d’utilisation des cookies afin de prendre connaissance de ses éventuelles modifications.</p>
 
     <h3>1. Collecte de vos données personnelles</h3>
@@ -42,7 +41,7 @@ require_once "../core/header.php";
         <br>
         Pour exercer ces droits ou pour toute information supplémentaire sur le sujet,
         contactez-nous par email à l’adresse suivante : <a href="mailto:
-info@example.com">info@example.<EMAIL></a>.
+houseofreverse@gmail.com">houseofreverse@gmail.com<EMAIL></a>.
         Dans ce cadre, nous vous prions de bien vouloir accompagner votre demande des éléments nécessaires à votre identification (nom, prénom, e-mail) ainsi que toute autre information nécessaire à la confirmation de votre identité.
     </p>
 
