@@ -1361,6 +1361,23 @@ footer {
   font-size: 0.6rem;
 }
 
+/* css de la page de modalité de vente  */
+
+.modalite {
+  width: 100%;
+  margin: auto;
+  font-family: var(--text-font);
+  font-size: 1.1rem;
+  line-height: 1.5rem;
+  text-align: justify;
+  hyphens: auto;
+}
+
+.modalite span {
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
 /* Responsive */
 
 @media screen and (max-width: 500px) {
