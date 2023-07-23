@@ -83,6 +83,34 @@ if (!empty($_POST)) {
                 'jour_heure' => $rdv
             ];
 
+            // Envoi de l'e-mail de confirmation à la cliente
+            $to = $_SESSION['utilisateur']['email'];
+            $subject = "Confirmation de votre rendez-vous";
+            $message = "Bonjour " . $_SESSION['utilisateur']['prenom'] . ",\n\n";
+            $message .= "Votre rendez-vous est confirmé pour le " . $rdv . ".\n";
+            $message .= "Prestation : " . $prestation . "\n";
+            $message .= "Merci de nous faire confiance ! À bientôt.\n";
+
+            $headers = "From: House of reverse <contact@houseofreverse.fr>\r\n";
+            $headers .= "Reply-To: contact@houseofreverse.fr\r\n";
+
+            mail($to, $subject, $message, $headers);
+
+            // Envoi de l'e-mail de notification à l'administrateur
+            $to_admin = "contact@houseofreverse.fr"; 
+            $subject_admin = "Nouveau rendez-vous enregistré";
+            $message_admin = "Un nouveau rendez-vous a été enregistré :\n";
+            $message_admin .= "Nom de la cliente : " . $_SESSION['utilisateur']['nom'] . " " . $_SESSION['utilisateur']['prenom'] . "\n";
+            $message_admin .= "Date et heure du rendez-vous : " . $rdv . "\n";
+            $message_admin .= "Prestation : " . $prestation . "\n";
+            $message_admin .= "Message de la cliente : " . $message . "\n\n";
+
+            $headers_admin = "From: House of reverse <contact@houseofreverse.fr>\r\n";
+            $headers_admin .= "Reply-To: contact@houseofreverse.fr\r\n";
+
+            mail($to_admin, $subject_admin, $message_admin, $headers_admin);
+
+
             header('Location: ./profil.php');
             exit;
         } else {
