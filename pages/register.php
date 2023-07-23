@@ -34,8 +34,11 @@ if (!empty($_POST)) {
     }
 
     // Vérifie que les mots de passe sont identiques
-    if ($_POST["hash_mdp1"] == $_POST["hash_mdp2"]) {
-
+    if ($_POST["hash_mdp1"] != $_POST["hash_mdp2"]) {
+        echo "Les mots de passe ne correspondent pas.";
+    } elseif (strlen($_POST["hash_mdp1"]) < 6 || !preg_match("/[0-9]/", $_POST["hash_mdp1"]) || !preg_match("/[!@#$%^&*()_+\-=\[\]{};':\"|,.<>\/?]/", $_POST["hash_mdp1"])) {
+        echo "Le mot de passe doit contenir au moins 6 caractères, un chiffre et un symbole.";
+    } else {
         // Initialise les variables
         $email = htmlspecialchars(trim($_POST["email"]));
         $nom = htmlspecialchars(trim($_POST["nom"]));
@@ -91,8 +94,6 @@ if (!empty($_POST)) {
         } catch (Exception $e) {
             echo "Message" . $e->getMessage();
         }
-    } else {
-        echo "Mots de passe différents";
     }
 }
 ?>
