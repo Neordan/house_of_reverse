@@ -37,7 +37,7 @@ Une fois que la première couche est sèche, on applique une deuxième couche po
 <br>
 En somme, le remplissage en prothésie ongulaire est une technique indispensable pour maintenir la beauté et la solidité d\'une pose d\'ongles en gel ou en acrylique. Il permet de combler l\'espace entre l\'ongle naturel et la prothèse ongulaire et de prolonger la durée de vie de la pose. C\'est une technique qui nécessite de la précision et du savoir-faire pour obtenir un résultat professionnel et esthétique.') ?>
 
-<?= generatePresta('Gainage', '../assets/img/Photos/chablons.jpg', 'Le gainage offre également la possibilité de créer des extensions d\'ongles pour ceux qui souhaitent obtenir une longueur supplémentaire. En utilisant des matériaux tels que le gel ou l\'acrylique, les techniciens en prothésie ongulaire peuvent modeler et façonner l\'ongle pour obtenir la forme et la longueur désirées. Cela permet d\'obtenir des ongles longs et élégants, tout en maintenant la solidité et la durabilité.
+<?= generatePresta('Gainage', '../assets/img/Photos/3726.jpg', 'Le gainage offre également la possibilité de créer des extensions d\'ongles pour ceux qui souhaitent obtenir une longueur supplémentaire. En utilisant des matériaux tels que le gel ou l\'acrylique, les techniciens en prothésie ongulaire peuvent modeler et façonner l\'ongle pour obtenir la forme et la longueur désirées. Cela permet d\'obtenir des ongles longs et élégants, tout en maintenant la solidité et la durabilité.
 <br>
 <br>
 Une autre caractéristique avantageuse du gainage est la possibilité de personnalisation. Les gels et les acryliques utilisés pour le gainage sont disponibles dans une large gamme de couleurs, de finitions et de textures. Cela signifie que vous pouvez créer des looks uniques en utilisant des paillettes, des effets de couleur, des motifs et même des décorations comme des strass ou des stickers.
@@ -45,21 +45,13 @@ Une autre caractéristique avantageuse du gainage est la possibilité de personn
 <br>
 En somme, le gainage est une technique polyvalente en prothésie ongulaire qui renforce les ongles naturels, les protège des dommages et offre la possibilité de créer des extensions d\'ongles personnalisées. Que vous ayez des ongles fragiles, que vous souhaitiez obtenir une longueur supplémentaire ou que vous vouliez simplement embellir vos ongles, le gainage peut être une solution adaptée pour obtenir des ongles forts et esthétiquement plaisants.') ?>
 
-<?= generatePresta('Réparation', '../assets/img/Photos/exemplevsp.jpg', 'La réparation des ongles est une technique utilisée pour restaurer et réparer les ongles abîmés, cassés ou endommagés. Elle peut être réalisée à l\'aide de différents produits et méthodes, selon l\'état de l\'ongle. Lors de la réparation, un professionnel en prothésie ongulaire évalue l\'ongle et utilise des techniques telles que l\'application de gel ou d\'acrylique pour reconstruire la surface de l\'ongle. Cela permet de renforcer sa structure et de lui donner une apparence saine et naturelle.
+<?= generatePresta('Pédicure', '../assets/img/Photos/pedicure.jpg', 'La pédicure, un soin incontournable pour des pieds heureux et en bonne santé ! Prendre soin de ses pieds est essentiel pour se sentir bien dans sa peau au quotidien. La pédicure, c\'est bien plus qu\'une simple question d\'esthétique, c\'est aussi une démarche de bien-être. 
 <br>
 <br>
-La réparation des ongles offre également une solution pour ceux qui ont des ongles rongés ou qui souffrent d\'onychophagie. En utilisant des techniques spécifiques, le professionnel peut appliquer des produits et des extensions pour couvrir et protéger les ongles endommagés, tout en encourageant la repousse naturelle des ongles. Cela permet de réparer les dégâts causés par les mauvaises habitudes et de favoriser la croissance d\'ongles sains et forts.
+Lors d\'une séance de pédicure, vos pieds sont choyés, nettoyés et chouchoutés pour éliminer les peaux mortes et les callosités. Vos ongles sont taillés avec précision et mis en forme pour éviter tout inconfort. Enfin, l\'application de vernis à ongles apporte la touche finale pour des pieds élégants et soignés.
 <br>
 <br>
-En résumé, la réparation des ongles est une technique précieuse pour restaurer et réparer les ongles abîmés, cassés ou rongés. Grâce à l\'utilisation de produits spécialisés et à des méthodes adaptées, il est possible de reconstruire la surface de l\'ongle, de renforcer sa structure et de favoriser la croissance d\'ongles sains. Que ce soit pour réparer des ongles endommagés ou pour corriger des mauvaises habitudes, la réparation des ongles offre une solution efficace pour retrouver des ongles beaux et en bonne santé.') ?>
-
-<?= generatePresta('Pédicure', '../assets/img/Photos/exemplevsp.jpg', 'La réparation des ongles est une technique utilisée pour restaurer et réparer les ongles abîmés, cassés ou endommagés. Elle peut être réalisée à l\'aide de différents produits et méthodes, selon l\'état de l\'ongle. Lors de la réparation, un professionnel en prothésie ongulaire évalue l\'ongle et utilise des techniques telles que l\'application de gel ou d\'acrylique pour reconstruire la surface de l\'ongle. Cela permet de renforcer sa structure et de lui donner une apparence saine et naturelle.
-<br>
-<br>
-La réparation des ongles offre également une solution pour ceux qui ont des ongles rongés ou qui souffrent d\'onychophagie. En utilisant des techniques spécifiques, le professionnel peut appliquer des produits et des extensions pour couvrir et protéger les ongles endommagés, tout en encourageant la repousse naturelle des ongles. Cela permet de réparer les dégâts causés par les mauvaises habitudes et de favoriser la croissance d\'ongles sains et forts.
-<br>
-<br>
-En résumé, la réparation des ongles est une technique précieuse pour restaurer et réparer les ongles abîmés, cassés ou rongés. Grâce à l\'utilisation de produits spécialisés et à des méthodes adaptées, il est possible de reconstruire la surface de l\'ongle, de renforcer sa structure et de favoriser la croissance d\'ongles sains. Que ce soit pour réparer des ongles endommagés ou pour corriger des mauvaises habitudes, la réparation des ongles offre une solution efficace pour retrouver des ongles beaux et en bonne santé.') ?>
+Outre son aspect esthétique, la pédicure présente de nombreux bienfaits pour la santé de vos pieds. Elle permet de prévenir les infections fongiques et les problèmes de peau liés à l\'humidité excessive. En prenant soin de vos pieds, vous contribuez également à soulager les douleurs éventuelles et à améliorer votre confort général.') ?>
 
 
 <?php require_once "../core/footer.php"; ?>

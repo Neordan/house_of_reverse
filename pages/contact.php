@@ -4,6 +4,11 @@ $page_title = "Rendez-vous";
 require "../core/header.php";
 require "../core/config.php";
 
+if ($_SESSION['utilisateur']['role'] != "admin" || $_SESSION['utilisateur']['role'] != "utilisateur") {
+    header('Location: ../index.php');
+    exit;
+}
+
 // Traitement des dates de réservations
 require "../actions/dateProcessing.php";
 

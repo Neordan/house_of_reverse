@@ -20,7 +20,7 @@
             <li><a href="../index.php">Accueil</a>
             </li>
             <li><a href="#">Politique de protection des données</a></li>
-            <li><a href="#">Modalité de vente</a></li>
+            <li><a href="../pages/modalitedevente.php">Modalité de vente</a></li>
         </ul>
     </div>
     <div class="copy">

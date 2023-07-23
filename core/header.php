@@ -61,7 +61,7 @@ date_default_timezone_set("Europe/Paris");
                         <?php } ?>
                     <?php } ?>
                 </ul>
-                <a href="./index.php"><i class="fa-solid fa-house"></i></a>
+                <a href="../index.php"><i class="fa-solid fa-house"></i></a>
             </nav>
             <nav class="navordi <?= empty($_SESSION['utilisateur']) ? 'navordi-not-connected' : 'navordi-connected'; ?>">
                 <ul>

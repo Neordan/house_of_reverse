@@ -394,7 +394,7 @@ h3:after {
 }
 
 .formulairelog {
-  width: 80%;
+  width: 90%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -405,6 +405,10 @@ h3:after {
 .formulairelog p {
   font-size: 2.2rem;
   color: rgb(182, 128, 127);
+}
+
+.formulairelog form {
+  width: 100%;
 }
 
 .formulairelog input {
@@ -451,7 +455,7 @@ h3:after {
 
 .formulairelog a {
   color: #b6807f;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   margin-top: 8px;
   width: 100%;
   display: flex;
@@ -551,7 +555,6 @@ h3:after {
 .group-tarif {
   width: 86%;
   margin: auto;
-  margin-bottom: 30px;
 }
 
 .unique-tarif {
@@ -562,6 +565,18 @@ h3:after {
 
 hr {
   margin-top: 3px;
+}
+
+.info-pedicure {
+  width: 70%;
+  margin: 25px auto 0 auto;
+}
+
+.info-pedicure p {
+  font-size: 1.2rem;
+  color: var(--other-color-2);
+  font-family: var(--text-font);
+  text-align: center;
 }
 
 /********* CSS de la page contact  *******/
@@ -1351,16 +1366,16 @@ footer {
 @media screen and (max-width: 500px) {
 
   h1 {
-    font-size: 2rem;
+    font-size: 1.9rem;
   }
 
   h2 {
-    font-size: 1.6rem;
+    font-size: 1.7rem;
     width: 75%;
   }
 
   h3 {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
   }
 
   .description, .certificate, .client {
@@ -1373,7 +1388,20 @@ footer {
   }
 
   .presta {
-    width: 95%;
+    width: 100%;
+  }
+
+  .presta img {
+    width: 90%;
+  }
+
+  .descriptionpresta {
+    margin: 20px 0;
+  }
+
+  .group-tarif {
+    margin: 0;
+    width: 100%;
   }
 }
 

@@ -8,12 +8,7 @@ require_once "../core/header.php";
 <h3>Prestations gel</h3>
 <div class="group-tarif">
     <div class="unique-tarif">
-        <p>Gainage / 1h</p>
-        <p>35 €</p>
-    </div>
-    <hr>
-    <div class="unique-tarif">
-        <p>Pose complète sur mesure / 2h</p>
+        <p>Pose complète sur mesure / 1h30</p>
         <p>55 €</p>
     </div>
     <hr>
@@ -41,8 +36,13 @@ require_once "../core/header.php";
     </div>
     <hr>
     <div class="unique-tarif">
-        <p>Remplissage / 1h30</p>
+        <p>Remplissage / 1h</p>
         <p>40 €</p>
+    </div>
+    <hr>
+    <div class="unique-tarif">
+        <p>Pédicure / 30mn</p>
+        <p>30 €</p>
     </div>
     <hr>
     <div class="unique-tarif">
@@ -53,6 +53,11 @@ require_once "../core/header.php";
 </div>
 <h3>Nail art</h3>
 <div class="group-tarif">
+    <div class="unique-tarif">
+        <p>French (2mains)</p>
+        <p>+ 5 €</p>
+    </div>
+    <hr>
     <div class="unique-tarif">
         <p>French Reverse (2 mains)</p>
         <p>+ 20 €</p>
@@ -69,15 +74,13 @@ require_once "../core/header.php";
     </div>
     <hr>
     <div class="unique-tarif">
-        <p>French (2mains)</p>
-        <p>+ 10 €</p>
-    </div>
-    <hr>
-    <div class="unique-tarif">
-        <p>Bijoux d'ongles</p>
+        <p>Strass (bijoux d'ongle)</p>
         <p>SUR DEVIS</p>
     </div>
     <hr>
+</div>
+<div class="info-pedicure">
+    <p>*pour toute manucure + pédicure, la pédicure passe à 20€ au lieu de 30€</p>
 </div>
 <?php
 require_once "../core/footer.php"

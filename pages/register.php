@@ -86,7 +86,7 @@ if (!empty($_POST)) {
                 $_SESSION['utilisateur']['ongles_ronges'] = $ongles;
                 $_SESSION['utilisateur']['email'] = $email;
                 $_SESSION['utilisateur']['role'] = $role;
-                header('Location: ./profil.php');
+                header('Location: ./login.php');
                 exit();
             } else {
                 echo "Erreur lors de l'exécution de la requête.";
