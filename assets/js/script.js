@@ -155,22 +155,22 @@ function initToggleDescription() {
 // Animation de la navbar au défilement
 
 // Récupère l'élément de navigation
-let navigation = document.querySelector('.menu');
-let previousScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+// let navigation = document.querySelector('.menu');
+// let previousScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
 
-window.addEventListener('scroll', function () {
-  let currentPosition = window.pageYOffset || document.documentElement.scrollTop;
+// window.addEventListener('scroll', function () {
+//   let currentPosition = window.pageYOffset || document.documentElement.scrollTop;
 
-  if (currentPosition > previousScrollPosition) {
-    // Défilement vers le bas
-    navigation.style.top = '-150px';
-  } else {
-    // Défilement vers le haut
-    navigation.style.top = '0';
-  }
+//   if (currentPosition > previousScrollPosition) {
+//     // Défilement vers le bas
+//     navigation.style.top = '-150px';
+//   } else {
+//     // Défilement vers le haut
+//     navigation.style.top = '0';
+//   }
 
-  previousScrollPosition = currentPosition;
-});
+//   previousScrollPosition = currentPosition;
+// });
 
 
 

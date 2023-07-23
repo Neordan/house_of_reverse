@@ -20,14 +20,14 @@ require_once "./core/header.php";
     </p>
 </section>
 <section class="certificate">
-    <h3>mes certifications</h3>
+    <h3>Mes certifications</h3>
     <div class="document">
         <img src="./assets/img/Certificats/MacroManucure-1.png" class="img" alt="Certificat macromanucure">
         <img src="./assets/img/Certificats/Certificat TOP NAIL MASTER NOM-1.png" class="img" alt="Certificat top nail master">
     </div>
 </section>
 <div class="client">
-    <h3>avis client</h3>
+    <h3>Avis client</h3>
     <div class="avis">
         <button class="prev"><i class="fa-solid fa-chevron-left"></i></button>
         <img src="./assets/img/avis/avis.jpg" alt="Avis d'une cliente n°1">

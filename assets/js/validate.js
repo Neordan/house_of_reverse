@@ -21,8 +21,8 @@
       errorDisplay("password", "Le mot de passe doit contenir au moins 8 caractères", false);
       progressBar.style.width = "25%";
       progressBar.style.backgroundColor = "#FF0000";
-    } else if (value.length < 12 || !hasSymbol || !hasNumber) {
-      errorDisplay("password", "Le mot de passe doit contenir au moins 12 caractères, un symbole et un chiffre", false);
+    } else if (value.length < 8 || !hasSymbol || !hasNumber) {
+      errorDisplay("password", "Le mot de passe doit contenir au moins 8 caractères, un symbole et un chiffre", false);
       progressBar.style.width = "50%";
       progressBar.style.backgroundColor = "#FFA500";
     } else {
