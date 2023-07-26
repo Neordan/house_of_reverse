@@ -582,7 +582,7 @@ hr {
 /********* CSS de la page contact  *******/
 
 .register {
-  width: 80%;
+  width: 90%;
 }
 
 .mobile-calendar {
@@ -670,11 +670,16 @@ input[type="radio"] {
 
 form label,
 legend {
-  font-weight: 600;
+  font-weight: 700;
   font-size: 1.2rem;
   margin-bottom: 12px;
   font-family: var(--text-font);
   color: #000000ae;
+}
+
+.allergie label, .choix-etat label {
+  font-weight: 600;
+  font-size: 1rem;
 }
 
 form span {
@@ -691,7 +696,6 @@ form span {
 .choix-art label,
 .choix-etat label {
   margin: 0;
-  font-weight: normal;
 }
 
 .choix-etat {
@@ -750,22 +754,6 @@ textarea::placeholder {
   color: red;
 }
 
-
-.progressRed {
-  background: red;
-  width: 33%;
-  visibility: visible;
-}
-.progressBlue {
-  background: #16d9e7;
-  width: 67%;
-  visibility: visible;
-}
-.progressGreen {
-  width: 100%;
-  background: #5ef9a4;
-  visibility: visible;
-}
 
 /********* CSS du calendrier  *******/
 
@@ -948,6 +936,15 @@ textarea::placeholder {
 .allergie {
   display: flex;
   gap: 8px;
+}
+
+.error-message {
+  width: 110%;
+  text-align: start;
+  color: #751b1b;
+  font-family: var(--text-font);
+  font-size: 0.8rem;
+  margin-top: 5px;
 }
 
 /********* CSS du fichier client  *******/
@@ -1588,6 +1585,8 @@ footer {
     font-family: var(--text-font);
     color: #000000ae;
   }
+
+  
 
   .register {
     width: 50%;

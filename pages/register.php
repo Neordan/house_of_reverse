@@ -121,7 +121,7 @@ if (!empty($_POST)) {
         <input type="date" name="age" id="age" autocomplete="off" required>
     </div>
     <div class="info">
-        <label class="label-allergie" for="allergies" autocomplete="off">As tu des allergies ? <span>*</span></label><br>
+        <label class="label-allergie" for="allergies" autocomplete="off">As tu des allergies ? <span>*</span></label>
         <div class="allergies">
             <?php $allergies_options = getAllergiesOptions();
             foreach ($allergies_options as $key => $value) : ?>
