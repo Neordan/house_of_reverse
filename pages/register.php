@@ -1,4 +1,6 @@
 <?php
+
+
 $page_title = "Inscription";
 require_once "../core/header.php";
 require "../actions/function.php";
@@ -86,7 +88,8 @@ if (!empty($_POST)) {
                 $_SESSION['utilisateur']['ongles_ronges'] = $ongles;
                 $_SESSION['utilisateur']['email'] = $email;
                 $_SESSION['utilisateur']['role'] = $role;
-                header('Location: ./login.php');
+                echo "Redirection vers login.php"; // Message de débogage
+                header('Location: ./profil.php');
                 exit();
             } else {
                 echo "Erreur lors de l'exécution de la requête.";

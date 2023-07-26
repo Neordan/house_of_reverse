@@ -2,7 +2,7 @@
 session_start();
 // Fuseau horaire par défaut du serveur
 date_default_timezone_set("Europe/Paris");
-
+ob_start(); // Activer la mise en mémoire tampon de sortie
 ?>
 
 

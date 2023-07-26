@@ -4,7 +4,10 @@ $page_title = "Rendez-vous";
 require "../core/header.php";
 require "../core/config.php";
 
-if ($_SESSION['utilisateur']['role'] != "admin" || $_SESSION['utilisateur']['role'] != "utilisateur") {
+if ($_SESSION['utilisateur']['role'] === "admin" || $_SESSION['utilisateur']['role'] === "utilisateur") {
+    header('Location: ../page/contact.php');
+    exit;
+} else {
     header('Location: ../index.php');
     exit;
 }

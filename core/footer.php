@@ -24,8 +24,7 @@
         </ul>
     </div>
     <div class="copy">
-        <p>&copy Mélhian ADAM</p>
-        <p>Propriété de House of Reverse</p>
+        <p>&copy House of Reverse</p>
     </div>
 </footer>
 </body>
