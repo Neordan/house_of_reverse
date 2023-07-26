@@ -1,8 +1,32 @@
 <?php
 session_start();
 
+// Fonction pour supprimer les rendez-vous passés
+function deletePastAppointments()
+{
+    require_once "../core/config.php";
+
+    // Préparation de la requête SQL pour supprimer les rendez-vous passés
+    $sql = "DELETE FROM rdv WHERE jour_heure < NOW()";
+    $result = $pdo->prepare($sql);
+
+    // Exécution de la requête et vérification du succès
+    if ($result->execute()) {
+        // Affichage d'un message de succès
+        echo "Les rendez-vous passés ont été supprimés avec succès.";
+    } else {
+        // Affichage d'un message d'erreur en cas d'échec
+        echo "Erreur : La suppression des rendez-vous passés a échoué.";
+    }
+}
+
+// Appel de la fonction pour supprimer les rendez-vous passés
+deletePastAppointments();
+
+
 // Fonction générique pour supprimer un enregistrement dans une table
-function delete($table, $idChamp, $idValue, $redirectUrl, $sessionKey = null) {
+function delete($table, $idChamp, $idValue, $redirectUrl, $sessionKey = null)
+{
     require_once "../core/config.php";
 
     // Préparation de la requête SQL pour supprimer un enregistrement
@@ -33,10 +57,11 @@ if (isset($_POST['annulation'])) {
 }
 
 // Vérification de la présence du paramètre 'suppcompte' en POST
-if (isset($_POST['suppcompte'])) {
+if (isset($_GET['suppcompte'])) {
     // Appel de la fonction delete pour supprimer un compte utilisateur
-    delete('utilisateur', 'id', $_POST['suppcompte'], '../index.php', 'utilisateur');
+    delete('utilisateur', 'id', $_GET['suppcompte'], '../index.php', 'utilisateur');
 }
+
 
 if (isset($_POST['rdv_id'])) {
     // Appel de la fonction delete pour supprimer un rendez-vous

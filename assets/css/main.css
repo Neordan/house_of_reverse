@@ -610,6 +610,13 @@ hr {
   margin: 15px 0;
 }
 
+input, textarea {
+  font-size: 1.1rem;
+  color: var(--menu-bg-color);
+  font-family: var(--text-font);
+  font-weight: 600;
+}
+
 input[type="text"],
 input[type="file"],
 textarea,

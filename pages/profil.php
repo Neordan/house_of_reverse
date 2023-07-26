@@ -48,10 +48,9 @@ require_once "../actions/function.php";
                 <!-- Lien vers la page pour prendre rendez-vous -->
                 <a class="prrdv" href="./contact.php">Prendre rendez-vous</a>
             <?php endif ?>
-            <!-- Formulaire pour supprimer le rendez-vous -->
-            <form method="post" action="../actions/delete.php" class="deleterdv">
-                <input type="hidden" name="suppcompte" value="<?= $_SESSION['utilisateur']['id']; ?>">
-                <a href="#" class="delete" id="deleteAccountButton">Supprimer mon compte</a>
+            <!-- Formulaire pour supprimer le compte -->
+            <form method="get" action="../actions/delete.php" class="deleterdv">
+                <a href="../actions/delete.php?suppcompte=<?= $_SESSION['utilisateur']['id']; ?>" class="delete" id="deleteAccountButton">Supprimer mon compte</a>
             </form>
         </div>
     </form>
