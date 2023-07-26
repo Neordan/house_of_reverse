@@ -106,6 +106,7 @@ if (!empty($_POST)) {
     <div class="info">
         <label for="email">Quel est ton e-mail ? <span>*</span></label>
         <input type="text" name="email" id="email" autocomplete="on" required>
+        <div class="error-message"></div>
     </div>
     <div class="info">
         <label for="nom">Quel est ton nom ? <span>*</span></label>
@@ -149,18 +150,12 @@ if (!empty($_POST)) {
     <div class="info password-container">
         <label for="mdp1">Quel est ton mot de passe : <span>*</span></label>
         <input type="password" name="hash_mdp1" id="password" autocomplete="off" required>
-        <span></span>
-        <div class="progress-bar-container">
-            <div id="progress-bar"></div>
-        </div>
+        <div class="error-message"></div>
     </div>
     <div class="info confirm-container">
         <label for="mdp2">Vérifie le : <span>*</span></label>
         <input type="password" name="hash_mdp2" id="confirm" autocomplete="off" required>
-        <span></span>
-        <div class="confirm-password-message">
-            <span></span>
-        </div>
+        <div class="error-message"></div>
     </div>
     <input type="hidden" name="role" value="<?= $role ?>">
     <div class="g-recaptcha" data-sitekey="6LchyEknAAAAAEcHU9WHe2goizMCBf-QRq05X5w6"></div>

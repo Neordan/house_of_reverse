@@ -1,81 +1,59 @@
-  const inputs = document.querySelectorAll('input[type="password"]');
-  const progressBar = document.getElementById("progress-bar");
-
-  const errorDisplay = (tag, message, valid) => {
-    const container = document.querySelector('.' + tag + '-container');
-    const span = document.querySelector('.' + tag + '-container > span');
-    if (!valid) {
-      container.classList.add('error');
-      span.textContent = message;
-    } else {
-      container.classList.remove('error');
-      span.textContent = message;
-    }
-  };
-
-  const checkPasswordStrength = (value) => {
-    const hasSymbol = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(value);
-    const hasNumber = /\d/.test(value);
-
-    if (value.length < 8 || !hasSymbol || !hasNumber) {
-      errorDisplay("password", "Le mot de passe doit contenir au moins 8 caractères, un symbole et un chiffre", false);
-      progressBar.style.width = "50%";
-      progressBar.style.backgroundColor = "#FFA500";
-    } else {
-      errorDisplay("password", "", true);
-      progressBar.style.width = "100%";
-      progressBar.style.backgroundColor = "#00FF00";
-    }
-  };
-
-  const passwordChecker = (value) => {
-    const password = document.getElementById("password").value;
-    if (!password.match(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[\W]).{8,}$/)) {
-        errorDisplay(
-            "password",
-            "Le mot de passe doit faire au moins 8 caractères, contenir une majuscule, une minuscule, un chiffre et un caractère spécial",
-            false
-        );
-        progressBar.classList.remove("progressBlue");
-        progressBar.classList.remove("progressGreen");
-        progressBar.classList.add("progressRed");
-        password = null;
-    } else if (password.length < 12) {
-        progressBar.classList.remove("progressRed");
-        progressBar.classList.remove("progressGreen");
-        progressBar.classList.add("progressBlue");
-        errorDisplay("password", "", true);
-        password = value;
-    } else {
-        progressBar.classList.remove("progressRed");
-        progressBar.classList.remove("progressBlue");
-        progressBar.classList.add("progressGreen");
-        errorDisplay("password", "", true);
-        password = value;
-    }
-    if(confirmPass) confirmChecker(confirmPass)
+// Fonction pour afficher le message d'erreur sous un champ
+const displayErrorMessage = (input, message) => {
+  const errorContainer = input.parentElement.querySelector('.error-message');
+  errorContainer.textContent = message;
 };
 
-  const confirmChecker = (value) => {
-    const password = document.getElementById("password").value;
-    if (value !== password) {
-      errorDisplay("confirm", "Les mots de passe ne correspondent pas", false);
-    } else {
-      errorDisplay("confirm", "", true);
-    }
-  };
+// Fonction pour valider l'e-mail
+const validateEmail = (email) => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+};
 
-  inputs.forEach((input) => {
-    input.addEventListener("input", (e) => {
-      switch (e.target.id) {
-        case "password":
-          checkPasswordStrength(e.target.value);
-          break;
-        case "hash_mdp2":
-          confirmChecker(e.target.value);
-          break;
-        default:
-          break;
-      }
-    });
+// Fonction pour valider le mot de passe
+const validatePassword = (password) => {
+  const passwordRegex = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,}$/;
+  return passwordRegex.test(password);
+};
+
+// Fonction pour valider la confirmation du mot de passe
+const validatePasswordConfirmation = (password, confirmPassword) => {
+  return password === confirmPassword;
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+  const emailInput = document.getElementById('email');
+  const passwordInput = document.getElementById('password');
+  const confirmPasswordInput = document.getElementById('confirm');
+
+  emailInput.addEventListener('input', () => {
+    const email = emailInput.value;
+    const isValid = validateEmail(email);
+    if (isValid) {
+      displayErrorMessage(emailInput, '');
+    } else {
+      displayErrorMessage(emailInput, 'L\'e-mail n\'est pas valide');
+    }
   });
+
+  passwordInput.addEventListener('input', () => {
+    const password = passwordInput.value;
+    const isValid = validatePassword(password);
+    if (isValid) {
+      displayErrorMessage(passwordInput, '');
+    } else {
+      displayErrorMessage(passwordInput, 'Le mot de passe doit contenir au moins 6 caractères, un caractère spécial et un chiffre');
+    }
+  });
+
+  confirmPasswordInput.addEventListener('input', () => {
+    const password = passwordInput.value;
+    const confirmPassword = confirmPasswordInput.value;
+    const isValid = validatePasswordConfirmation(password, confirmPassword);
+    if (isValid) {
+      displayErrorMessage(confirmPasswordInput, '');
+    } else {
+      displayErrorMessage(confirmPasswordInput, 'Les mots de passe ne correspondent pas');
+    }
+  });
+});
