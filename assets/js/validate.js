@@ -17,11 +17,7 @@
     const hasSymbol = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(value);
     const hasNumber = /\d/.test(value);
 
-    if (value.length < 8) {
-      errorDisplay("password", "Le mot de passe doit contenir au moins 8 caractères", false);
-      progressBar.style.width = "25%";
-      progressBar.style.backgroundColor = "#FF0000";
-    } else if (value.length < 8 || !hasSymbol || !hasNumber) {
+    if (value.length < 8 || !hasSymbol || !hasNumber) {
       errorDisplay("password", "Le mot de passe doit contenir au moins 8 caractères, un symbole et un chiffre", false);
       progressBar.style.width = "50%";
       progressBar.style.backgroundColor = "#FFA500";
