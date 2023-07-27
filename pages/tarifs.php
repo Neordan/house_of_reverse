@@ -8,18 +8,13 @@ require_once "../core/header.php";
 <h3>Prestations gel</h3>
 <div class="group-tarif">
     <div class="unique-tarif">
-        <p>Pose complète sur mesure / 1h30</p>
+        <p>Pose complète sur mesure (chablons) / 1h30</p>
         <p>55 €</p>
     </div>
     <hr>
     <div class="unique-tarif">
         <p>Remplissage / 1h30</p>
         <p>45 €</p>
-    </div>
-    <hr>
-    <div class="unique-tarif">
-        <p>Plus de deux ongles manquants</p>
-        <p>55 €</p>
     </div>
     <hr>
     <div class="unique-tarif">

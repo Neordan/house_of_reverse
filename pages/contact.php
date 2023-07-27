@@ -1,13 +1,8 @@
 <?php
-
-
-
-
 $page_title = "Rendez-vous";
 require "../core/header.php";
 require "../core/config.php";
 require "../actions/function.php";
-
 
 // Vérification du rôle de l'utilisateur, si ce n'est ni "admin" ni "utilisateur", redirection vers la page index.php
 if ($_SESSION['utilisateur']['role'] !== "admin" && $_SESSION['utilisateur']['role'] !== "utilisateur") {
@@ -36,7 +31,7 @@ $errors = []; // Tableau pour stocker les erreurs
 // Insertion d'une réservation
 if (!empty($_POST)) {
     // Vérification des champs obligatoires
-    if (isset($_POST["date-resa"]) && isset($_SESSION["utilisateur"]["id"]) && !empty($_POST['prestation']) && !empty($_FILES['inspiration']['name'])) {
+    if (isset($_POST["date-resa"]) && isset($_SESSION["utilisateur"]["id"]) && !empty($_POST['prestations']) && !empty($_FILES['inspiration']['name'])) {
         // Si la date et l'heure sont sélectionnées via le calendrier mobile, les utiliser
         if (is_array($_POST["date-resa"]) && count($_POST["date-resa"]) > 1) {
             $rdv = $_POST["date-resa"][0] . " " . $_POST["date-resa"][1];
@@ -56,6 +51,7 @@ if (!empty($_POST)) {
         }
 
         // Enregistrement du fichier d'ongles actuels
+        $ongle_actuel = ""; // Initialiser la variable $ongle_actuel
         if (!empty($_FILES['ongle_actuel']['name'])) {
             $ongleActuelFileName = $_FILES['ongle_actuel']['name'];
             $ongleActuelFilePath = "../assets/img/clients/" . $ongleActuelFileName;
@@ -63,13 +59,18 @@ if (!empty($_POST)) {
                 $ongle_actuel = "assets/img/clients/" . $ongleActuelFileName;
             }
         }
+
         if (empty($errors)) {
+            // Récupérer la valeur du checkbox "Pédicure"
+            $pedicure = isset($_POST['pedicure']) ? 1 : 0;
+
             // Requête SQL pour l'insertion de la réservation
-            $sql = "INSERT INTO rdv (id_utilisateur, jour_heure, inspiration, ongle_actuel, prestation, message) 
-                VALUES (:id, :rdv, :inspiration, :ongle_actuel, :prestation, :message)";
+            $sql = "INSERT INTO rdv (id_utilisateur, jour_heure, inspiration, ongle_actuel, prestation, pedicure, message) 
+   VALUES (:id, :rdv, :inspiration, :ongle_actuel, :prestation, :pedicure, :message)";
+
             $id = $_SESSION["utilisateur"]["id"];
             $rdv = $_POST["date-resa"][0] . " " . $_POST["date-resa"][1];
-            $prestation = $_POST["prestation"];
+            $prestation = $_POST['prestations'];
             $inspiration = "assets/img/clients/" . $inspirationFileName;
             $message = $_POST["message"];
 
@@ -80,6 +81,7 @@ if (!empty($_POST)) {
             $stmt->bindParam(':inspiration', $inspiration);
             $stmt->bindParam(':ongle_actuel', $ongle_actuel);
             $stmt->bindParam(':prestation', $prestation);
+            $stmt->bindParam(':pedicure', $pedicure);
             $stmt->bindParam(':message', $message);
             $stmt->execute();
 
@@ -94,13 +96,16 @@ if (!empty($_POST)) {
             $subject = "Confirmation de ton rendez-vous";
             $message = "Bonjour " . $_SESSION['utilisateur']['prenom'] . ",\n\n";
             $message .= "Ton rendez-vous est confirmé pour le " . formatDateHeureEnFrancais($rdv) . ".\n";
-            $message .= "pour la prestation suivente : " . $prestation . "\n";
-            $message .= "N'oublie surtout pas de payer l'accompte pour valider ton rendez vous :
-            https://www.paypal.me/priscilianails\n";
+            $message .= "pour la ou les prestations suivantes : " . $prestation;
+            if ($pedicure == 1) {
+                $message_admin .= " et pédicure : Oui\n";
+            } else {
+                $message_admin .= "Non\n";
+            };
+            $message .= "N'oublie surtout pas de payer l'accompte de 10€ pour valider ton rendez vous :
+            https://www.paypal.me/prisciliadebas?locale.x=fr_FR\n";
             $message .= "Merci de me faire confiance ! À bientôt.\n";
-
-            $headers = "From: House of reverse <contact@houseofreverse.fr>\r\n";
-            $headers .= "Reply-To: contact@houseofreverse.fr\r\n";
+            $headers = "From: House of Reverse <contact@houseofreverse.fr>\r\n";
 
             // Envoi de l'e-mail de confirmation à la cliente
             if (mail($to, $subject, $message, $headers)) {
@@ -111,17 +116,24 @@ if (!empty($_POST)) {
                 echo "Erreur lors de l'envoi de l'e-mail de confirmation.";
             }
 
-            // Envoi de l'e-mail de notification à l'administrateur
             $to_admin = "contact@houseofreverse.fr";
             $subject_admin = "Nouveau rendez-vous enregistré";
             $message_admin = "Un nouveau rendez-vous a été enregistré :\n";
             $message_admin .= "Nom de la cliente : " . $_SESSION['utilisateur']['nom'] . " " . $_SESSION['utilisateur']['prenom'] . "\n";
             $message_admin .= "Date et heure du rendez-vous : " . formatDateHeureEnFrancais($rdv) . "\n";
-            $message_admin .= "Prestation : " . $prestation . "\n";
+            $message_admin .= "Prestation : " . $prestation;
+            
+            // Ajout de l'information sur la pédicure si la valeur est égale à 1
+            if ($pedicure == 1) {
+                $message_admin .= " et pédicure : Oui\n";
+            } else {
+                $message_admin .= "Non\n";
+            }
+            
             $message_admin .= "Message de la cliente : " . $message . "\n\n";
-
+            
             $headers_admin = "From: House of reverse <contact@houseofreverse.fr>\r\n";
-            $headers_admin .= "Reply-To: contact@houseofreverse.fr\r\n";
+            
 
             // Envoi de l'e-mail de notification à l'administrateur
             if (mail($to_admin, $subject_admin, $message_admin, $headers_admin)) {
@@ -276,12 +288,15 @@ $prestations = $matches[1];
     </div>
     <div class="info">
         <label for="prestation">Prestation souhaitée : <span>*</span></label>
-        <select name="prestation" id="prestation">
-            <option value="0">Sélectionner votre choix</option>
+        <select name="prestations" id="prestations" multiple>
             <?php foreach ($prestations as $prestation) : ?>
                 <option value="<?= $prestation; ?>"><?= $prestation; ?></option>
             <?php endforeach; ?>
         </select>
+    </div>
+    <div class="info">
+        <input type="checkbox" name="pedicure" value="Pédicure" id="checkbox-pedicure">
+        <label for="checkbox-pedicure">Pédicure</label>
     </div>
     <div class="info">
         <label for="message">Précisions:</label>

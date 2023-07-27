@@ -152,11 +152,34 @@ function initToggleDescription() {
   });
 }
 
-// Recharger automatiquement la page après la suppression du rendez-vous
-document.getElementById('deleteRdvButton').addEventListener('click', function() {
-  location.reload();
+// Fonction pour gérer la sélection des prestations
+function handlePrestationSelection() {
+    const checkboxes = document.querySelectorAll('input[name="prestations[]"]');
+    let pedicureSelected = false;
+    let otherPrestationSelected = [];
+
+    // Compter le nombre de cases cochées et enregistrer les autres prestations sélectionnées
+    checkboxes.forEach(checkbox => {
+        if (checkbox.checked) {
+            if (checkbox.value === "Pedicure") {
+                pedicureSelected = true;
+            } else {
+                otherPrestationSelected.push(checkbox.value);
+            }
+        }
+    });
+
+    // Gérer la sélection des prestations en fonction des règles
+    checkboxes.forEach(checkbox => {
+        if (checkbox.value === "Pedicure") {
+            checkbox.disabled = false; // Activer toujours Pedicure
+        } else {
+            checkbox.disabled = pedicureSelected || (otherPrestationSelected.length > 0);
+        }
+    });
+}
+
+// Écouter les changements sur les cases à cocher
+document.querySelectorAll('input[name="prestations[]"]').forEach(checkbox => {
+    checkbox.addEventListener('change', handlePrestationSelection);
 });
-
-
-
-
