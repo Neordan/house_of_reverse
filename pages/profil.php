@@ -11,7 +11,7 @@ require_once "../actions/function.php";
     $formatted_rdv_date = formatDateHeureEnFrancais($_SESSION['rdv']['jour_heure']);
 ?>
 
-    <div class="rdv-details">
+<div class="rdv-details" id="rdvDetails">
         <!-- Affichage de la date formatée du rendez-vous -->
         <p>Rendez-vous prévu le : <?= $formatted_rdv_date ?></p>
         <!-- Formulaire pour supprimer le rendez-vous -->

@@ -152,6 +152,11 @@ function initToggleDescription() {
   });
 }
 
+// Recharger automatiquement la page après la suppression du rendez-vous
+document.getElementById('deleteRdvButton').addEventListener('click', function() {
+  location.reload();
+});
+
 
 
 

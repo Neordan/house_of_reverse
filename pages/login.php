@@ -51,6 +51,16 @@ if (
                 } else {
                     header('Location: profil.php');
                 }
+
+                // Récupérer les informations du rendez-vous depuis la base de données
+                $sql = "SELECT * FROM rdv WHERE id_utilisateur = :user_id";
+                $query = $pdo->prepare($sql);
+                $query->bindParam(':user_id', $results['id']);
+                $query->execute();
+                $rdv = $query->fetch(PDO::FETCH_ASSOC);
+
+                // Stockez les informations du rendez-vous dans la variable de session
+                $_SESSION['rdv'] = $rdv;
             } else {
                 echo "Mot de passe incorrect.";
             }
