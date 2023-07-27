@@ -30,6 +30,12 @@ require_once "../actions/function.php";
 
 <div class="compte">
     <form method="post" class="pf-container">
+        <?php if (isset($_SESSION['confirmation_message'])) {
+            echo '<div class="confirmation-message">' . $_SESSION['confirmation_message'] . '</div>';
+            // Supprimez la variable de session après l'affichage du message pour qu'il ne soit affiché qu'une seule fois
+            unset($_SESSION['confirmation_message']);
+        }
+        ?>
         <div class="pf-struct">
             <!-- Champ pour le prénom avec la valeur pré-remplie -->
             <input type="text" name="prenom" value="<?= isset($_SESSION['utilisateur']['prenom']) ? ucfirst($_SESSION['utilisateur']['prenom']) : '' ?> " placeholder="Prénom" id="change" disabled>

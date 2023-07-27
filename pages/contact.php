@@ -86,11 +86,13 @@ if (!empty($_POST)) {
 
             // Envoi de l'e-mail de confirmation à la cliente
             $to = $_SESSION['utilisateur']['email'];
-            $subject = "Confirmation de votre rendez-vous";
+            $subject = "Confirmation de ton rendez-vous";
             $message = "Bonjour " . $_SESSION['utilisateur']['prenom'] . ",\n\n";
-            $message .= "Votre rendez-vous est confirmé pour le " . $rdv . ".\n";
-            $message .= "Prestation : " . $prestation . "\n";
-            $message .= "Merci de nous faire confiance ! À bientôt.\n";
+            $message .= "Ton rendez-vous est confirmé pour le " . formatDateHeureEnFrancais($rdv) . ".\n";
+            $message .= "pour la prestation suivente : " . $prestation . "\n";
+            $message .= "N'oublie surtout pas de payer l'accompte pour valider ton rendez vous :
+            https://www.paypal.me/priscilianails\n";
+            $message .= "Merci de me faire confiance ! À bientôt.\n";
 
             $headers = "From: House of reverse <contact@houseofreverse.fr>\r\n";
             $headers .= "Reply-To: contact@houseofreverse.fr\r\n";
@@ -111,6 +113,7 @@ if (!empty($_POST)) {
 
             mail($to_admin, $subject_admin, $message_admin, $headers_admin);
 
+            $_SESSION['confirmation_message'] = "Votre rendez-vous a été enregistré avec succès. Un email de confirmation a été envoyé à votre adresse e-mail.";
 
             header('Location: ./profil.php');
             exit;
