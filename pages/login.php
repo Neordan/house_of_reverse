@@ -67,7 +67,7 @@ if (
     <form method="post">
         <input type="text" name="email" placeholder="Email" autocomplete="off">
         <input type="password" name="hash_mdp" placeholder="Mot de passe" autocomplete="off">
-        <a class="mdp" href="./motDePasseOublié.php">Mot de passe oublié ?</a>
+        <a class="mdp" href="./motDePasseOublie.php">Mot de passe oublié ?</a>
         <a href="./register.php">INSCRIPTION</a>
         <button><i class="fa-solid fa-unlock"></i></button>
     </form>

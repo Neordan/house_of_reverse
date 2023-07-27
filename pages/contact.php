@@ -1,8 +1,13 @@
 <?php
 
+
+
+
 $page_title = "Rendez-vous";
 require "../core/header.php";
 require "../core/config.php";
+require "../actions/function.php";
+
 
 // Vérification du rôle de l'utilisateur, si ce n'est ni "admin" ni "utilisateur", redirection vers la page index.php
 if ($_SESSION['utilisateur']['role'] !== "admin" && $_SESSION['utilisateur']['role'] !== "utilisateur") {
@@ -97,21 +102,35 @@ if (!empty($_POST)) {
             $headers = "From: House of reverse <contact@houseofreverse.fr>\r\n";
             $headers .= "Reply-To: contact@houseofreverse.fr\r\n";
 
-            mail($to, $subject, $message, $headers);
+            // Envoi de l'e-mail de confirmation à la cliente
+            if (mail($to, $subject, $message, $headers)) {
+                // L'e-mail a été envoyé avec succès
+                echo "E-mail de confirmation envoyé à la cliente.";
+            } else {
+                // Une erreur s'est produite lors de l'envoi de l'e-mail
+                echo "Erreur lors de l'envoi de l'e-mail de confirmation.";
+            }
 
             // Envoi de l'e-mail de notification à l'administrateur
-            $to_admin = "contact@houseofreverse.fr"; 
+            $to_admin = "contact@houseofreverse.fr";
             $subject_admin = "Nouveau rendez-vous enregistré";
             $message_admin = "Un nouveau rendez-vous a été enregistré :\n";
             $message_admin .= "Nom de la cliente : " . $_SESSION['utilisateur']['nom'] . " " . $_SESSION['utilisateur']['prenom'] . "\n";
-            $message_admin .= "Date et heure du rendez-vous : " . $rdv . "\n";
+            $message_admin .= "Date et heure du rendez-vous : " . formatDateHeureEnFrancais($rdv) . "\n";
             $message_admin .= "Prestation : " . $prestation . "\n";
             $message_admin .= "Message de la cliente : " . $message . "\n\n";
 
             $headers_admin = "From: House of reverse <contact@houseofreverse.fr>\r\n";
             $headers_admin .= "Reply-To: contact@houseofreverse.fr\r\n";
 
-            mail($to_admin, $subject_admin, $message_admin, $headers_admin);
+            // Envoi de l'e-mail de notification à l'administrateur
+            if (mail($to_admin, $subject_admin, $message_admin, $headers_admin)) {
+                // L'e-mail a été envoyé avec succès
+                echo "E-mail de notification envoyé à l'administrateur.";
+            } else {
+                // Une erreur s'est produite lors de l'envoi de l'e-mail
+                echo "Erreur lors de l'envoi de l'e-mail de notification à l'administrateur.";
+            }
 
             $_SESSION['confirmation_message'] = "Votre rendez-vous a été enregistré avec succès. Un email de confirmation a été envoyé à votre adresse e-mail.";
 
