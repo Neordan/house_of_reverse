@@ -4,10 +4,8 @@ $page_title = "Rendez-vous";
 require "../core/header.php";
 require "../core/config.php";
 
-if ($_SESSION['utilisateur']['role'] === "admin" || $_SESSION['utilisateur']['role'] === "utilisateur") {
-    header('Location: ../page/contact.php');
-    exit;
-} else {
+// Vérification du rôle de l'utilisateur, si ce n'est ni "admin" ni "utilisateur", redirection vers la page index.php
+if ($_SESSION['utilisateur']['role'] !== "admin" && $_SESSION['utilisateur']['role'] !== "utilisateur") {
     header('Location: ../index.php');
     exit;
 }

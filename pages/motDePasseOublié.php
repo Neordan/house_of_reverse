@@ -30,7 +30,7 @@ if (isset($_POST['email'])) {
 
                 if ($queryUpdateToken->execute()) {
                     // Envoyer un email à l'utilisateur contenant un lien pour réinitialiser le mot de passe
-                    $resetLink = "https://votre_site.com/reinitialiser_mot_de_passe.php?email=" . urlencode($email) . "&token=" . urlencode($token);
+                    $resetLink = "https://www.houseofreverse.fr/reinitialiserMotDePasse.php?email=" . urlencode($email) . "&token=" . urlencode($token);
                     // Ici, vous devrez implémenter le code pour envoyer l'email à l'utilisateur.
 
                     // Afficher un message à l'utilisateur lui indiquant de vérifier sa boîte de réception pour réinitialiser son mot de passe.
