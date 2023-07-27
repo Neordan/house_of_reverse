@@ -3,6 +3,10 @@ $page_title = "Fichier client";
 require "../core/config.php";
 require_once "../core/header.php";
 require "../actions/function.php";
+require "./actions/delete.php";
+
+// Appel de la fonction pour supprimer les rendez-vous passés
+deletePastAppointments();
 
 // Autorisation à l'admin d'aller au fichier client
 if ($_SESSION['utilisateur']['role'] != "admin") {

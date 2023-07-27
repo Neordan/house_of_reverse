@@ -11,18 +11,8 @@ function deletePastAppointments()
     $result = $pdo->prepare($sql);
 
     // Exécution de la requête et vérification du succès
-    if ($result->execute()) {
-        // Affichage d'un message de succès
-        echo "Les rendez-vous passés ont été supprimés avec succès.";
-    } else {
-        // Affichage d'un message d'erreur en cas d'échec
-        echo "Erreur : La suppression des rendez-vous passés a échoué.";
-    }
+    $result->execute();
 }
-
-// Appel de la fonction pour supprimer les rendez-vous passés
-deletePastAppointments();
-
 
 // Fonction générique pour supprimer un enregistrement dans une table
 function delete($table, $idChamp, $idValue, $redirectUrl, $sessionKey = null)
