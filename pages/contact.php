@@ -185,9 +185,9 @@ $prestations = $matches[1];
     <?php endif; ?>
     <input type="hidden" name="id_utilisateur" value="<?= $_SESSION['utilisateur']['id'] ?>">
     <div class="mobile-calendar">
-        <label class="labelMobile" for="mobile-date">Choisir la date :</label>
+        <label class="labelMobile" for="mobile-date">Choisir la date : <span>*</span></label>
         <input type="date" name="date-resa[]" id="mobile-date" require>
-        <label for="mobile-time">Choisir l'heure :</label>
+        <label for="mobile-time">Choisir l'heure :<span>*</span></label>
         <select name="date-resa[]" id="mobile-time" require>
             <option value="">---</option>
             <?php foreach ($slots as $slot) : ?>

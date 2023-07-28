@@ -151,4 +151,28 @@ function initToggleDescription() {
     });
   });
 }
+ // Fonction pour désactiver les lundis et dimanches dans le calendrier mobile
+ function disableMondaysAndSundays(date) {
+  // Récupérer le jour de la semaine (0: dimanche, 1: lundi, ..., 6: samedi)
+  const dayOfWeek = date.getDay();
 
+  // Désactiver les lundis (1) et dimanches (0)
+  return [1, 0].indexOf(dayOfWeek) === -1;
+}
+
+// Initialiser le calendrier mobile
+document.addEventListener("DOMContentLoaded", function () {
+  const mobileDateInput = document.getElementById("mobile-date");
+
+  // Définir la date minimale (aujourd'hui)
+  const today = new Date();
+  mobileDateInput.min = today.toISOString().split("T")[0];
+
+  // Désactiver les lundis et dimanches dans le calendrier
+  mobileDateInput.addEventListener("input", function () {
+    const selectedDate = new Date(mobileDateInput.value);
+    if (!disableMondaysAndSundays(selectedDate)) {
+      mobileDateInput.value = ""; // Réinitialiser la valeur du champ si le jour sélectionné est un lundi ou un dimanche
+    }
+  });
+});
