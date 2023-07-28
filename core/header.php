@@ -4,6 +4,14 @@ $session_timeout = 3600; // 30 minutes (30 * 60 seconds)
 session_set_cookie_params($session_timeout);
 session_start();
 
+if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > $session_timeout)) {
+    // La session a expiré, détruire la session et rediriger vers la page de connexion
+    session_unset();
+    session_destroy();
+    header('Location: ../login.php');
+    exit;
+}
+
 // Fuseau horaire par défaut du serveur
 date_default_timezone_set("Europe/Paris");
 ob_start(); // Activer la mise en mémoire tampon de sortie
