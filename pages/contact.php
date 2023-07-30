@@ -295,8 +295,8 @@ $prestations = $matches[1];
         </select>
     </div>
     <div class="info">
-        <input type="checkbox" name="pedicure" value="Pédicure" id="checkbox-pedicure">
         <label for="checkbox-pedicure">Pédicure</label>
+        <input type="checkbox" name="pedicure" value="Pédicure" id="checkbox-pedicure">
     </div>
     <div class="info">
         <label for="message">Précisions:</label>
