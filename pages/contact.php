@@ -94,17 +94,17 @@ if (!empty($_POST)) {
             // Envoi de l'e-mail de confirmation à la cliente
             $to = $_SESSION['utilisateur']['email'];
             $subject = "Confirmation de ton rendez-vous";
-            $message = "Bonjour " . $_SESSION['utilisateur']['prenom'] . ",\n\n";
-            $message .= "Ton rendez-vous est confirmé pour le " . formatDateHeureEnFrancais($rdv) . ".\n";
-            $message .= "pour la ou les prestations suivantes : " . $prestation;
+            $message = "Hello " . $_SESSION['utilisateur']['prenom'] . ",\n\n";
+            $message .= "Tu as pris rendez-vous pour le " . formatDateHeureEnFrancais($rdv) . ".\n";
+            $message .= "pour la prestation suivante : " . $prestation;
             if ($pedicure == 1) {
-                $message_admin .= " et pédicure : Oui\n";
+                $message_admin .= " et pour une pédicure.\n";
             } else {
-                $message_admin .= "Non\n";
+                $message_admin .= "";
             };
-            $message .= "N'oublie surtout pas de payer l'accompte de 10€ pour valider ton rendez vous :
+            $message .= "Afin de le valider n'oublie pas de régler   l'accompte de 10€ :
             https://www.paypal.me/prisciliadebas?locale.x=fr_FR\n";
-            $message .= "Merci de me faire confiance ! À bientôt.\n";
+            $message .= "Merci de me faire confiance ! À très vite :)\n";
             $headers = "From: House of Reverse <contact@houseofreverse.fr>\r\n";
 
             // Envoi de l'e-mail de confirmation à la cliente
@@ -125,9 +125,9 @@ if (!empty($_POST)) {
             
             // Ajout de l'information sur la pédicure si la valeur est égale à 1
             if ($pedicure == 1) {
-                $message_admin .= " et pédicure : Oui\n";
+                $message_admin .= " et pour une pédicure\n";
             } else {
-                $message_admin .= "Non\n";
+                $message_admin .= "Pas de pédicure\n";
             }
             
             $message_admin .= "Message de la cliente : " . $message . "\n\n";
