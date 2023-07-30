@@ -387,6 +387,7 @@ h3:after {
   text-align: center;
 }
 
+
 .logout:hover,
 .logout:active {
   box-shadow: none;
@@ -981,7 +982,7 @@ table {
   width: 75%;
   flex-direction: row;
   align-items: center;
-
+  
 }
 
 .rechercheUt input {
@@ -1274,7 +1275,7 @@ tbody tr:nth-child(1) {
   font-weight: 600;
   color: var(--color-text-footer);
   font-family: var(--text-font);
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 }
 
 /********* CSS de la fleche up  *******/
@@ -1416,24 +1417,23 @@ footer {
   text-align: justify;
   hyphens: auto;
 }
-
 /* Responsive */
 
 @media screen and (max-width: 500px) {
-
+  
   h1 {
     font-size: 1.9rem;
   }
-
+  
   h2 {
     font-size: 1.7rem;
     width: 75%;
   }
-
+  
   h3 {
     font-size: 1.5rem;
   }
-
+  
   .description, .certificate, .client {
     width: 98%;
   }

@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             // Vérifier si l'utilisateur existe dans la base de données
             if (empty($results)) {
-                $email_error = "Adresse e-mail inconnue.";
+                $email_error = "Adresse e-mail inconnue";
             } else {
                 // Vérifier si le mot de passe fourni correspond au hash de mot de passe stocké dans la base de données
                 if (password_verify($password, $results['hash_mdp'])) {
@@ -68,7 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     // Stockez les informations du rendez-vous dans la variable de session
                     $_SESSION['rdv'] = $rdv;
                 } else {
-                    $password_error = "Mot de passe incorrect.";
+                    $password_error = "Mot de passe incorrect";
                 }
             }
         } catch (Exception | PDOException | Error $e) {
@@ -99,7 +99,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <?php if ($password_error !== "") : ?>
             <div class="error-message"><?php echo $password_error; ?></div>
         <?php endif; ?>
-        
+
         <input type="text" name="email" placeholder="Email" autocomplete="off">
         <input type="password" name="hash_mdp" placeholder="Mot de passe" autocomplete="off">
         <a class="mdp" href="./motDePasseOublie.php">Mot de passe oublié ?</a>

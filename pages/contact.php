@@ -279,27 +279,28 @@ $prestations = $matches[1];
         </div>
     </div>
     <div class="info">
-        <label for="inspiration">Tes inspirations : <span>*</span></label>
+        <label for="inspiration">Ton inspiration : <span>*</span></label>
         <input type="file" name="inspiration" id="inspiration" require>
     </div>
     <div class="info">
-        <label for="ongle_actuel">Tes ongles :</label>
+        <label for="ongle_actuel">Tes ongles actuels:</label>
         <input type="file" name="ongle_actuel" id="ongle_actuel">
     </div>
     <div class="info">
         <label for="prestation">Prestation souhaitée : <span>*</span></label>
-        <select name="prestations" id="prestations" multiple>
+        <select name="prestations" id="prestations">
+            <option value="">---</option>
             <?php foreach ($prestations as $prestation) : ?>
                 <option value="<?= $prestation; ?>"><?= $prestation; ?></option>
             <?php endforeach; ?>
         </select>
     </div>
     <div class="info">
-        <label for="checkbox-pedicure">Pédicure</label>
+        <label for="checkbox-pedicure">Pédicure :</label>
         <input type="checkbox" name="pedicure" value="Pédicure" id="checkbox-pedicure">
     </div>
     <div class="info">
-        <label for="message">Précisions:</label>
+        <label for="message">Précisions :</label>
         <textarea name="message" id="message" rows="5" placeholder="Ton message .."></textarea>
     </div>
     <button class="formulaire"><i class="fa-solid fa-check"></i></button>
