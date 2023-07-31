@@ -1182,6 +1182,7 @@ tbody tr:nth-child(1) {
   font-family: var(--text-font);
   border: none;
   font-size: clamp(0.8rem, 3vw, 1.2rem);
+  cursor: pointer;
 }
 
 .prrdv:hover,
@@ -1233,6 +1234,17 @@ tbody tr:nth-child(1) {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.editable {
+  border: 2px solid var(--color-text-footer) !important;
+}
+
+.desable {
+  background: var(--color-text-footer) !important; 
+  border: 2px solid var(--color-text-footer) !important;
+  color: var(--line-color);
+  cursor: not-allowed; 
 }
 
 .rdv-details form {

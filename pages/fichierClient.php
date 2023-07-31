@@ -8,11 +8,11 @@ require "./actions/delete.php";
 // Appel de la fonction pour supprimer les rendez-vous passés
 deletePastAppointments();
 
-// Autorisation à l'admin d'aller au fichier client
-if ($_SESSION['utilisateur']['role'] != "admin") {
-    header("location: ./index.php");
-    exit(); // Ajout d'une instruction exit() pour arrêter l'exécution du script après la redirection
-}
+// // Autorisation à l'admin d'aller au fichier client
+// if ($_SESSION['utilisateur']['role'] != "admin") {
+//     header("location: ./index.php");
+//     exit(); // Ajout d'une instruction exit() pour arrêter l'exécution du script après la redirection
+// }
 
 // requete sql pour lister les clients
 $sql = "SELECT nom, prenom, age, allergies, ongles_ronges 
