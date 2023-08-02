@@ -11,7 +11,11 @@ function deletePastAppointments()
     $result = $pdo->prepare($sql);
 
     // Exécution de la requête et vérification du succès
-    $result->execute();
+    if ($result->execute()) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 // Fonction générique pour supprimer un enregistrement dans une table
@@ -40,11 +44,13 @@ function delete($table, $idChamp, $idValue, $redirectUrl, $sessionKey = null)
     }
 }
 
-// Vérification de la présence du paramètre 'annulation' en POST
-if (isset($_POST['annulation'])) {
+// Vérification de la présence du paramètre 'annulation' en GET
+if (isset($_GET['annulation'])) {
     // Appel de la fonction delete pour supprimer un rendez-vous
-    delete('rdv', 'id_rdv', $_POST['annulation'], '../pages/fichierclient.php');
-}
+    delete('rdv', 'jour_heure', $_GET['annulation'], '../pages/profil.php', 'rdv');
+    unset($_SESSION['rdv']['jour_heure']);
+} 
+
 
 // Vérification de la présence du paramètre 'suppcompte' en POST
 if (isset($_GET['suppcompte'])) {
@@ -57,6 +63,4 @@ if (isset($_POST['rdv_id'])) {
     // Appel de la fonction delete pour supprimer un rendez-vous
     delete('rdv', 'jour_heure', $_POST['rdv_id'], '../pages/profil.php', 'rdv');
     unset($_SESSION['rdv']['jour_heure']);
-} else {
-    echo "Une erreur est survenue.";
-}
+} 

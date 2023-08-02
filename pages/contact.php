@@ -100,7 +100,7 @@ if (!empty($_POST)) {
             if ($pedicure == 1) {
                 $message_admin .= " et pour une pédicure.\n";
             } else {
-                $message_admin .= "";
+                $message_admin .= "\n";
             };
             $message .= "Afin de le valider n'oublie pas de régler   l'accompte de 10€ :
             https://www.paypal.me/prisciliadebas?locale.x=fr_FR\n";

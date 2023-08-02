@@ -63,10 +63,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <!-- Affichage de la date formatée du rendez-vous -->
         <p>Rendez-vous prévu le : <?= $formatted_rdv_date ?></p>
         <!-- Formulaire pour supprimer le rendez-vous -->
-        <form method="post" action="../actions/delete.php">
+        <form method="get" action="../actions/delete.php" class="deleterdv">
             <!-- Champ caché pour stocker l'identifiant du rendez-vous à supprimer -->
-            <input type="hidden" name="rdv_id" value="<?= $_SESSION['rdv']['jour_heure'] ?>">
-            <button id="deleteRdvButton" type="submit">Supprimer le rendez-vous</button>
+            <input type="hidden" name="annulation" value="<?= isset($_SESSION['rdv']['jour_heure']) ? $_SESSION['rdv']['jour_heure'] : '' ?>">
+            <button type="submit" class="delete" id="deleteRdvButton">Supprimer mon rendez-vous</button>
         </form>
     </div>
 
@@ -100,7 +100,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <?php
             if (!isset($_SESSION['rdv']['jour_heure'])) : ?>
                 <!-- Lien vers la page pour prendre rendez-vous -->
-                <a class="prrdv" href="./contact.php">Prendre rendez-vous</a>
+                <a class="prrdv" href="./contact.php" id="takeRdv">Prendre rendez-vous</a>
             <?php endif ?>
             <!-- Bouton pour activer l'édition des champs -->
             <a type="button" class="prrdv" id="editProfileButton">Modifier mon profil</a>
