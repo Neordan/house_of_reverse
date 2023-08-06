@@ -96,7 +96,7 @@ if (!empty($_POST)) {
             $subject = "Confirmation de ton rendez-vous";
             $message = "Hello " . $_SESSION['utilisateur']['prenom'] . ",\n\n";
             $message .= "Tu as pris rendez-vous pour le " . formatDateHeureEnFrancais($rdv) . ".\n";
-            $message .= "pour la prestation suivante : " . $prestation;
+            $message .= "pour la prestation suivante : " . $prestation ."\n";
             if ($pedicure == 1) {
                 $message_admin .= " et pour une pédicure.\n";
             } else {
