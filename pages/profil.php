@@ -3,6 +3,12 @@ $page_title = "Mon profil";
 require_once "../core/header.php";
 require_once "../actions/function.php";
 
+if (empty($_SESSION['utilisateur'])) {
+    // Rediriger l'utilisateur vers la page de connexion
+    header('Location: index.php');
+    exit;
+}
+
 // Vérifier si le formulaire a été soumis
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Vérifier si les champs prénom, nom et email ont été envoyés
