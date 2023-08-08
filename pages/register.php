@@ -161,6 +161,9 @@ if (!empty($_POST)) {
     <div class="g-recaptcha" data-sitekey="6LchyEknAAAAAEcHU9WHe2goizMCBf-QRq05X5w6"></div>
     <button class="formulaire"><i class="fa-solid fa-check"></i></button>
 </form>
+<div class="obligatoire">
+    <p>(*) obligatoires</p>
+</div>
 
 <?php
 require_once "../core/footer.php"
