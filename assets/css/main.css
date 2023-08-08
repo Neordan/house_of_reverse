@@ -785,6 +785,9 @@ textarea::placeholder {
   margin-bottom: 20px;
   font-family: var(--text-font);
   color: var(--white);
+  background: #b22b2b;
+  border: 2px solid #5e0b0b;
+  border-radius: 5px;
 }
 
 .error-container p {
@@ -1251,7 +1254,7 @@ tbody tr:nth-child(1) {
 
 .pf-container input[type="text"]:disabled {
   background-color: var(--other-color-2);
-  color: var(--color-text-footer);
+  color:#421f47;
 }
 
 .rdv-details form {

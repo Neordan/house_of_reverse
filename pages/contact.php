@@ -192,9 +192,9 @@ $prestations = $matches[1];
     <input type="hidden" name="id_utilisateur" value="<?= $_SESSION['utilisateur']['id'] ?>">
     <div class="mobile-calendar">
         <label class="labelMobile" for="mobile-date">Choisir la date : <span>*</span></label>
-        <input type="date" name="date-resa[]" id="mobile-date" require>
+        <input type="date" name="date-resa[]" id="mobile-date" required>
         <label for="mobile-time">Choisir l'heure :<span>*</span></label>
-        <select name="date-resa[]" id="mobile-time" require>
+        <select name="date-resa[]" id="mobile-time" required>
             <option value="">---</option>
             <?php foreach ($slots as $slot) : ?>
                 <option value="<?= $slot; ?>"><?= $slot; ?></option>
@@ -287,7 +287,7 @@ $prestations = $matches[1];
     </div>
     <div class="info">
         <label for="inspiration">Ton inspiration : <span>*</span></label>
-        <input type="file" name="inspiration" id="inspiration" require>
+        <input type="file" name="inspiration" id="inspiration" required>
     </div>
     <div class="info">
         <label for="ongle_actuel">Tes ongles actuels:</label>
@@ -295,7 +295,7 @@ $prestations = $matches[1];
     </div>
     <div class="info">
         <label for="prestation">Prestation souhaitée : <span>*</span></label>
-        <select name="prestations" id="prestations">
+        <select name="prestations" id="prestations" required>
             <option value="">---</option>
             <?php foreach ($prestations as $prestation) : ?>
                 <option value="<?= $prestation; ?>"><?= $prestation; ?></option>
