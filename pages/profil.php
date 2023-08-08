@@ -3,9 +3,9 @@ $page_title = "Mon profil";
 require_once "../core/header.php";
 require_once "../actions/function.php";
 
-if (empty($_SESSION['utilisateur'])) {
+if (empty($_SESSION)) {
     // Rediriger l'utilisateur vers la page de connexion
-    header('Location: index.php');
+    header('Location: ../index.php');
     exit;
 }
 
@@ -92,26 +92,23 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         ?>
         <div class="pf-struct">
             <!-- Champ pour le prénom avec la valeur pré-remplie -->
-            <input type="text" name="prenom" value="<?= isset($_SESSION['utilisateur']['prenom']) ? ucfirst($_SESSION['utilisateur']['prenom']) : '' ?>" placeholder="Prénom" id="prenom" disabled>
+            <input type="text" name="prenom" value="<?= isset($_SESSION['utilisateur']['prenom']) ? ucfirst($_SESSION['utilisateur']['prenom']) : '' ?>" placeholder="Prénom" id="prenom">
             <!-- Champ pour le nom avec la valeur pré-remplie -->
-            <input type="text" name="nom" value="<?= isset($_SESSION['utilisateur']['nom']) ? ucfirst($_SESSION['utilisateur']['nom']) : '' ?>" placeholder="Nom" id="nom" disabled>
+            <input type="text" name="nom" value="<?= isset($_SESSION['utilisateur']['nom']) ? ucfirst($_SESSION['utilisateur']['nom']) : '' ?>" placeholder="Nom" id="nom">
             <!-- Champ pour l'âge avec la valeur pré-remplie (calculée à partir de la fonction calculateAge()) -->
             <input type="text" name="age" value="<?= calculateAge($_SESSION['utilisateur']['age']) ?> ans" placeholder="Âge" id="age" disabled>
             <!-- Champ pour les allergies avec la valeur pré-remplie -->
             <input type="text" name="allergies" value="<?= isset($_SESSION['utilisateur']['allergies']) ? $_SESSION['utilisateur']['allergies'] : '' ?>" placeholder="Allergies" id="allergies" disabled>
             <!-- Champ pour l'email avec la valeur pré-remplie -->
-            <input type="text" name="email" value="<?= isset($_SESSION['utilisateur']['email']) ? $_SESSION['utilisateur']['email'] : '' ?>" placeholder="Email" id="email" disabled>
+            <input type="text" name="email" value="<?= isset($_SESSION['utilisateur']['email']) ? $_SESSION['utilisateur']['email'] : '' ?>" placeholder="Email" id="email">
         </div>
         <div class="onglet">
+            <button type="submit" class="prrdv" id="saveProfileButton" >Enregistrer mes modifications</button>
             <?php
             if (!isset($_SESSION['rdv']['jour_heure'])) : ?>
                 <!-- Lien vers la page pour prendre rendez-vous -->
                 <a class="prrdv" href="./contact.php" id="takeRdv">Prendre rendez-vous</a>
             <?php endif ?>
-            <!-- Bouton pour activer l'édition des champs -->
-            <a type="button" class="prrdv" id="editProfileButton">Modifier mon profil</a>
-            <a type="submit" class="prrdv" id="saveProfileButton" style="display: none;">Enregistrer mes modifications</a>
-
             <!-- Formulaire pour supprimer le compte -->
             <form method="get" action="../actions/delete.php" class="deleterdv">
                 <a href="../actions/delete.php?suppcompte=<?= $_SESSION['utilisateur']['id']; ?>" class="delete" id="deleteAccountButton">Supprimer mon compte</a>

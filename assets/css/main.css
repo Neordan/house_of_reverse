@@ -1172,7 +1172,7 @@ tbody tr:nth-child(1) {
   width: 100%;
 }
 
-.onglet a,
+.onglet a, #saveProfileButton,
 .delete {
   width: 70%;
   margin: auto;
@@ -1191,7 +1191,7 @@ tbody tr:nth-child(1) {
 
 .prrdv:hover,
 .delete:hover,
-#deleteRdvButton:hover {
+#deleteRdvButton:hover, #saveProfileButton:hover {
   background-color: #976767;
   color: var(--other-color);
   font-weight: 700;
