@@ -162,3 +162,32 @@ function initToggleDescription() {
 }
 
 
+
+//Les dates avant la date actuelle ne sont pas sélectionnable
+document.addEventListener('DOMContentLoaded', () => {
+  const mobileDateInput = document.getElementById('mobile-date');
+  
+  const today = new Date().toISOString().split('T')[0];
+  mobileDateInput.setAttribute('min', today);
+});
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const mobileDateInput = document.getElementById('mobile-date');
+  
+  mobileDateInput.addEventListener('input', () => {
+    const selectedDate = new Date(mobileDateInput.value);
+    const today = new Date();
+
+    // Si la date sélectionnée est antérieure à la date actuelle, réinitialiser à la date actuelle
+    if (selectedDate < today) {
+      const year = today.getFullYear();
+      const month = String(today.getMonth() + 1).padStart(2, '0');
+      const day = String(today.getDate()).padStart(2, '0');
+      mobileDateInput.value = `${year}-${month}-${day}`;
+    }
+  });
+});
+
+
