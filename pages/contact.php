@@ -30,8 +30,18 @@ $errors = []; // Tableau pour stocker les erreurs
 
 // Insertion d'une réservation
 if (!empty($_POST)) {
+    // Validation des données
+    $selectedDate = $_POST["date-resa"][0];
+    $selectedTime = $_POST["date-resa"][1];
+
+    // Vérifier si la date est un dimanche (w = 0) ou un lundi (w = 1)
+    $selectedDayOfWeek = date('w', strtotime($selectedDate));
+    if ($selectedDayOfWeek == 0 || $selectedDayOfWeek == 1) {
+        $errors[] = "Le salon est fermé les dimanches et lundis.";
+    }
     // Vérification des champs obligatoires
-    if (isset($_POST["date-resa"]) && isset($_SESSION["utilisateur"]["id"]) && !empty($_POST['prestations']) && !empty($_FILES['inspiration']['name'])) {
+    if (isset($_POST["date-resa"]) && isset($_SESSION["utilisateur"]["id"]) && !empty($_POST['prestations']) && !empty($_FILES['inspiration'])) {
+
         // Si la date et l'heure sont sélectionnées via le calendrier mobile, les utiliser
         if (is_array($_POST["date-resa"]) && count($_POST["date-resa"]) > 1) {
             $rdv = $_POST["date-resa"][0] . " " . $_POST["date-resa"][1];
@@ -59,10 +69,14 @@ if (!empty($_POST)) {
                 $ongle_actuel = "assets/img/clients/" . $ongleActuelFileName;
             }
         }
-
         if (empty($errors)) {
             // Récupérer la valeur du checkbox "Pédicure"
             $pedicure = isset($_POST['pedicure']) ? 1 : 0;
+
+            // Vérifier si la date est un dimanche (w = 0) ou un lundi (w = 1)
+            if ($selectedDate->format('w') == 0 || $selectedDate->format('w') == 1) {
+                $errors[] = "Le salon est fermé les dimanches et lundis.";
+            }
 
             // Requête SQL pour l'insertion de la réservation
             $sql = "INSERT INTO rdv (id_utilisateur, jour_heure, inspiration, ongle_actuel, prestation, pedicure, message) 
@@ -91,12 +105,30 @@ if (!empty($_POST)) {
                 'jour_heure' => $rdv
             ];
 
+            if ($pedicure) {
+                // Identifier le créneau horaire du rendez-vous
+                $rdvDateTime = new DateTime($rdv);
+
+                // Calculer le prochain créneau horaire en ajoutant un certain intervalle (par exemple, 2 heures)
+                $interval = new DateInterval('PT2H'); // Ajouter 2 heures
+                $nextSlotDateTime = $rdvDateTime->add($interval);
+
+                // Formater la date et l'heure du prochain créneau
+                $nextSlotFormatted = $nextSlotDateTime->format('Y-m-d H:i:s');
+
+                // Bloquer le créneau horaire suivant en tant que rendez-vous avec pédicure (utilisez des valeurs spéciales)
+                $blockSql = "INSERT INTO rdv (jour_heure, inspiration, prestation, pedicure) VALUES (:nextSlot, 'Pedicure', 'Pedicure', 1)";
+                $blockStmt = $pdo->prepare($blockSql);
+                $blockStmt->bindParam(':nextSlot', $nextSlotFormatted);
+                $blockStmt->execute();
+            }
+
             // Envoi de l'e-mail de confirmation à la cliente
             $to = $_SESSION['utilisateur']['email'];
             $subject = "Confirmation de ton rendez-vous";
             $message = "Hello " . $_SESSION['utilisateur']['prenom'] . ",\n\n";
             $message .= "Tu as pris rendez-vous pour le " . formatDateHeureEnFrancais($rdv) . ".\n";
-            $message .= "pour la prestation suivante : " . $prestation ."\n";
+            $message .= "pour la prestation suivante : " . $prestation . "\n";
             if ($pedicure == 1) {
                 $message_admin .= " et pour une pédicure.\n";
             } else {
@@ -122,18 +154,18 @@ if (!empty($_POST)) {
             $message_admin .= "Nom de la cliente : " . $_SESSION['utilisateur']['nom'] . " " . $_SESSION['utilisateur']['prenom'] . "\n";
             $message_admin .= "Date et heure du rendez-vous : " . formatDateHeureEnFrancais($rdv) . "\n";
             $message_admin .= "Prestation : " . $prestation;
-            
+
             // Ajout de l'information sur la pédicure si la valeur est égale à 1
             if ($pedicure == 1) {
                 $message_admin .= " et pour une pédicure\n";
             } else {
                 $message_admin .= "Pas de pédicure\n";
             }
-            
+
             $message_admin .= "Message de la cliente : " . $message . "\n\n";
-            
+
             $headers_admin = "From: House of reverse <contact@houseofreverse.fr>\r\n";
-            
+
 
             // Envoi de l'e-mail de notification à l'administrateur
             if (mail($to_admin, $subject_admin, $message_admin, $headers_admin)) {
@@ -203,6 +235,7 @@ $prestations = $matches[1];
             <?php endif; ?>
         <?php endif; ?>
     </div>
+
     <div class="desktop-calendar">
 
         <!-- Navigation de l'agenda -->
@@ -305,6 +338,9 @@ $prestations = $matches[1];
     </div>
     <button class="formulaire"><i class="fa-solid fa-check"></i></button>
 </form>
+<div class="obligatoire">
+    <p>(*) obligatoires</p>
+</div>
 <?php
 
 require_once "../core/footer.php";
