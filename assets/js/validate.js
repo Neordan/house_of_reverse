@@ -25,35 +25,37 @@ document.addEventListener('DOMContentLoaded', () => {
   const emailInput = document.getElementById('email');
   const passwordInput = document.getElementById('password');
   const confirmPasswordInput = document.getElementById('confirm');
+  document.addEventListener('DOMContentLoaded', () => {
+    // Votre code ici
+    emailInput.addEventListener('input', () => {
+      const email = emailInput.value;
+      const isValid = validateEmail(email);
+      if (isValid) {
+        displayErrorMessage(emailInput, '');
+      } else {
+        displayErrorMessage(emailInput, 'L\'e-mail n\'est pas valide');
+      }
+    });
 
-  emailInput.addEventListener('input', () => {
-    const email = emailInput.value;
-    const isValid = validateEmail(email);
-    if (isValid) {
-      displayErrorMessage(emailInput, '');
-    } else {
-      displayErrorMessage(emailInput, 'L\'e-mail n\'est pas valide');
-    }
-  });
+    passwordInput.addEventListener('input', () => {
+      const password = passwordInput.value;
+      const isValid = validatePassword(password);
+      if (isValid) {
+        displayErrorMessage(passwordInput, '');
+      } else {
+        displayErrorMessage(passwordInput, 'Le mot de passe doit contenir au moins 6 caractères, un caractère spécial et un chiffre');
+      }
+    });
 
-  passwordInput.addEventListener('input', () => {
-    const password = passwordInput.value;
-    const isValid = validatePassword(password);
-    if (isValid) {
-      displayErrorMessage(passwordInput, '');
-    } else {
-      displayErrorMessage(passwordInput, 'Le mot de passe doit contenir au moins 6 caractères, un caractère spécial et un chiffre');
-    }
-  });
-
-  confirmPasswordInput.addEventListener('input', () => {
-    const password = passwordInput.value;
-    const confirmPassword = confirmPasswordInput.value;
-    const isValid = validatePasswordConfirmation(password, confirmPassword);
-    if (isValid) {
-      displayErrorMessage(confirmPasswordInput, '');
-    } else {
-      displayErrorMessage(confirmPasswordInput, 'Les mots de passe ne correspondent pas');
-    }
+    confirmPasswordInput.addEventListener('input', () => {
+      const password = passwordInput.value;
+      const confirmPassword = confirmPasswordInput.value;
+      const isValid = validatePasswordConfirmation(password, confirmPassword);
+      if (isValid) {
+        displayErrorMessage(confirmPasswordInput, '');
+      } else {
+        displayErrorMessage(confirmPasswordInput, 'Les mots de passe ne correspondent pas');
+      }
+    });
   });
 });

@@ -605,6 +605,7 @@ hr {
 #mobile-time {
   margin-bottom: 6px;
   width: 60%;
+  height: 42px;
 }
 
 .info {
@@ -635,9 +636,7 @@ input[type="date"] {
   border-radius: 3px;
 }
 
-select {
-  height: auto;
-}
+
 
 input:focus,
 textarea:focus,
@@ -780,25 +779,26 @@ textarea::placeholder {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 3px;
   flex-direction: column;
   text-align: center;
   margin-bottom: 20px;
   font-family: var(--text-font);
   color: var(--white);
-  font-weight: 600;
+}
+
+.error-container p {
   background: #b22b2b;
   border: 2px solid #5e0b0b;
   border-radius: 5px;
-}
-
-.error-container ul {
-  list-style: none;
+  padding: 5px;
+  margin-bottom: 3px;
 }
 
 /* Container général pour le desktop-calendar */
 
 .contact {
-  width: 80%;
+  width: 90%;
   font-family: var(--text-font);
   display: flex;
   flex-direction: column;
@@ -1244,15 +1244,14 @@ tbody tr:nth-child(1) {
   margin-top: 15px;
 }
 
-.editable {
-  border: 2px solid var(--color-text-footer) !important;
+.pf-container input[type="text"]:not([disabled]),
+.pf-container input[type="email"]:not([disabled]) {
+    border: 3px solid var(--color-text-footer); /* Changez la couleur selon vos préférences */
 }
 
-.desable {
-  background: var(--color-text-footer) !important; 
-  border: 2px solid var(--color-text-footer) !important;
-  color: var(--line-color);
-  cursor: not-allowed; 
+.pf-container input[type="text"]:disabled {
+  background-color: var(--other-color-2);
+  color: var(--color-text-footer);
 }
 
 .rdv-details form {
@@ -1691,8 +1690,12 @@ footer {
     display: none;
   }
 
-  #inspiration, #ongle_actuel, #prestation {
+  #inspiration, #ongle_actuel, #prestations {
     width: 35%;
+  }
+
+  #prestations {
+    height: 42px;
   }
 
   textarea {

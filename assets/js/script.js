@@ -161,20 +161,4 @@ function initToggleDescription() {
   return [1, 0].indexOf(dayOfWeek) === -1;
 }
 
-// Initialiser le calendrier mobile
-document.addEventListener("DOMContentLoaded", function () {
-  const mobileDateInput = document.getElementById("mobile-date");
-
-  // Définir la date minimale (aujourd'hui)
-  const today = new Date();
-  mobileDateInput.min = today.toISOString().split("T")[0];
-
-  // Désactiver les lundis et dimanches dans le calendrier
-  mobileDateInput.addEventListener("input", function () {
-    const selectedDate = new Date(mobileDateInput.value);
-    if (!disableMondaysAndSundays(selectedDate)) {
-      mobileDateInput.value = ""; // Réinitialiser la valeur du champ si le jour sélectionné est un lundi ou un dimanche
-    }
-  });
-});
 
